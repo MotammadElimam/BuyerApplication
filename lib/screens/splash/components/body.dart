@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:BuyerApplication/screens/sign_in/sign_in_screen.dart';
 import 'package:BuyerApplication/components/default_button.dart';
 import 'package:BuyerApplication/screens/splash/components/splash_content.dart';
 import 'package:BuyerApplication/constants.dart';
-import 'package:BuyerApplication/screens/sign_in/sign_in_screen.dart';
 import 'package:BuyerApplication/size_config.dart';
 
 
@@ -15,12 +15,12 @@ class _BodyState extends State<Body> {
   int currentPage = 0;
   List<Map<String, String>> splashData = [
     {
-      "text": "Welcome to Myshop, Let’s shop!",
+      "text": "Welcome to My shop, Let’s shop!",
       "image": "assets/images/9320.png"
     },
     {
       "text":
-      "We help people conect with Carafters \naround khartoum",
+      "We help people connect with Carafters \naround khartoum",
       "image": "assets/images/9320.png"
     },
     {

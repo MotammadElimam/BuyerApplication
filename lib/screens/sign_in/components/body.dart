@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:BuyerApplication/components/social_card.dart';
-// import 'package:BuyerApplication/components/no_account_text.dart';
- import 'package:BuyerApplication/size_config.dart';
+import 'package:BuyerApplication/components/no_account_text.dart';
+import 'package:BuyerApplication/size_config.dart';
 import 'package:BuyerApplication/screens/sign_in/components/sign_form.dart';
 
 class Body extends StatelessWidget {
@@ -50,7 +50,7 @@ class Body extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: getProportionateScreenHeight(20)),
-              //   NoAccountText(),
+                NoAccountText(),
               ],
             ),
           ),
