@@ -1,10 +1,11 @@
-import 'package:BuyerApplication/constants.dart';
-import 'package:BuyerApplication/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:BuyerApplication/components/custom_surfix_icon.dart';
 import 'package:BuyerApplication/components/default_button.dart';
 import 'package:BuyerApplication/components/form_error.dart';
-//import 'package:BuyerApplication/screens/otp/otp_screen.dart';
+import 'package:BuyerApplication/constants.dart';
+import 'package:BuyerApplication/size_config.dart';
+import 'package:BuyerApplication/screens/otp/otp_screen.dart';
+
 
 
 class CompleteProfileForm extends StatefulWidget {
@@ -53,7 +54,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
             text: "continue",
             press: () {
               if (_formKey.currentState.validate()) {
-               // Navigator.pushNamed(context, OtpScreen.routeName);
+                Navigator.pushNamed(context, OtpScreen.routeName);
               }
             },
           ),
@@ -80,12 +81,12 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       },
       decoration: InputDecoration(
         labelText: "Address",
-        hintText: "Enter your phone address",
+        hintText: "Enter your address",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon:
-        CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
+            CustomSurffixIcon(svgIcon: "assets/icons/Location point.svg"),
       ),
     );
   }

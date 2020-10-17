@@ -18,7 +18,7 @@ class SocialCard extends StatelessWidget {
       onTap: press,
       child: Container(
         margin:
-        EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(10)),
+            EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(10)),
         padding: EdgeInsets.all(getProportionateScreenWidth(12)),
         height: getProportionateScreenHeight(40),
         width: getProportionateScreenWidth(40),

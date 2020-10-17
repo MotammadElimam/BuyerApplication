@@ -14,7 +14,7 @@ class Body extends StatelessWidget {
       child: SingleChildScrollView(
         child: Padding(
           padding:
-          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: Column(
             children: [
               SizedBox(height: SizeConfig.screenHeight * 0.04),
@@ -105,7 +105,7 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
             },
           ),
           SizedBox(height: SizeConfig.screenHeight * 0.1),
-         NoAccountText(),
+          NoAccountText(),
         ],
       ),
     );

@@ -1,10 +1,9 @@
-import 'package:BuyerApplication/screens/sign_up/components/sign_up_form.dart';
 import 'package:flutter/material.dart';
 import 'package:BuyerApplication/components/social_card.dart';
 import 'package:BuyerApplication/constants.dart';
 import 'package:BuyerApplication/size_config.dart';
 
-
+import 'sign_up_form.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -14,7 +13,7 @@ class Body extends StatelessWidget {
         width: double.infinity,
         child: Padding(
           padding:
-          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: SingleChildScrollView(
             child: Column(
               children: [

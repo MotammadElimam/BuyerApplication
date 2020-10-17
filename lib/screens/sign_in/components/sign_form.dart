@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:BuyerApplication/components/custom_surfix_icon.dart';
 import 'package:BuyerApplication/components/form_error.dart';
-import 'package:BuyerApplication/components/default_button.dart';
-import 'package:BuyerApplication/screens/forgot_password/forgot_password_screen.dart';
 import 'package:BuyerApplication/screens/login_success/login_success_screen.dart';
-import 'package:BuyerApplication/size_config.dart';
+import 'package:BuyerApplication/components/default_button.dart';
 import 'package:BuyerApplication/constants.dart';
+import 'package:BuyerApplication/screens/forgot_password/forgot_password_screen.dart';
+import 'package:BuyerApplication/size_config.dart';
 
 
 class SignForm extends StatefulWidget {
