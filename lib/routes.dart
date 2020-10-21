@@ -5,7 +5,7 @@ import 'package:BuyerApplication/screens/forgot_password/forgot_password_screen.
 import 'package:BuyerApplication/screens/login_success/login_success_screen.dart';
 import 'package:BuyerApplication/screens/sign_up/sign_up_screen.dart';
 import 'package:BuyerApplication/screens/complete_profile/complete_profile_screen.dart';
-//import 'package:BuyerApplication/screens/home/home_screen.dart';
+import 'package:BuyerApplication/screens/home/home_screen.dart';
 import 'package:BuyerApplication/screens/otp/otp_screen.dart';
 
 
@@ -19,5 +19,5 @@ final Map<String, WidgetBuilder> routes = {
   SignUpScreen.routeName: (context) => SignUpScreen(),
   CompleteProfileScreen.routeName: (context) => CompleteProfileScreen(),
   OtpScreen.routeName: (context) => OtpScreen(),
-  //HomeScreen.routeName: (context) => HomeScreen(),*/
+  HomeScreen.routeName: (context) => HomeScreen(),
 };
