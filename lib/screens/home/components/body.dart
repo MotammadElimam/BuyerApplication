@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:BuyerApplication/screens/home/components/home_header.dart';
+import 'package:BuyerApplication/screens/home/components/discount_banner.dart';
 import 'package:BuyerApplication/size_config.dart';
 import 'package:BuyerApplication/constants.dart';
-import 'package:flutter_svg/svg.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -11,81 +12,34 @@ class Body extends StatelessWidget {
           child: Column(
         children: [
           SizedBox(height: getProportionateScreenWidth(20)),
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: getProportionateScreenWidth(20),
-            ),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: SizeConfig.screenWidth * 0.6, //60% of our width
-                    //height: 50,
-                    decoration: BoxDecoration(
-                      color: kSecondaryColor.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: TextField(
-                        onChanged: (value) {
-                          //Search value
-                        },
-                        decoration: InputDecoration(
-                          enabledBorder: InputBorder.none,
-                          focusedBorder: InputBorder.none,
-                          hintText: "Search Product",
-                          prefixIcon: Icon(Icons.search),
-                          contentPadding: EdgeInsets.symmetric(
-                            horizontal: getProportionateScreenWidth(20),
-                            vertical: getProportionateScreenWidth(9),
-                          ),
-                        )),
-                  ),
-                  InkWell(
-                    onTap: (){},
-                                      child: Stack(
-                      overflow: Overflow.visible,
-                      children: [
-                        Container(
-                          padding:
-                              EdgeInsets.all(getProportionateScreenWidth(12)),
-                          height: getProportionateScreenHeight(46),
-                          width: getProportionateScreenWidth(46),
-                          decoration: BoxDecoration(
-                            color: kSecondaryColor.withOpacity(0.1),
-                            shape: BoxShape.circle,
-                          ),
-                          child: SvgPicture.asset("assets/icons/Bell.svg"),
-                        ),
-                        Positioned(
-                          top: -3,
-                          right: 0,
-                          child: Container(
-                            height: getProportionateScreenWidth(16),
-                            width: getProportionateScreenWidth(16),
-                            decoration: BoxDecoration(
-                                color: Color(0xFFFF4848),
-                                shape: BoxShape.circle,
-                                border:
-                                    Border.all(width: 1.5, color: Colors.white)),
-                            child: Center(
-                                child: Text(
-                              "3",
-                              style: TextStyle(
-                                  fontSize: getProportionateScreenWidth(10),
-                                  height: 1,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600,
-                                  
-                                  ),
-                            )),
-                          ),
-                        )
-                      ],
-                    ),
-                  )
-                ]),
-          )
+          HomeHeader(),
+          SizedBox(height: getProportionateScreenWidth(30)),
+          DiscountBanner(),
+          SizedBox(height: getProportionateScreenWidth(30)),
+          Categories()
         ],
+      )),
+    );
+  }
+}
+
+class Categories extends StatelessWidget {
+  List<Map<String, dynamic>> categories = [
+    {"icon": "assets/images/gift.svg", "text": "Gifts"},
+    {"icon": "assets/images/Accessories.svg", "text": "fashion"},
+    {"icon": "assets/images/bags.svg", "text": "Bags"},
+    {"icon": "assets/images/food.svg", "text": "food"},
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: getProportionateScreenWidth(55),
+      child: AspectRatio(
+        aspectRatio: 1,
+         child: Container(
+           decoration: BoxDecoration(
+             color:Color(0xFFFFECDF),
+           ),
       )),
     );
   }
