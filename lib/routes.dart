@@ -7,6 +7,9 @@ import 'package:BuyerApplication/screens/sign_up/sign_up_screen.dart';
 import 'package:BuyerApplication/screens/complete_profile/complete_profile_screen.dart';
 import 'package:BuyerApplication/screens/home/home_screen.dart';
 import 'package:BuyerApplication/screens/otp/otp_screen.dart';
+import 'package:BuyerApplication/screens/details/details_screen.dart';
+import 'package:BuyerApplication/screens/cart/cart_screen.dart';
+
 
 
 // We use name route
@@ -20,6 +23,6 @@ final Map<String, WidgetBuilder> routes = {
   CompleteProfileScreen.routeName: (context) => CompleteProfileScreen(),
   OtpScreen.routeName: (context) => OtpScreen(),
   HomeScreen.routeName: (context) => HomeScreen(),
-  /*DetailsScreen.routeName: (context) => DetailsScreen(),
-  CartScreen.routeName: (context) => CartScreen(),*/
+  DetailsScreen.routeName: (context) => DetailsScreen(),
+  CartScreen.routeName: (context) => CartScreen(),
 };

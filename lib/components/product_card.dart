@@ -6,11 +6,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 
 
-
-
-
-
-
 class ProductCard extends StatelessWidget {
   const ProductCard({
     Key key,
