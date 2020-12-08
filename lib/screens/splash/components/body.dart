@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:BuyerApplication/screens/sign_in/sign_in_screen.dart';
-import 'package:BuyerApplication/components/default_button.dart';
-import 'package:BuyerApplication/screens/splash/components/splash_content.dart';
+import 'package:BuyerApplication/components/dot_indicators.dart';
 import 'package:BuyerApplication/constants.dart';
-import 'package:BuyerApplication/size_config.dart';
+import 'package:BuyerApplication/screens/sign_in/sign_in_screen.dart';
+import 'package:BuyerApplication/screens/splash/components/splash_content.dart';
+import 'package:flutter/material.dart';
+import 'package:BuyerApplication/components/buttons/primary_button.dart';
 
 
 class Body extends StatefulWidget {
@@ -13,86 +13,73 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   int currentPage = 0;
-  List<Map<String, String>> splashData = [
-    {
-      "text": "Welcome to My shop, Let’s shop!",
-      "image": "assets/images/9320.png"
-    },
-    {
-      "text":
-      "We help people connect with Carafters \naround khartoum",
-      "image": "assets/images/9320.png"
-    },
-    {
-      "text": "We show the easy way to shop. \nJust stay at home with us",
-      "image": "assets/images/9320.png"
-    },
-  ];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: SizedBox(
-        width: double.infinity,
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              flex: 3,
-              child: PageView.builder(
-                onPageChanged: (value) {
-                  setState(() {
-                    currentPage = value;
-                  });
-                },
-                itemCount: splashData.length,
-                itemBuilder: (context, index) => SplashContent(
-                  image: splashData[index]["image"],
-                  text: splashData[index]['text'],
-                ),
+      child: Column(
+        children: [
+          Spacer(flex: 2),
+          Expanded(
+            flex: 14,
+            child: PageView.builder(
+              itemCount: demoData.length,
+              onPageChanged: (value) {
+                setState(() {
+                  currentPage = value;
+                });
+              },
+              itemBuilder: (context, index) => SplashContent(
+                illustration: demoData[index]["illustration"],
+                title: demoData[index]["title"],
+                text: demoData[index]["text"],
               ),
             ),
-            Expanded(
-              flex: 2,
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: getProportionateScreenWidth(20)),
-                child: Column(
-                  children: <Widget>[
-                    Spacer(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        splashData.length,
-                            (index) => buildDot(index: index),
-                      ),
-                    ),
-                    Spacer(flex: 3),
-                    DefaultButton(
-                      text: "Continue",
-                      press: () {
-                       Navigator.pushNamed(context, SignInScreen.routeName);
-                      },
-                    ),
-                    Spacer(),
-                  ],
+          ),
+          Spacer(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(demoData.length,
+                (index) => DotIndicator(isActive: index == currentPage)),
+          ),
+          Spacer(flex: 2),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+            child: PrimaryButton(
+              press: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SignInScreen(),
                 ),
               ),
+              text: "Get Started",
             ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  AnimatedContainer buildDot({int index}) {
-    return AnimatedContainer(
-      duration: kDefaultDuration,
-      margin: EdgeInsets.only(right: 5),
-      height: 6,
-      width: currentPage == index ? 20 : 6,
-      decoration: BoxDecoration(
-        color: currentPage == index ? kPrimaryColor : Color(0xFFD8D8D8),
-        borderRadius: BorderRadius.circular(3),
+          ),
+          Spacer(),
+        ],
       ),
     );
   }
 }
+
+// Demo data for our Onboarding screen
+List<Map<String, dynamic>> demoData = [
+  {
+    "illustration": "assets/Illustrations/Illustrations_1.svg",
+    "title": "All your favorites",
+    "text":
+        "Order from the best local restaurants \nwith easy, on-demand delivery.",
+  },
+  {
+    "illustration": "assets/Illustrations/Illustrations_2.svg",
+    "title": "Free delivery offers",
+    "text":
+        "Free delivery for new customers via Apple Pay\nand others payment methods.",
+  },
+  {
+    "illustration": "assets/Illustrations/Illustrations_3.svg",
+    "title": "Choose your food",
+    "text":
+        "Easily find your type of food craving and\nyou’ll get delivery in wide range.",
+  },
+];

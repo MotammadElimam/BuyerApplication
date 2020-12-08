@@ -1,3 +1,4 @@
+import 'package:BuyerApplication/components/Bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:BuyerApplication/models/Cart.dart';
@@ -46,5 +47,7 @@ class _BodyState extends State<Body> {
         ),
       ),
     );
+    // ignore: dead_code
+    BottomNavBar();
   }
 }

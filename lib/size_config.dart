@@ -28,3 +28,37 @@ double getProportionateScreenWidth(double inputWidth) {
   // 375 is the layout width that designer use
   return (inputWidth / 375.0) * screenWidth;
 }
+
+class VerticalSpacing extends StatelessWidget {
+  const VerticalSpacing({
+    Key key,
+    this.of = 20,
+  }) : super(key: key);
+
+  final double of;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: getProportionateScreenWidth(of),
+    );
+  }
+}
+
+// For add free space horizontally
+class HorizontalSpacing extends StatelessWidget {
+  const HorizontalSpacing({
+    Key key,
+    this.of = 20,
+  }) : super(key: key);
+
+  final double of;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: getProportionateScreenWidth(of),
+    );
+  }
+}
+

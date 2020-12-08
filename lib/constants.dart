@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:BuyerApplication/size_config.dart';
 
 const kPrimaryColor = Color(0xff0288D1);
+const kBodyTextColor = Color(0xFF868686);
+const double kDefaultPadding = 20.0;
 const kPrimaryLightColor = Color(0xFFFFECDF);
 const kActiveColor = Color(0xFF01579B);
 const kPrimaryGradientColor = LinearGradient(
@@ -11,6 +13,20 @@ const kPrimaryGradientColor = LinearGradient(
 );
 const kSecondaryColor = Color(0xFF979797);
 const kTextColor = Color(0xFF757575);
+final TextStyle kButtonTextStyle = TextStyle(
+  color: Colors.white,
+  fontSize: getProportionateScreenWidth(14),
+  fontWeight: FontWeight.bold,
+);
+final TextStyle kHeadlineTextStyle = TextStyle(
+  fontSize: getProportionateScreenWidth(30),
+  fontWeight: FontWeight.bold,
+);
+final TextStyle kBodyTextStyle = TextStyle(
+  fontSize: getProportionateScreenWidth(16),
+  color: kBodyTextColor,
+  height: 1.5,
+);
 
 // Default Animation Duration
 const Duration kDefaultDuration = Duration(milliseconds: 250);

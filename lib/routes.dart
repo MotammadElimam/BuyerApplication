@@ -1,5 +1,5 @@
+import 'package:BuyerApplication/screens/splash/splash_scrreen.dart';
 import 'package:flutter/widgets.dart';
-import 'package:BuyerApplication/screens/splash/splash_screen.dart';
 import 'package:BuyerApplication/screens/sign_in/sign_in_screen.dart';
 import 'package:BuyerApplication/screens/forgot_password/forgot_password_screen.dart';
 import 'package:BuyerApplication/screens/login_success/login_success_screen.dart';
