@@ -37,7 +37,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
  List<Widget> _screens = [
     HomeScreen(),
     CartScreen(),
-    ProfileScreen(),
+    //ProfileScreen(),
   ];
 
   @override
