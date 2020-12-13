@@ -1,9 +1,12 @@
+import 'package:BuyerApplication/screens/cart/cart_screen.dart';
+import 'package:BuyerApplication/screens/home/home_screen.dart';
+import 'package:BuyerApplication/screens/profile/profile_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 //import 'package:patereon/screens/orderDetails/order_details_screen.dart';
 //import 'package:patereon/screens/profile/profile_screen.dart';
-import '../screens/home/home_screen.dart';
+
 //import '../screens/search/search_screen.dart';
 import '../size_config.dart';
 
@@ -25,25 +28,24 @@ class _BottomNavBarState extends State<BottomNavBar> {
   // List of nav items
   List<Map<String, dynamic>> _navitems = [
     {"icon": "assets/icons/home.svg", "title": "Home"},
-    {"icon": "assets/icons/search.svg", "title": "Search"},
-    {"icon": "assets/icons/order.svg", "title": "Orders"},
     {"icon": "assets/icons/profile.svg", "title": "Profile"},
+    {"icon": "assets/icons/Cart Icon.svg", "title": "Cart"},
+    
   ];
 
 // Screens
- /* List<Widget> _screens = [
+ List<Widget> _screens = [
     HomeScreen(),
-    SearchScreen(),
-    OrderDetailsScreen(),
+    CartScreen(),
     ProfileScreen(),
-  ];*/
+  ];
 
   @override
   Widget build(BuildContext context) {
     /// If you set your home screen as first screen make sure call [SizeConfig().init(context)]
     SizeConfig().init(context);
     return Scaffold(
-      //body: _screens[_selectedIndex],
+      body: _screens[_selectedIndex],
       bottomNavigationBar: CupertinoTabBar(
         onTap: (value) {
           setState(() {

@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:BuyerApplication/constants.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:BuyerApplication/size_config.dart';
 import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:BuyerApplication/size_config.dart';
+
+import '../../constants.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String text;

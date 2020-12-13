@@ -1,3 +1,5 @@
+import 'package:BuyerApplication/components/Bottom_nav_bar.dart';
+import 'package:BuyerApplication/components/buttons/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:BuyerApplication/components/custom_surfix_icon.dart';
 import 'package:BuyerApplication/components/form_error.dart';
@@ -18,6 +20,7 @@ class _SignFormState extends State<SignForm> {
   String email;
   String password;
   bool remember = false;
+   bool _autoValidate = false;
   final List<String> errors = [];
 
   void addError({String error}) {
@@ -69,7 +72,28 @@ class _SignFormState extends State<SignForm> {
           ),
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(20)),
-          DefaultButton(
+                    PrimaryButton(
+            text: "Sign In",
+            press: () {
+              if (_formKey.currentState.validate()) {
+                // If all data are correct then save data to out variables
+                _formKey.currentState.save();
+
+                // just for demo
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BottomNavBar(),
+                    ));
+              } else {
+                // If all data are not valid then start auto validation.
+                setState(() {
+                  _autoValidate = true;
+                });
+              }
+            },
+          )
+         /* DefaultButton(
             text: "Continue",
             press: () {
               if (_formKey.currentState.validate()) {
@@ -78,7 +102,7 @@ class _SignFormState extends State<SignForm> {
                 Navigator.pushNamed(context, LoginSuccessScreen.routeName);
               }
             },
-          ),
+          ),*/
         ],
       ),
     );

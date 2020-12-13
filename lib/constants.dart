@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:BuyerApplication/size_config.dart';
 
+
+const kMainColor = Color(0xFF010F07);
 const kPrimaryColor = Color(0xff0288D1);
 const kBodyTextColor = Color(0xFF868686);
 const double kDefaultPadding = 20.0;
@@ -26,6 +28,19 @@ final TextStyle kBodyTextStyle = TextStyle(
   fontSize: getProportionateScreenWidth(16),
   color: kBodyTextColor,
   height: 1.5,
+);
+
+final TextStyle kH2TextStyle = TextStyle(
+  fontSize: getProportionateScreenWidth(28),
+  fontWeight: FontWeight.w600,
+  letterSpacing: 0.18,
+);
+
+final TextStyle kSecondaryBodyTextStyle = TextStyle(
+  fontSize: getProportionateScreenWidth(14),
+  fontWeight: FontWeight.w500,
+  color: kMainColor,
+  // height: 1.5,
 );
 
 // Default Animation Duration
