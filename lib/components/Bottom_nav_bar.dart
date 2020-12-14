@@ -1,16 +1,12 @@
+import 'package:BuyerApplication/constants.dart';
 import 'package:BuyerApplication/screens/cart/cart_screen.dart';
 import 'package:BuyerApplication/screens/home/home_screen.dart';
 import 'package:BuyerApplication/screens/profile/profile_screen.dart';
+import 'package:BuyerApplication/size_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-//import 'package:patereon/screens/orderDetails/order_details_screen.dart';
-//import 'package:patereon/screens/profile/profile_screen.dart';
 
-//import '../screens/search/search_screen.dart';
-import '../size_config.dart';
-
-import '../constants.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({
@@ -29,15 +25,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
   List<Map<String, dynamic>> _navitems = [
     {"icon": "assets/icons/home.svg", "title": "Home"},
     {"icon": "assets/icons/profile.svg", "title": "Profile"},
-    {"icon": "assets/icons/Cart Icon.svg", "title": "Cart"},
+    {"icon": "assets/icons/order.svg", "title": "Cart"},
     
   ];
 
 // Screens
  List<Widget> _screens = [
     HomeScreen(),
+    ProfileScreen(),
     CartScreen(),
-    //ProfileScreen(),
   ];
 
   @override
