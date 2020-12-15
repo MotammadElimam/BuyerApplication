@@ -4,10 +4,10 @@ import 'package:BuyerApplication/theme.dart';
 import 'package:BuyerApplication/screens/splash/splash_scrreen.dart';
 import 'package:provider/provider.dart';
 
-import 'controller/ProductProvider.dart';
+import 'controllers/ProductProvider.dart';
 
 void main() {
-  //runApp(MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {

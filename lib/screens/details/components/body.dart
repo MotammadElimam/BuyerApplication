@@ -1,6 +1,6 @@
-import 'package:BuyerApplication/controller/ProductProvider.dart';
+import 'package:BuyerApplication/components/buttons/primary_button.dart';
+import 'package:BuyerApplication/controllers/ProductProvider.dart';
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/components/default_button.dart';
 import 'package:BuyerApplication/models/Product.dart';
 import 'package:BuyerApplication/size_config.dart';
 import 'package:BuyerApplication/screens/details/components/product_description.dart';
@@ -42,7 +42,7 @@ class Body extends StatelessWidget {
                               top: getProportionateScreenWidth(15),
                             ),
                             child: Column(children: [
-                              DefaultButton(
+                              PrimaryButton(
                                 text: provider.isAdded(product)
                                     ? "Added To Cart"
                                     : "Add To Cart",
@@ -53,7 +53,7 @@ class Body extends StatelessWidget {
                                 },
                               ),
                               SizedBox(height: 15),
-                              DefaultButton(
+                              PrimaryButton(
                                 text: "Buy Now",
                                 press: () {},
                               ),
