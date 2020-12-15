@@ -21,6 +21,7 @@ class _SignFormState extends State<SignForm> {
   String password;
   bool remember = false;
    bool _autoValidate = false;
+   
   final List<String> errors = [];
 
   void addError({String error}) {

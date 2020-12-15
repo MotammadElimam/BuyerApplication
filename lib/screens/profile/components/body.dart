@@ -29,7 +29,7 @@ class Body extends StatelessWidget {
                 press: () {},
               ),
               ProfileMenuCard(
-                svgSrc: "assets/icons/lock.svg",
+                svgSrc: "assets/icons/Lock.svg",
                 title: "Change Password",
                 subTitle: "Change your password",
                 press: () {},
