@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'controller/ProductProvider.dart';
 
 void main() {
-  runApp(MyApp());
+  //runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
