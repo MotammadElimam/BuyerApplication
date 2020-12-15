@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/routes.dart';
-import 'package:BuyerApplication/theme.dart';
-import 'package:BuyerApplication/screens/splash/splash_scrreen.dart';
 import 'package:provider/provider.dart';
 
 import 'controller/ProductProvider.dart';
+import 'routes.dart';
+import 'screens/splash/splash_scrreen.dart';
+import 'theme.dart';
 
 void main() {
   //runApp(MyApp());
