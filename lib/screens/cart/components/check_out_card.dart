@@ -17,7 +17,8 @@ class CheckoutCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final cart = Provider.of<ProductProvider>(context);
 
-    return Container(
+    return Scaffold(
+        body: Container(
       padding: EdgeInsets.symmetric(
         vertical: getProportionateScreenWidth(15),
         horizontal: getProportionateScreenWidth(30),
@@ -73,7 +74,7 @@ class CheckoutCard extends StatelessWidget {
                     text: "Total:\n",
                     children: [
                       TextSpan(
-                        text: '${cart.price * cart.quentity}',
+                        text: '${cart.price}',
                         style: TextStyle(fontSize: 16, color: Colors.black),
                       ),
                     ],
@@ -91,6 +92,6 @@ class CheckoutCard extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ));
   }
 }
