@@ -1,4 +1,7 @@
+import 'package:BuyerApplication/controller/ProductProvider.dart';
+import 'package:BuyerApplication/screens/cart/components/check_out_card.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../size_config.dart';
 import '../../cart/cart_screen.dart';
@@ -12,6 +15,7 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cart = Provider.of<ProductProvider>(context);
     return Padding(
       padding:
           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
@@ -25,8 +29,8 @@ class HomeHeader extends StatelessWidget {
           ),
           IconBtnWithCounter(
             svgSrc: "assets/icons/Bell.svg",
-            numOfitem: 3,
-            press: () {},
+            numOfitem: cart.cartItems.length,
+            press: () => Navigator.pushNamed(context, CheckoutCard.routeName),
           ),
         ],
       ),
