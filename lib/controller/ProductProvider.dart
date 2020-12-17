@@ -58,6 +58,12 @@ class ProductProvider extends ChangeNotifier {
     return cartItemsNumber[product.id];
   }
 
+  totalPric() {
+    double price = 0.0;
+    cartItems.map((e) => price += e.price);
+    return price;
+  }
+
   getV() => _counter;
 
   incrm() {
