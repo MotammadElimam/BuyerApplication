@@ -1,6 +1,7 @@
-import 'package:BuyerApplication/screens/home/components/section_title.dart';
-import 'package:BuyerApplication/size_config.dart';
 import 'package:flutter/material.dart';
+
+import '../../../size_config.dart';
+import 'section_title.dart';
 
 class SpecialOffers extends StatelessWidget {
   const SpecialOffers({

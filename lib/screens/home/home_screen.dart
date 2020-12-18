@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/screens/home/components/body.dart';
 
+import 'components/body.dart';
 
 class HomeScreen extends StatelessWidget {
   static String routeName = "/home";

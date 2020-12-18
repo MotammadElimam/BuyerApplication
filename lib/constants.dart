@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/size_config.dart';
 
+import 'size_config.dart';
 
 const kMainColor = Color(0xFF010F07);
 const kPrimaryColor = Color(0xff0288D1);
@@ -55,7 +55,7 @@ final headingStyle = TextStyle(
 
 // Form Error
 final RegExp emailValidatorRegExp =
-RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+    RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 const String kEmailNullError = "Please Enter your email";
 const String kInvalidEmailError = "Please Enter Valid Email";
 const String kPassNullError = "Please Enter your password";
@@ -67,7 +67,7 @@ const String kAddressNullError = "Please Enter your address";
 
 final otpInputDecoration = InputDecoration(
   contentPadding:
-  EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
+      EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
   border: outlineInputBorder(),
   focusedBorder: outlineInputBorder(),
   enabledBorder: outlineInputBorder(),

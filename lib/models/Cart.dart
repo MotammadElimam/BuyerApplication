@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/models/Product.dart';
+
+import 'Product.dart';
 
 class Cart {
   final Product product;

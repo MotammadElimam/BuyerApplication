@@ -2,8 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:BuyerApplication/constants.dart';
-import 'package:BuyerApplication/size_config.dart';
+
+import '../../../constants.dart';
+import '../../../size_config.dart';
 
 class Body extends StatelessWidget {
   @override
