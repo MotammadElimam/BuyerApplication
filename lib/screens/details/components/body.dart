@@ -1,24 +1,12 @@
-// <<<<<<< HEAD
-// import 'package:BuyerApplication/components/buttons/primary_button.dart';
-// import 'package:BuyerApplication/controllers/ProductProvider.dart';
-// import 'package:flutter/material.dart';
-// import 'package:BuyerApplication/models/Product.dart';
-// import 'package:BuyerApplication/size_config.dart';
-// import 'package:BuyerApplication/screens/details/components/product_description.dart';
-// import 'package:BuyerApplication/screens/details/components/product_images.dart';
-// import 'package:BuyerApplication/screens/details/components/top_rounded_container.dart';
-// =======
+import 'package:BuyerApplication/components/buttons/primary_button.dart';
+import 'package:BuyerApplication/controllers/ProductProvider.dart';
 import 'package:flutter/material.dart';
-// >>>>>>> pr/1
+import 'package:BuyerApplication/models/Product.dart';
+import 'package:BuyerApplication/size_config.dart';
+import 'package:BuyerApplication/screens/details/components/product_description.dart';
+import 'package:BuyerApplication/screens/details/components/product_images.dart';
+import 'package:BuyerApplication/screens/details/components/top_rounded_container.dart';
 import 'package:provider/provider.dart';
-
-import '../../../components/default_button.dart';
-import '../../../controller/ProductProvider.dart';
-import '../../../models/Product.dart';
-import '../../../size_config.dart';
-import 'product_description.dart';
-import 'product_images.dart';
-import 'top_rounded_container.dart';
 
 class Body extends StatelessWidget {
   final Product product;

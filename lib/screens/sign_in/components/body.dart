@@ -4,7 +4,6 @@ import 'package:BuyerApplication/components/social_card.dart';
 import 'package:BuyerApplication/size_config.dart';
 import 'package:BuyerApplication/screens/sign_in/components/sign_form.dart';
 
-
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

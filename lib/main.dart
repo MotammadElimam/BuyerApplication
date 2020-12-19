@@ -1,9 +1,10 @@
 import 'package:BuyerApplication/screens/home/home_screen.dart';
+import 'package:BuyerApplication/screens/splash/splash_scrreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 
-import 'controller/ProductProvider.dart';
+import 'controllers/ProductProvider.dart';
 import 'routes.dart';
 import 'screens/home/home_screen.dart';
 import 'theme.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         theme: theme(),
         // home: SplashScreen(),
         // We use routeName so that we dont need to remember the name
-        initialRoute: HomeScreen.routeName,
+        initialRoute: SplashScreen.routeName,
         routes: routes,
       ),
     );

@@ -1,19 +1,11 @@
 import 'package:flutter/material.dart';
-// <<<<<<< HEAD
-// import 'package:BuyerApplication/components/custom_surfix_icon.dart';
-// import 'package:BuyerApplication/components/form_error.dart';
-// import 'package:BuyerApplication/constants.dart';
-// import 'package:BuyerApplication/screens/forgot_password/forgot_password_screen.dart';
-// import 'package:BuyerApplication/size_config.dart';
-// =======
-
-import '../../../components/Bottom_nav_bar.dart';
-import '../../../components/buttons/primary_button.dart';
-import '../../../components/custom_surfix_icon.dart';
-import '../../../components/form_error.dart';
-import '../../../constants.dart';
-import '../../../size_config.dart';
-import '../../forgot_password/forgot_password_screen.dart';
+import 'package:BuyerApplication/components/Bottom_nav_bar.dart';
+import 'package:BuyerApplication/components/buttons/primary_button.dart';
+import 'package:BuyerApplication/components/custom_surfix_icon.dart';
+import 'package:BuyerApplication/components/form_error.dart';
+import 'package:BuyerApplication/screens/forgot_password/forgot_password_screen.dart';
+import 'package:BuyerApplication/size_config.dart';
+import 'package:BuyerApplication/constants.dart';
 
 
 class SignForm extends StatefulWidget {
@@ -26,8 +18,7 @@ class _SignFormState extends State<SignForm> {
   String email;
   String password;
   bool remember = false;
-   bool _autoValidate = false;
-
+  //bool _autoValidate = false;
   final List<String> errors = [];
 
   void addError({String error}) {
@@ -92,24 +83,14 @@ class _SignFormState extends State<SignForm> {
                     MaterialPageRoute(
                       builder: (context) => BottomNavBar(),
                     ));
-              } else {
+              } /*else {
                 // If all data are not valid then start auto validation.
                 setState(() {
                   _autoValidate = true;
                 });
-              }
+              }*/
             },
           )
-         /* DefaultButton(
-            text: "Continue",
-            press: () {
-              if (_formKey.currentState.validate()) {
-                _formKey.currentState.save();
-                // if all are valid then go to success screen
-                Navigator.pushNamed(context, LoginSuccessScreen.routeName);
-              }
-            },
-          ),*/
         ],
       ),
     );

@@ -1,4 +1,4 @@
-import 'package:BuyerApplication/controller/ProductProvider.dart';
+import 'package:BuyerApplication/controllers/ProductProvider.dart';
 import 'package:BuyerApplication/screens/cart/components/check_out_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -29,8 +29,8 @@ class HomeHeader extends StatelessWidget {
           ),
           IconBtnWithCounter(
             svgSrc: "assets/icons/Bell.svg",
-            numOfitem: cart.cartItems.length,
-            press: () => Navigator.pushNamed(context, CheckoutCard.routeName),
+            //numOfitem: cart.cartItems.length,
+            press: () {}
           ),
         ],
       ),
