@@ -1,3 +1,4 @@
+import 'package:BuyerApplication/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:BuyerApplication/routes.dart';
 import 'package:BuyerApplication/theme.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         theme: theme(),
         // home: SplashScreen(),
         // We use routeName so that we dont need to remember the name
-        initialRoute: SplashScreen.routeName,
+        initialRoute: HomeScreen.routeName,
         routes: routes,
       ),
     );

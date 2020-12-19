@@ -2,14 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:BuyerApplication/constants.dart';
 import 'package:BuyerApplication/models/Product.dart';
 import 'package:BuyerApplication/size_config.dart';
+import 'package:BuyerApplication/models/Cart.dart';
 
-class CartCard extends StatelessWidget {
-  const CartCard({
+
+class CartCard extends StatefulWidget {
+   CartCard({
     Key key,
-    @required this.products,
+   @required this.cart,
   }) : super(key: key);
 
-  final List<Product> products;
+  final Cart cart;
+
+  @override
+  _CartCardState createState() => _CartCardState();
+}
+
+class _CartCardState extends State<CartCard> {
+  List<Product> products;
 
   @override
   Widget build(BuildContext context) {

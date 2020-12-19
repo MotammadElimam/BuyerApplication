@@ -4,6 +4,7 @@ import 'package:BuyerApplication/controllers/ProductProvider.dart';
 import 'package:provider/provider.dart';
 import 'package:BuyerApplication/size_config.dart';
 import 'package:BuyerApplication/screens/cart/components/cart_card.dart';
+import 'package:BuyerApplication/models/Cart.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -20,11 +21,11 @@ class _BodyState extends State<Body> {
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
-        itemCount: cart.cartItems.length,
+        itemCount: demoCarts.length,
         itemBuilder: (context, index) => Padding(
           padding: EdgeInsets.symmetric(vertical: 10),
           child: Dismissible(
-            key: Key(cart.cartItems[index].id.toString()),
+            key: Key(demoCarts[index].product.id.toString()),
             direction: DismissDirection.endToStart,
             onDismissed: (direction) {
               setState(() {
@@ -44,7 +45,7 @@ class _BodyState extends State<Body> {
                 ],
               ),
             ),
-            child: CartCard(products: cart.cartItems),
+            child: CartCard(cart: demoCarts[index]),
           ),
         ),
       ),
