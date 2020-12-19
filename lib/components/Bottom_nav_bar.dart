@@ -1,11 +1,12 @@
-import 'package:BuyerApplication/constants.dart';
-import 'package:BuyerApplication/screens/cart/cart_screen.dart';
-import 'package:BuyerApplication/screens/home/home_screen.dart';
-import 'package:BuyerApplication/screens/profile/profile_screen.dart';
-import 'package:BuyerApplication/size_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../constants.dart';
+import '../screens/cart/cart_screen.dart';
+import '../screens/home/home_screen.dart';
+import '../screens/profile/profile_screen.dart';
+import '../size_config.dart';
 
 
 class BottomNavBar extends StatefulWidget {
@@ -26,7 +27,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     {"icon": "assets/icons/home.svg", "title": "Home"},
     {"icon": "assets/icons/profile.svg", "title": "Profile"},
     {"icon": "assets/icons/order.svg", "title": "Cart"},
-    
+
   ];
 
 // Screens

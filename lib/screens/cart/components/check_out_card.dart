@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+<<<<<<< HEAD
 import 'package:BuyerApplication/components/buttons/primary_button.dart';
 import 'package:BuyerApplication/constants.dart';
 import 'package:BuyerApplication/controllers/ProductProvider.dart';
@@ -8,6 +9,16 @@ import 'package:BuyerApplication/size_config.dart';
 
 class CheckoutCard extends StatelessWidget {
   static String routeName = "/checkout";
+=======
+
+import '../../../components/default_button.dart';
+import '../../../constants.dart';
+import '../../../controller/ProductProvider.dart';
+import '../../../size_config.dart';
+
+class CheckoutCard extends StatelessWidget {
+  static String routeName = "/check-out";
+>>>>>>> d492a2ee535a0edbba07bd45d4be6159aec4f634
   const CheckoutCard({
     Key key,
   }) : super(key: key);
@@ -15,7 +26,13 @@ class CheckoutCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cart = Provider.of<ProductProvider>(context);
+<<<<<<< HEAD
     return Container(
+=======
+
+    return Scaffold(
+        body: Container(
+>>>>>>> d492a2ee535a0edbba07bd45d4be6159aec4f634
       padding: EdgeInsets.symmetric(
         vertical: getProportionateScreenWidth(15),
         horizontal: getProportionateScreenWidth(30),
@@ -71,7 +88,11 @@ class CheckoutCard extends StatelessWidget {
                     text: "Total:\n",
                     children: [
                       TextSpan(
+<<<<<<< HEAD
                         text: "${cart.price}",
+=======
+                        text: '${cart.price}',
+>>>>>>> d492a2ee535a0edbba07bd45d4be6159aec4f634
                         style: TextStyle(fontSize: 16, color: Colors.black),
                       ),
                     ],
@@ -89,6 +110,6 @@ class CheckoutCard extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ));
   }
 }

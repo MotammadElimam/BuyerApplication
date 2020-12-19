@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/components/custom_surfix_icon.dart';
-import 'package:BuyerApplication/components/default_button.dart';
-import 'package:BuyerApplication/components/form_error.dart';
-import 'package:BuyerApplication/constants.dart';
-import 'package:BuyerApplication/size_config.dart';
-import 'package:BuyerApplication/screens/otp/otp_screen.dart';
+
+import '../../../components/custom_surfix_icon.dart';
+import '../../../components/default_button.dart';
+import '../../../components/form_error.dart';
+import '../../../constants.dart';
+import '../../../size_config.dart';
+import '../../otp/otp_screen.dart';
 
 
 

@@ -1,11 +1,12 @@
 import 'package:BuyerApplication/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/routes.dart';
-import 'package:BuyerApplication/theme.dart';
-import 'package:BuyerApplication/screens/splash/splash_scrreen.dart';
 import 'package:provider/provider.dart';
 
-import 'controllers/ProductProvider.dart';
+
+import 'controller/ProductProvider.dart';
+import 'routes.dart';
+import 'screens/home/home_screen.dart';
+import 'theme.dart';
 
 void main() {
   runApp(MyApp());

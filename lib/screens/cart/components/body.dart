@@ -1,10 +1,15 @@
+import 'package:BuyerApplication/controller/ProductProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+<<<<<<< HEAD
 import 'package:BuyerApplication/controllers/ProductProvider.dart';
 import 'package:provider/provider.dart';
 import 'package:BuyerApplication/size_config.dart';
 import 'package:BuyerApplication/screens/cart/components/cart_card.dart';
 import 'package:BuyerApplication/models/Cart.dart';
+=======
+import 'package:provider/provider.dart';
+>>>>>>> d492a2ee535a0edbba07bd45d4be6159aec4f634
 
 class Body extends StatefulWidget {
   @override
@@ -21,11 +26,15 @@ class _BodyState extends State<Body> {
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
+<<<<<<< HEAD
         itemCount: demoCarts.length,
+=======
+        itemCount: cart.cartItems.length,
+>>>>>>> d492a2ee535a0edbba07bd45d4be6159aec4f634
         itemBuilder: (context, index) => Padding(
           padding: EdgeInsets.symmetric(vertical: 10),
           child: Dismissible(
-            key: Key(demoCarts[index].product.id.toString()),
+            key: Key(cart.cartItems[index].id.toString()),
             direction: DismissDirection.endToStart,
             onDismissed: (direction) {
               setState(() {
@@ -45,7 +54,7 @@ class _BodyState extends State<Body> {
                 ],
               ),
             ),
-            child: CartCard(cart: demoCarts[index]),
+            child: CartCard(products: cart.cartItems),
           ),
         ),
       ),

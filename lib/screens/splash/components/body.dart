@@ -1,10 +1,10 @@
-import 'package:BuyerApplication/components/dot_indicators.dart';
-import 'package:BuyerApplication/constants.dart';
-import 'package:BuyerApplication/screens/sign_in/sign_in_screen.dart';
-import 'package:BuyerApplication/screens/splash/components/splash_content.dart';
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/components/buttons/primary_button.dart';
 
+import '../../../components/buttons/primary_button.dart';
+import '../../../components/dot_indicators.dart';
+import '../../../constants.dart';
+import '../../sign_in/sign_in_screen.dart';
+import 'splash_content.dart';
 
 class Body extends StatefulWidget {
   @override

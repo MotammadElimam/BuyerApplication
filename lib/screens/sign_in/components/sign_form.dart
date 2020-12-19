@@ -1,11 +1,19 @@
-import 'package:BuyerApplication/components/Bottom_nav_bar.dart';
-import 'package:BuyerApplication/components/buttons/primary_button.dart';
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/components/custom_surfix_icon.dart';
-import 'package:BuyerApplication/components/form_error.dart';
-import 'package:BuyerApplication/constants.dart';
-import 'package:BuyerApplication/screens/forgot_password/forgot_password_screen.dart';
-import 'package:BuyerApplication/size_config.dart';
+// <<<<<<< HEAD
+// import 'package:BuyerApplication/components/custom_surfix_icon.dart';
+// import 'package:BuyerApplication/components/form_error.dart';
+// import 'package:BuyerApplication/constants.dart';
+// import 'package:BuyerApplication/screens/forgot_password/forgot_password_screen.dart';
+// import 'package:BuyerApplication/size_config.dart';
+// =======
+
+import '../../../components/Bottom_nav_bar.dart';
+import '../../../components/buttons/primary_button.dart';
+import '../../../components/custom_surfix_icon.dart';
+import '../../../components/form_error.dart';
+import '../../../constants.dart';
+import '../../../size_config.dart';
+import '../../forgot_password/forgot_password_screen.dart';
 
 
 class SignForm extends StatefulWidget {
@@ -19,7 +27,7 @@ class _SignFormState extends State<SignForm> {
   String password;
   bool remember = false;
    bool _autoValidate = false;
-   
+
   final List<String> errors = [];
 
   void addError({String error}) {
