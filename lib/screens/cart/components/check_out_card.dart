@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../../components/default_button.dart';
 import '../../../constants.dart';
-import '../../../controller/ProductProvider.dart';
+import '../../../controllers/ProductProvider.dart';
 import '../../../size_config.dart';
 
 class CheckoutCard extends StatelessWidget {
