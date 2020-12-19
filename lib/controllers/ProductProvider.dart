@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../models/Product.dart';
 
 class ProductProvider extends ChangeNotifier {
-  double quantity = 0.0;
+  List<Product> productsInCart = [];
+  double quentity = 0.0;
   double price = 0.0;
   List<Product> cartItems = [];
   Map<String, double> cartItemsNumber = {};
@@ -11,7 +12,7 @@ class ProductProvider extends ChangeNotifier {
 
   void addProduct(Product product) {
     if (!cartItems.contains(product)) {
-      quantity++;
+      quentity++;
       cartItemsNumber['${product.id}'] = 1;
       cartItems.add(product);
     } else {
@@ -21,7 +22,11 @@ class ProductProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  
+  // addProduct(Product product) {
+  //   productsInCart.add(product);
+  //   print('size' + productsInCart.length.toString());
+  //   notifyListeners();
+  // }
 
   bool isAdded(Product product) {
     return cartItems.contains(product);
@@ -29,8 +34,8 @@ class ProductProvider extends ChangeNotifier {
 
   void removeProduct(Product product) {
     if (cartItems.contains(product) && cartItemsNumber['${product.id}'] > 0) {
-      if (quantity > 0) {
-        quantity--;
+      if (quentity > 0) {
+        quentity--;
       }
       cartItemsNumber['${product.id}']--;
     } else if (cartItemsNumber[product.id] == 1) {
@@ -40,6 +45,10 @@ class ProductProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  // removeProduct(Product product) {
+  //   productsInCart.remove(product);
+  //   notifyListeners();
+  // }
 
   getPrice(Product product) {
     return cartItemsNumber[product.id] * product.price;
@@ -55,4 +64,10 @@ class ProductProvider extends ChangeNotifier {
     return price;
   }
 
+  getV() => _counter;
+
+  incrm() {
+    _counter++;
+    notifyListeners();
+  }
 }
