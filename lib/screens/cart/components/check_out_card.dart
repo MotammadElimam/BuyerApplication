@@ -1,6 +1,9 @@
+import 'package:BuyerApplication/controllers/ProductProvider.dart';
+import 'package:BuyerApplication/models/Cart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:BuyerApplication/components/default_button.dart';
+import 'package:provider/provider.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -12,6 +15,7 @@ class CheckoutCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cart = Provider.of<ProductProvider>(context, listen: true);
     return Container(
       padding: EdgeInsets.symmetric(
         vertical: getProportionateScreenWidth(15),
@@ -68,7 +72,7 @@ class CheckoutCard extends StatelessWidget {
                     text: "Total:\n",
                     children: [
                       TextSpan(
-                        text: "\$337.15",
+                        text: "${cart.price}",
                         style: TextStyle(fontSize: 16, color: Colors.black),
                       ),
                     ],
