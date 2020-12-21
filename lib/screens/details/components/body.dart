@@ -1,3 +1,5 @@
+import 'package:BuyerApplication/models/Cart.dart';
+import 'package:BuyerApplication/models/cart_item.dart';
 import 'package:flutter/material.dart';
 import 'package:BuyerApplication/components/buttons/primary_button.dart';
 import 'package:BuyerApplication/models/Product.dart';
@@ -9,24 +11,49 @@ import 'package:BuyerApplication/screens/details/components/top_rounded_containe
 import 'package:BuyerApplication/screens/details/components/product_images.dart';
 
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   final Product product;
 
   const Body({Key key, @required this.product}) : super(key: key);
 
   @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+ CartItem _cartItem;
+ @override
+  void initState() {
+    super.initState();
+    _cartItem = CartItem.fromData(product: widget.product, quantity: 1);
+  }
+ void _addTocart() {
+   CartItem added;
+   try{
+    added = Provider.of<ProductProvider>(context, listen: false).cart.cartItems.firstWhere((element) => element.product.id == widget.product.id);
+   }catch(e){
+     print(e);
+   }
+   if(added == null){
+    Provider.of<ProductProvider>(context, listen: false).addToCart(_cartItem);
+   }else{
+    Provider.of<ProductProvider>(context, listen: false).removeFromCart(_cartItem);
+   }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<ProductProvider>(context, listen: true);
+    return Consumer<ProductProvider>(builder: (context, cartbody, child) {
     return SingleChildScrollView(
       child: Column(
         children: [
-          ProductImages(product: product),
+          ProductImages(product: widget.product),
           TopRoundedContainer(
             color: Colors.white,
             child: Column(
               children: [
                 ProductDescription(
-                  product: product,
+                  product: widget.product,
                   pressOnSeeMore: () {},
                 ),
                 TopRoundedContainer(
@@ -44,13 +71,11 @@ class Body extends StatelessWidget {
                             ),
                             child: Column(children: [
                               PrimaryButton(
-                                text: provider.isAdded(product)
-                                    ? "Added To Cart"
+                                text: cartbody.cart.cartItems.contains(_cartItem)
+                                   ?  "Added To Cart"
                                     : "Add To Cart",
                                 press: () {
-                                  provider.isAdded(product)
-                                      ? provider.removeProduct(product)
-                                      : provider.addProduct(product);
+                                  _addTocart();
                                 },
                               ),
                               SizedBox(height: 15),
@@ -69,5 +94,6 @@ class Body extends StatelessWidget {
         ],
       ),
     );
+    });
   }
 }

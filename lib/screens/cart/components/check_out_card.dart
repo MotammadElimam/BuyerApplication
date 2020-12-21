@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:BuyerApplication/controllers/ProductProvider.dart';
 import 'package:BuyerApplication/constants.dart';
 import 'package:BuyerApplication/size_config.dart';
+import 'package:supercharged/supercharged.dart';
 
 
 class CheckoutCard extends StatelessWidget {
@@ -15,7 +16,7 @@ class CheckoutCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cart = Provider.of<ProductProvider>(context);
+    return Consumer<ProductProvider>(builder: (context, cartbody, child) {
     return Container(
       padding: EdgeInsets.symmetric(
         vertical: getProportionateScreenWidth(15),
@@ -72,7 +73,7 @@ class CheckoutCard extends StatelessWidget {
                     text: "Total:\n",
                     children: [
                       TextSpan(
-                         text: "${cart.price}",
+                         text: "${cartbody.price}",
 
                         style: TextStyle(fontSize: 16, color: Colors.black),
                       ),
@@ -92,5 +93,6 @@ class CheckoutCard extends StatelessWidget {
         ),
       ),
     );
+    });
   }
 }

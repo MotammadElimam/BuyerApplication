@@ -1,8 +1,11 @@
+import 'package:BuyerApplication/controllers/ProductProvider.dart';
+import 'package:BuyerApplication/models/cart_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:BuyerApplication/models/Cart.dart';
 import 'package:BuyerApplication/size_config.dart';
 import 'package:BuyerApplication/screens/cart/components/cart_card.dart';
+import 'package:provider/provider.dart';
 
 
 class Body extends StatefulWidget {
@@ -13,20 +16,19 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
+    return Consumer<ProductProvider>(builder: (context, cartbody, child) {
     return Padding(
       padding:
           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
       child: ListView.builder(
-        itemCount: demoCarts.length,
+        itemCount: cartbody.cart.cartItems.length,
         itemBuilder: (context, index) => Padding(
           padding: EdgeInsets.symmetric(vertical: 10),
           child: Dismissible(
-            key: Key(demoCarts[index].product.id.toString()),
+            key: Key(cartbody.cart.cartItems[index].product.id.toString()),
             direction: DismissDirection.endToStart,
             onDismissed: (direction) {
-              setState(() {
-                demoCarts.removeAt(index);
-              });
+                cartbody.removeFromCart(cartbody.cart.cartItems[index]);
             },
             background: Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
@@ -41,10 +43,11 @@ class _BodyState extends State<Body> {
                 ],
               ),
             ),
-            child: CartCard(cart: demoCarts[index]),
+            child: CartCard(cartitem: cartbody.cart.cartItems[index]),
           ),
         ),
       ),
     );
+    });
   }
 }
