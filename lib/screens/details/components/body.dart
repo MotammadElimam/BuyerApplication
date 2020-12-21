@@ -1,6 +1,5 @@
-import 'package:BuyerApplication/models/Cart.dart';
-import 'package:BuyerApplication/models/cart_item.dart';
 import 'package:flutter/material.dart';
+import 'package:BuyerApplication/models/cart_item.dart';
 import 'package:BuyerApplication/components/buttons/primary_button.dart';
 import 'package:BuyerApplication/models/Product.dart';
 import 'package:provider/provider.dart';
