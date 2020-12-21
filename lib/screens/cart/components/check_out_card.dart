@@ -1,15 +1,14 @@
-import 'package:BuyerApplication/controllers/ProductProvider.dart';
-import 'package:BuyerApplication/models/Cart.dart';
 import 'package:flutter/material.dart';
+import 'package:BuyerApplication/components/buttons/primary_button.dart';
+import 'package:BuyerApplication/controllers/ProductProvider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-
-import '../../../components/default_button.dart';
-import '../../../constants.dart';
-import '../../../controllers/ProductProvider.dart';
-import '../../../size_config.dart';
+import 'package:BuyerApplication/models/Cart.dart';
+import 'package:BuyerApplication/constants.dart';
+import 'package:BuyerApplication/size_config.dart';
 
 class CheckoutCard extends StatelessWidget {
+
   static String routeName = "/check-out";
   const CheckoutCard({
     Key key,
@@ -84,7 +83,7 @@ class CheckoutCard extends StatelessWidget {
                 ),
                 SizedBox(
                   width: getProportionateScreenWidth(190),
-                  child: DefaultButton(
+                  child: PrimaryButton(
                     text: "Check Out",
                     press: () {},
                   ),

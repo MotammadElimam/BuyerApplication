@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:BuyerApplication/models/Cart.dart';
+import 'package:BuyerApplication/size_config.dart';
+import 'package:BuyerApplication/screens/cart/components/cart_card.dart';
 
-import '../../../size_config.dart';
-import 'cart_card.dart';
 
 class Body extends StatefulWidget {
   @override
