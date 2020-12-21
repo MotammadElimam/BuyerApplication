@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class ProductProvider extends ChangeNotifier {
   List<Product> productsInCart = [];
-  int _counter = 0;
+  int price = 0;
 
   addProduct(Product product) {
 
@@ -21,10 +21,10 @@ class ProductProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  getV() => _counter;
+  getV() => price;
 
   incrm() {
-    _counter++;
+    price++;
     notifyListeners();
   }
 }
