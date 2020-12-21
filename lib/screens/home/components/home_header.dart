@@ -1,3 +1,5 @@
+import 'package:BuyerApplication/models/wishlist_item.dart';
+import 'package:BuyerApplication/screens/wishlist/wishlist_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:BuyerApplication/screens/home/components/icon_btn_with_counter.dart';
 import 'package:BuyerApplication/screens/home/components/search_field.dart';
@@ -25,7 +27,7 @@ class HomeHeader extends StatelessWidget {
           IconBtnWithCounter(
             svgSrc: "assets/icons/Bell.svg",
             numOfitem: 3,
-            press: () {},
+            press: () => Navigator.pushNamed(context, WishListScreen.routeName),
           ),
         ],
       ),

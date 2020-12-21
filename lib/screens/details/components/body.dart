@@ -1,3 +1,5 @@
+import 'package:BuyerApplication/models/Wishlist.dart';
+import 'package:BuyerApplication/models/wishlist_item.dart';
 import 'package:flutter/material.dart';
 import 'package:BuyerApplication/models/cart_item.dart';
 import 'package:BuyerApplication/components/buttons/primary_button.dart';
@@ -21,11 +23,16 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
  CartItem _cartItem;
+ Wishlistitem _wishlistitem;
  @override
+  
+  
   void initState() {
     super.initState();
     _cartItem = CartItem.fromData(product: widget.product, quantity: 1);
+    _wishlistitem = Wishlistitem.fromData(product:widget.product);
   }
+
  void _addTocart() {
    CartItem added;
    try{
@@ -40,9 +47,25 @@ class _BodyState extends State<Body> {
    }
   }
 
+  void _addToWishlist() {
+   Wishlistitem addedtowishlist;
+   try{
+    addedtowishlist = Provider.of<ProductProvider>(context, listen: false).wishlist.wishlistitems.firstWhere((element) => element.product.id == widget.product.id);
+   }catch(e){
+     print(e);
+   }
+   if(addedtowishlist == null){
+    Provider.of<ProductProvider>(context, listen: false).addToWishlist(_wishlistitem);
+   }/*else{
+    Provider.of<ProductProvider>(context, listen: false).removeFromCart(_wishlistitem);
+   }*/
+  }
+
+  
+
   @override
   Widget build(BuildContext context) {
-    return Consumer<ProductProvider>(builder: (context, cartbody, child) {
+    return Consumer<ProductProvider>(builder: (context, providerbody, child) {
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -70,7 +93,7 @@ class _BodyState extends State<Body> {
                             ),
                             child: Column(children: [
                               PrimaryButton(
-                                text: cartbody.cart.cartItems.contains(_cartItem)
+                                text: providerbody.cart.cartItems.contains(_cartItem)
                                    ?  "Added To Cart"
                                     : "Add To Cart",
                                 press: () {
@@ -79,8 +102,12 @@ class _BodyState extends State<Body> {
                               ),
                               SizedBox(height: 15),
                               PrimaryButton(
-                                text: "Buy Now",
-                                press: () {},
+                                text: providerbody.wishlist.wishlistitems.contains(_wishlistitem)
+                                   ?  "Added To Wishlist"
+                                    : "Add To wishlist",
+                                press: () {
+                                  _addToWishlist();
+                                },
                               ),
                             ])),
                       ),

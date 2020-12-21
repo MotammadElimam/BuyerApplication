@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/screens/cart/components/body.dart';
-import 'package:BuyerApplication/screens/cart/components/check_out_card.dart';
+import 'package:BuyerApplication/screens/wishlist/components/body.dart';
+import 'package:BuyerApplication/screens/wishlist/components/check_out_card.dart';
 
 
-class CartScreen extends StatelessWidget {
-  static String routeName = "/cart";
+
+class WishListScreen extends StatelessWidget {
+  static String routeName = "/wishlist";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
       body: Body(),
-      bottomNavigationBar: CheckoutCard(),
+      bottomNavigationBar: WishlistCard(),
     );
   }
 
@@ -19,7 +20,7 @@ class CartScreen extends StatelessWidget {
       title: Column(
         children: [
           Text(
-            "Your Cart",
+            "Your Wishlist",
             style: TextStyle(color: Colors.black),
           ),
           /*Text(

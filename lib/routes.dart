@@ -1,3 +1,5 @@
+import 'package:BuyerApplication/models/Wishlist.dart';
+import 'package:BuyerApplication/models/wishlist_item.dart';
 import 'package:BuyerApplication/screens/splash/splash_scrreen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:BuyerApplication/screens/sign_in/sign_in_screen.dart';
@@ -8,7 +10,7 @@ import 'package:BuyerApplication/screens/home/home_screen.dart';
 import 'package:BuyerApplication/screens/otp/otp_screen.dart';
 import 'package:BuyerApplication/screens/details/details_screen.dart';
 import 'package:BuyerApplication/screens/cart/cart_screen.dart';
-
+import 'package:BuyerApplication/screens/wishlist/wishlist_screen.dart';
 
 
 // We use name route
@@ -23,4 +25,5 @@ final Map<String, WidgetBuilder> routes = {
   HomeScreen.routeName: (context) => HomeScreen(),
   DetailsScreen.routeName: (context) => DetailsScreen(),
   CartScreen.routeName: (context) => CartScreen(),
+  WishListScreen.routeName: (context) => WishListScreen(),
 };

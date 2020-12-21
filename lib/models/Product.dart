@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 
 class Product {
-  final int id;
-  final String title, description;
-  final List<String> images;
-  final List<Color> colors;
-  final double rating, price;
-  final bool isFavourite, isPopular;
+  int id;
+  String title, description;
+  List<String> images;
+  List<Color> colors;
+  double rating, price;
+  bool isFavourite, isPopular;
 
   Product({
-    @required this.id,
-    @required this.images,
-    @required this.colors,
+    this.id,
+    this.images,
+    this.colors,
     this.rating = 0.0,
     this.isFavourite = false,
     this.isPopular = false,
-    @required this.title,
-    @required this.price,
-    @required this.description,
+    this.title,
+    this.price,
+    this.description,
   });
 }
 

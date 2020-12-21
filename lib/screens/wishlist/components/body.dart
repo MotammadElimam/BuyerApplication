@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:BuyerApplication/controllers/ProductProvider.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:BuyerApplication/size_config.dart';
-import 'package:BuyerApplication/screens/cart/components/cart_card.dart';
+import 'package:BuyerApplication/screens/wishlist/components/wishlist_card.dart';
 import 'package:provider/provider.dart';
 
 
@@ -14,19 +14,19 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
-    return Consumer<ProductProvider>(builder: (context, cartbody, child) {
+    return Consumer<ProductProvider>(builder: (context, wishlistbody, child) {
     return Padding(
       padding:
           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
       child: ListView.builder(
-        itemCount: cartbody.cart.cartItems.length,
+        itemCount: wishlistbody.wishlist.wishlistitems.length,
         itemBuilder: (context, index) => Padding(
           padding: EdgeInsets.symmetric(vertical: 10),
           child: Dismissible(
-            key: Key(cartbody.cart.cartItems[index].product.id.toString()),
+            key: Key(wishlistbody.wishlist.wishlistitems[index].product.id.toString()),
             direction: DismissDirection.endToStart,
             onDismissed: (direction) {
-                cartbody.removeFromCart(cartbody.cart.cartItems[index]);
+                wishlistbody.removeFromWishlist(wishlistbody.wishlist.wishlistitems[index]);
             },
             background: Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
@@ -41,7 +41,7 @@ class _BodyState extends State<Body> {
                 ],
               ),
             ),
-            child: CartCard(cartitem: cartbody.cart.cartItems[index]),
+            child: WishListCard(wishlistitem: wishlistbody.wishlist.wishlistitems[index]),
           ),
         ),
       ),
