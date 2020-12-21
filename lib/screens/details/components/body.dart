@@ -6,8 +6,7 @@ import 'package:BuyerApplication/size_config.dart';
 import 'package:BuyerApplication/screens/details/components/product_description.dart';
 import 'package:BuyerApplication/screens/details/components/top_rounded_container.dart';
 import 'package:BuyerApplication/screens/details/components/product_images.dart';
-
-import 'package:provider/provider.dart';
+//import 'package:provider/provider.dart';
 
 class Body extends StatelessWidget {
   final Product product;
@@ -16,7 +15,6 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<ProductProvider>(context, listen: true);
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -44,14 +42,8 @@ class Body extends StatelessWidget {
                             ),
                             child: Column(children: [
                               PrimaryButton(
-                                text: provider.isAdded(product)
-                                    ? "Added To Cart"
-                                    : "Add To Cart",
-                                press: () {
-                                  provider.isAdded(product)
-                                      ? provider.removeProduct(product)
-                                      : provider.addProduct(product);
-                                },
+                                text: "Add To Cart",
+                                press: () {},
                               ),
                               SizedBox(height: 15),
                               PrimaryButton(
