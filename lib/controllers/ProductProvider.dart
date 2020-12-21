@@ -1,14 +1,12 @@
-
-
-import 'package:BuyerApplication/models/Cart.dart';
-import 'package:BuyerApplication/models/Product.dart';
-import 'package:BuyerApplication/models/cart_item.dart';
 import 'package:flutter/material.dart';
+import 'package:BuyerApplication/models/Cart.dart';
+import 'package:BuyerApplication/models/cart_item.dart';
 import 'package:supercharged/supercharged.dart';
+
+
 class ProductProvider extends ChangeNotifier {
   double price = 0.0;
   double quentity = 0.0;
-  // List<Product> cartItems = <Product>[];
   Cart cart = Cart();
   Map<String, double> cartItemsNumber = {};
 
