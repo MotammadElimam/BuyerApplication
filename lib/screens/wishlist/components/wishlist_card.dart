@@ -4,6 +4,7 @@ import 'package:BuyerApplication/constants.dart';
 import 'package:BuyerApplication/size_config.dart';
 
 
+// ignore: must_be_immutable
 class WishListCard extends StatelessWidget {
   WishListCard({
     Key key,
