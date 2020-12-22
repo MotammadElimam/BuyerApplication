@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:BuyerApplication/screens/wishlist/components/body.dart';
-import 'package:BuyerApplication/screens/wishlist/components/check_out_card.dart';
 
 
 
@@ -11,7 +10,6 @@ class WishListScreen extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(context),
       body: Body(),
-      bottomNavigationBar: WishlistCard(),
     );
   }
 
@@ -23,10 +21,6 @@ class WishListScreen extends StatelessWidget {
             "Your Wishlist",
             style: TextStyle(color: Colors.black),
           ),
-          /*Text(
-            "${demoCarts.length} items",
-            style: Theme.of(context).textTheme.caption,
-          ),*/
         ],
       ),
     );
