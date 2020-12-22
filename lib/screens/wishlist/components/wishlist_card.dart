@@ -40,18 +40,14 @@ class WishListCard extends StatelessWidget {
               maxLines: 2,
             ),
             SizedBox(height: 10),
-            /*Text.rich(
+            Text.rich(
               TextSpan(
                 text: "\$${wishlistitem.product.price}",
                 style: TextStyle(
                     fontWeight: FontWeight.w600, color: kPrimaryColor),
-                children: [
-                  TextSpan(
-                      text: " x${cartitem.quantity}",
-                      style: Theme.of(context).textTheme.bodyText1),
-                ],
+                
               ),
-            )*/
+            )
           ],
         )
       ],
