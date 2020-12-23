@@ -1,5 +1,5 @@
-import 'package:BuyerApplication/components/Bottom_nav_bar.dart';
 import 'package:BuyerApplication/components/buttons/primary_button.dart';
+import 'package:BuyerApplication/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:BuyerApplication/components/custom_surfix_icon.dart';
 import 'package:BuyerApplication/components/form_error.dart';
@@ -77,13 +77,7 @@ class _SignFormState extends State<SignForm> {
               if (_formKey.currentState.validate()) {
                 // If all data are correct then save data to out variables
                 _formKey.currentState.save();
-
-                // just for demo
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BottomNavBar(),
-                    ));
+              Navigator.pushNamed(context, HomeScreen.routeName);
               } else {
                 // If all data are not valid then start auto validation.
                 setState(() {

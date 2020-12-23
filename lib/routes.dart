@@ -1,5 +1,6 @@
 import 'package:BuyerApplication/models/Wishlist.dart';
 import 'package:BuyerApplication/models/wishlist_item.dart';
+import 'package:BuyerApplication/screens/profile/profile_screen.dart';
 import 'package:BuyerApplication/screens/splash/splash_scrreen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:BuyerApplication/screens/sign_in/sign_in_screen.dart';
@@ -26,4 +27,5 @@ final Map<String, WidgetBuilder> routes = {
   DetailsScreen.routeName: (context) => DetailsScreen(),
   CartScreen.routeName: (context) => CartScreen(),
   WishListScreen.routeName: (context) => WishListScreen(),
+  ProfileScreen.routeName:(context) => ProfileScreen(),
 };
