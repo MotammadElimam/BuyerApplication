@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:BuyerApplication/components/coustom_bottom_nav_bar.dart';
 import 'package:BuyerApplication/enums.dart';
-import 'package:BuyerApplication/screens/complete_profile/components/body.dart';
+import 'package:BuyerApplication/screens/profile/components/body.dart';
 
 
 class ProfileScreen extends StatelessWidget {
