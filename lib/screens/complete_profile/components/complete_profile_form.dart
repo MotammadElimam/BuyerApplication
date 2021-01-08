@@ -1,10 +1,14 @@
+import 'package:BuyerApplication/components/buttons/primary_button.dart';
+import 'package:BuyerApplication/controllers/ProductProvider.dart';
+import 'package:BuyerApplication/controllers/databasehelper.dart';
+import 'package:BuyerApplication/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:BuyerApplication/components/custom_surfix_icon.dart';
-import 'package:BuyerApplication/components/default_button.dart';
 import 'package:BuyerApplication/components/form_error.dart';
 import 'package:BuyerApplication/constants.dart';
 import 'package:BuyerApplication/size_config.dart';
 import 'package:BuyerApplication/screens/otp/otp_screen.dart';
+import 'package:provider/provider.dart';
 
 
 
@@ -14,8 +18,11 @@ class CompleteProfileForm extends StatefulWidget {
 }
 
 class _CompleteProfileFormState extends State<CompleteProfileForm> {
+  DatabaseHelper databaseHelper = new DatabaseHelper();
+  String msgStatus = '';
   final _formKey = GlobalKey<FormState>();
   final List<String> errors = [];
+  //TextEditingController _firstName = new TextEditingController();
   String firstName;
   String lastName;
   String phoneNumber;
@@ -35,6 +42,29 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       });
   }
 
+  _onpress(){
+    setState(() {             
+              if (_formKey.currentState.validate()) {
+               databaseHelper.registerData(
+                 Provider.of<ProductProvider>(context, listen: false).email,
+                 Provider.of<ProductProvider>(context, listen: false).password,
+                 Provider.of<ProductProvider>(context, listen: false).confirmPassword,
+                 Provider.of<ProductProvider>(context, listen: false).firstName,
+                 Provider.of<ProductProvider>(context, listen: false).lastName,
+                 Provider.of<ProductProvider>(context, listen: false).phoneNumber,
+                 Provider.of<ProductProvider>(context, listen: false).adress,
+                 ).whenComplete((){
+                if(databaseHelper.status){
+                _showDialog();
+                msgStatus = 'Check email or password';
+                }else{
+                Navigator.pushNamed(context, HomeScreen.routeName);
+                   }
+        });
+      }
+       });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -50,28 +80,27 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           buildAddressFormField(),
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(40)),
-          DefaultButton(
+          PrimaryButton(
             text: "continue",
-            press: () {
-              if (_formKey.currentState.validate()) {
-                Navigator.pushNamed(context, OtpScreen.routeName);
-              }
-            },
-          ),
-        ],
+                  press: () {
+              _onpress();
+            }
+          )],
       ),
     );
   }
 
   TextFormField buildAddressFormField() {
     return TextFormField(
-      onSaved: (newValue) => address = newValue,
+      onSaved: (newValue) => Provider.of<ProductProvider>(context, listen: false).adress=newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kAddressNullError);
+          Provider.of<ProductProvider>(context, listen: false).adress=value;
         }
         return null;
       },
+      //controller: ,
       validator: (value) {
         if (value.isEmpty) {
           addError(error: kAddressNullError);
@@ -94,10 +123,11 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   TextFormField buildPhoneNumberFormField() {
     return TextFormField(
       keyboardType: TextInputType.phone,
-      onSaved: (newValue) => phoneNumber = newValue,
+      onSaved: (newValue) =>Provider.of<ProductProvider>(context, listen: false).phoneNumber=newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPhoneNumberNullError);
+          Provider.of<ProductProvider>(context, listen: false).phoneNumber=value;
         }
         return null;
       },
@@ -121,7 +151,14 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   TextFormField buildLastNameFormField() {
     return TextFormField(
-      onSaved: (newValue) => lastName = newValue,
+      onSaved: (newValue) => Provider.of<ProductProvider>(context, listen: false).lastName=newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          removeError(error: kNamelNullError);
+           Provider.of<ProductProvider>(context, listen: false).lastName=value;
+        }
+        return null;
+      },
       decoration: InputDecoration(
         labelText: "Last Name",
         hintText: "Enter your last name",
@@ -135,10 +172,11 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   TextFormField buildFirstNameFormField() {
     return TextFormField(
-      onSaved: (newValue) => firstName = newValue,
+    onSaved: (newValue) => Provider.of<ProductProvider>(context, listen: false).firstName=newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kNamelNullError);
+           Provider.of<ProductProvider>(context, listen: false).firstName=value;
         }
         return null;
       },
@@ -159,4 +197,32 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       ),
     );
   }
+
+
+  void _showDialog(){
+    showDialog(
+        context:context ,
+        builder:(BuildContext context){
+          return AlertDialog(
+            title: new Text('Failed'),
+            content:  new Text('Check your email or password'),
+            actions: <Widget>[
+              new RaisedButton(
+
+                child: new Text(
+                  'Close',
+                ),
+
+                onPressed: (){
+                  Navigator.of(context).pop();
+                },
+
+              ),
+            ],
+          );
+        }
+    );
+  }
 }
+
+ 

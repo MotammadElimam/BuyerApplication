@@ -10,6 +10,18 @@ class ProductProvider extends ChangeNotifier {
   Cart cart = Cart();
   Wishlist wishlist = Wishlist();
 
+
+
+  String email;
+  String password;
+  String confirmPassword;
+  String firstName;
+  String lastName;
+  String phoneNumber;
+  String adress;
+  
+  
+
   addToCart(CartItem cartItem) {
     try {
       cart.cartItems.add(cartItem);
