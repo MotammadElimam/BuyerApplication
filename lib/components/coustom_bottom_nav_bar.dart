@@ -1,3 +1,4 @@
+import 'package:BuyerApplication/BalancePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:BuyerApplication/screens/home/home_screen.dart';
@@ -63,7 +64,9 @@ class CustomBottomNavBar extends StatelessWidget {
                       ? kPrimaryColor
                       : inActiveIconColor,
                   ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, BalancePage.routeName);
+                },
               ),
               IconButton(
                 icon: SvgPicture.asset(

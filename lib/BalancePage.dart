@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BalancePage extends StatelessWidget {
+  static String routeName = "/BalancePage";
   BalancePage({
     Key key,
   }) : super(key: key);
