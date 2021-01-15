@@ -2,6 +2,7 @@ import 'package:BuyerApplication/components/dot_indicators.dart';
 import 'package:BuyerApplication/constants.dart';
 import 'package:BuyerApplication/screens/sign_in/sign_in_screen.dart';
 import 'package:BuyerApplication/screens/splash/components/splash_content.dart';
+import 'package:BuyerApplication/screens/splash/splash_scrreen.dart';
 import 'package:flutter/material.dart';
 import 'package:BuyerApplication/components/buttons/primary_button.dart';
 
@@ -46,12 +47,7 @@ class _BodyState extends State<Body> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
             child: PrimaryButton(
-              press: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => SignInScreen(),
-                ),
-              ),
+              press: () =>  Navigator.pushNamed(context, SignInScreen.routeName),
               text: "Get Started",
             ),
           ),
