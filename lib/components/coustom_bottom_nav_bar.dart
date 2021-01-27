@@ -1,4 +1,5 @@
-import 'package:BuyerApplication/BalancePage.dart';
+
+import 'package:BuyerApplication/screens/balance_page/BalancePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:BuyerApplication/screens/home/home_screen.dart';
@@ -40,7 +41,7 @@ class CustomBottomNavBar extends StatelessWidget {
             children: [
               IconButton(
                 icon: SvgPicture.asset(
-                  "assets/icons/shop.svg",
+                  "assets/icons/Shop Icon.svg",
                   color: MenuState.home == selectedMenu
                       ? kPrimaryColor
                       : inActiveIconColor,
@@ -50,7 +51,7 @@ class CustomBottomNavBar extends StatelessWidget {
               ),
               IconButton(
                 icon: SvgPicture.asset(
-                  "assets/icons/heart.svg",
+                  "assets/icons/Heart Icon.svg",
                   color: MenuState.wishlist == selectedMenu
                       ? kPrimaryColor
                       : inActiveIconColor,
@@ -59,7 +60,10 @@ class CustomBottomNavBar extends StatelessWidget {
               ),
               IconButton(
                 icon: SvgPicture.asset(
-                  "assets/icons/wallet1.svg",
+                  "assets\icons\wallet1.svg",
+                  width: 18,
+                  height: 18,
+                  fit: BoxFit.contain,
                   color: MenuState.wallet == selectedMenu
                       ? kPrimaryColor
                       : inActiveIconColor,
@@ -70,7 +74,7 @@ class CustomBottomNavBar extends StatelessWidget {
               ),
               IconButton(
                 icon: SvgPicture.asset(
-                  "assets/icons/user1.svg",
+                  "assets/icons/User Icon.svg",
                   color: MenuState.profile == selectedMenu
                       ? kPrimaryColor
                       : inActiveIconColor,

@@ -53,6 +53,14 @@ final headingStyle = TextStyle(
   height: 1.5,
 );
 
+final TextStyle kSubHeadTextStyle = TextStyle(
+  fontSize: getProportionateScreenWidth(20),
+  fontWeight: FontWeight.w500,
+  color: kMainColor,
+  letterSpacing: 0.44,
+);
+
+
 // Form Error
 final RegExp emailValidatorRegExp =
 RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");

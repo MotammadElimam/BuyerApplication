@@ -1,7 +1,6 @@
-import 'package:BuyerApplication/BalancePage.dart';
-import 'package:BuyerApplication/models/Wishlist.dart';
-import 'package:BuyerApplication/models/wishlist_item.dart';
+import 'package:BuyerApplication/screens/balance_page/balancePage.dart';
 import 'package:BuyerApplication/screens/profile/profile_screen.dart';
+import 'package:BuyerApplication/screens/profile/setting.dart';
 import 'package:BuyerApplication/screens/splash/splash_scrreen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:BuyerApplication/screens/sign_in/sign_in_screen.dart';
@@ -30,4 +29,5 @@ final Map<String, WidgetBuilder> routes = {
   WishListScreen.routeName: (context) => WishListScreen(),
   ProfileScreen.routeName:(context) => ProfileScreen(),
   BalancePage.routeName:(context) => BalancePage(),
+  SettingsPage.routeName:(context)=>SettingsPage(),
 };
