@@ -1,5 +1,6 @@
 
 import 'package:BuyerApplication/screens/balance_page/BalancePage.dart';
+import 'package:BuyerApplication/screens/wishlist/wishlist_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:BuyerApplication/screens/home/home_screen.dart';
@@ -56,13 +57,15 @@ class CustomBottomNavBar extends StatelessWidget {
                       ? kPrimaryColor
                       : inActiveIconColor,
                   ),
-                onPressed: () {},
+                onPressed: () {
+                   Navigator.pushNamed(context, WishListScreen.routeName);
+                },
               ),
               IconButton(
                 icon: SvgPicture.asset(
-                  "assets\icons\wallet1.svg",
-                  width: 18,
-                  height: 18,
+                  "assets/icons/wallet1.svg",
+                  width: 25,
+                  height: 25,
                   fit: BoxFit.contain,
                   color: MenuState.wallet == selectedMenu
                       ? kPrimaryColor
