@@ -22,7 +22,6 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   String msgStatus = '';
   final _formKey = GlobalKey<FormState>();
   final List<String> errors = [];
-  //TextEditingController _firstName = new TextEditingController();
   String firstName;
   String lastName;
   String phoneNumber;
@@ -77,7 +76,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           SizedBox(height: getProportionateScreenHeight(30)),
           buildPhoneNumberFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
-          buildAddressFormField(),
+          // buildAddressFormField(),
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(40)),
           PrimaryButton(
