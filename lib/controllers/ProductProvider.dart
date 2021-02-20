@@ -12,13 +12,7 @@ class ProductProvider extends ChangeNotifier {
 
 
 
-  String email;
-  String password;
-  String confirmPassword;
-  String firstName;
-  String lastName;
-  String phoneNumber;
-  String adress;
+  
   
   
 
