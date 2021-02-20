@@ -105,7 +105,7 @@ class DatabaseHelper{
       print('Response status : ${response.statusCode}');
       print('Response body : ${response.body}');
     });
-  }
+  }*/
 
   void addData(String name , String price) async {
     final prefs = await SharedPreferences.getInstance();
@@ -133,7 +133,7 @@ class DatabaseHelper{
     final key = 'token';
     final value = prefs.get(key ) ?? 0;
 
-    String myUrl = "http://flutterapitutorial.codeforiraq.org/api/products/$id";
+    String myUrl = "$serverUrl/api/products/$id";
     http.put(myUrl,
         headers: {
           'Accept':'application/json',
@@ -146,7 +146,7 @@ class DatabaseHelper{
       print('Response status : ${response.statusCode}');
       print('Response body : ${response.body}');
     });
-  }*/
+  }
 
 
 

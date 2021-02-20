@@ -1,6 +1,6 @@
 import 'package:BuyerApplication/components/buttons/primary_button.dart';
 import 'package:BuyerApplication/constants.dart';
-import 'package:BuyerApplication/controllers/ProductProvider.dart';
+import 'package:BuyerApplication/controllers/UserProvider.dart';
 import 'package:BuyerApplication/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:BuyerApplication/components/custom_surfix_icon.dart';
@@ -68,11 +68,11 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildConformPassFormField() {
     return TextFormField(
       obscureText: true,
-      onSaved: (newValue) => Provider.of<ProductProvider>(context, listen: false).confirmPassword=newValue,
+      onSaved: (newValue) => Provider.of<UserProvider>(context, listen: false).confirmPassword=newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPassNullError);
-          Provider.of<ProductProvider>(context, listen: false).confirmPassword=value;
+          Provider.of<UserProvider>(context, listen: false).confirmPassword=value;
         } else if (value.isNotEmpty && password == confirmPassword) {
           removeError(error: kMatchPassError);
         }
@@ -102,11 +102,11 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildPasswordFormField() {
     return TextFormField(
       obscureText: true,
-      onSaved: (newValue) =>Provider.of<ProductProvider>(context, listen: false).password=newValue,
+      onSaved: (newValue) =>Provider.of<UserProvider>(context, listen: false).password=newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPassNullError);
-          Provider.of<ProductProvider>(context, listen: false).password=value;
+          Provider.of<UserProvider>(context, listen: false).password=value;
         } else if (value.length >= 8) {
           removeError(error: kShortPassError);
         }
@@ -136,11 +136,11 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildEmailFormField() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
-      onSaved: (newValue) => Provider.of<ProductProvider>(context, listen: false).email=newValue,
+      onSaved: (newValue) => Provider.of<UserProvider>(context, listen: false).email=newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kEmailNullError);
-           Provider.of<ProductProvider>(context, listen: false).email=value;
+           Provider.of<UserProvider>(context, listen: false).email=value;
         } else if (emailValidatorRegExp.hasMatch(value)) {
           removeError(error: kInvalidEmailError);
         }
