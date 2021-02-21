@@ -1,5 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'dart:io';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class DatabaseHelper{
@@ -107,7 +108,7 @@ class DatabaseHelper{
     });
   }*/
 
-  void addData(String name , String price) async {
+  void addData(String name , String price , String desc ,File image) async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'token';
     final value = prefs.get(key ) ?? 0;
@@ -120,7 +121,9 @@ class DatabaseHelper{
         },
         body: {
           "name": "$name",
-          "price" : "$price"
+          "price" : "$price",
+          "desc" : "$desc",
+          "image": "$image"
         }).then((response){
       print('Response status : ${response.statusCode}');
       print('Response body : ${response.body}');
