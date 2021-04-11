@@ -10,35 +10,29 @@ class DatabaseHelper{
 
   var token ;
 
-  loginData(String email , String password) async{
-   String logininformation = 
-          "email="+"$email"+
-          "&password="+"$password";
-        
-        print(logininformation);
+loginData(String email, String password) async {
+    String logininformation = "email=" + "$email" + "&password=" + "$password";
+
+    print(logininformation);
     String myUrl = "$serverUrl/api/login?$logininformation";
-  final response = await  http.get(myUrl,
-        headers: {
-          'Accept':'application/json'
-        },
-        
-        );
+    final response = await http.get(
+      myUrl,
+      headers: {'Accept': 'application/json'},
+    );
     status = response.body.contains('error');
 
     var data = json.decode(response.body);
-    
-    
+
     print(response.statusCode);
     print(response.body);
-    
-    
-    if(status){
+
+    if (status) {
       print('data : ${data["error"]}');
-    }else{
+    } else {
       print('data : ${data["token"]}');
       _save(data["token"]);
     }
-  
+  }
   }
 
    registerData(String email ,String password , String confirmPassword ,String firstName , String lastName, String phoneNumber, String adress ) async{
