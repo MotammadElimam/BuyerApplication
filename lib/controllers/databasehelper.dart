@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class DatabaseHelper{
 
-  String serverUrl = "http://192.168.43.92";
+  String serverUrl = "http://192.168.43.92:8000";
   var status ;
 
   var token ;
@@ -168,6 +168,6 @@ loginData(String email, String password) async {
   
   
   
-}
+
 
 
