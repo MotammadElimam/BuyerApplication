@@ -15,17 +15,17 @@ class PopularProducts extends StatefulWidget {
 
 class _PopularProductsState extends State<PopularProducts> {
   HomeProduct homeProduct = HomeProduct();
-@override
+  @override
   void initState() {
     super.initState();
     homeProduct.loadData();
     homeProduct.addListener(() {
       print("is loading ${homeProduct.loading}");
       print("is error ${homeProduct.error}");
-            print("is data ${homeProduct.products}");
-
+      print("is data ${homeProduct.products}");
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -33,9 +33,11 @@ class _PopularProductsState extends State<PopularProducts> {
         Padding(
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: SectionTitle(title: "Popular Products", press: () {
-            homeProduct.loadData();
-          }),
+          child: SectionTitle(
+              title: "Popular Products",
+              press: () {
+                homeProduct.loadData();
+              }),
         ),
         SizedBox(height: getProportionateScreenWidth(20)),
         // SingleChildScrollView(
@@ -64,41 +66,61 @@ class _PopularProductsState extends State<PopularProducts> {
         //     ],
         //   ),
         // )
-        // 
-        Consumer<HomeProduct>(builder: (context,data,child){
-print("Data : ${data.products}");          
-          if(Provider.of<HomeProduct>(context).loading)
-          return  Center(child: CircularProgressIndicator(),);
-          else if(data.error)
-          return  Text("ERrror");
-          else if(data.products!=null) return ListView.builder(itemBuilder: (context,index){
-            return ProductCard(product: data.products[index], press: (){});
-          },itemCount: data.products.length,scrollDirection: Axis.horizontal,);
-          else return Container();
-        },child: Text("Hello"),)
+        //
+        ChangeNotifierProvider<HomeProduct>(
+          create: (context) => homeProduct,
+          child: Consumer<HomeProduct>(
+            builder: (context, data, child) {
+              print("Data : ${data.products}");
+              if (data.loading)
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              else if (data.error)
+                return Text("ERrror");
+              else if (data.products != null)
+                return Container(
+                  height: 500,
+                  child: ListView.builder(
+                    itemBuilder: (context, index) {
+                      return ProductCard(
+                          product: data.products[index], press: () {});
+                    },
+                    itemCount: data.products.length,
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                  ),
+                );
+              else
+                return Container();
+            },
+            child: Text("Hello"),
+          ),
+        )
       ],
     );
   }
 }
-class HomeProduct extends ChangeNotifier{
+
+class HomeProduct extends ChangeNotifier {
   bool loading = false;
   List<Product> products;
   bool error = false;
   var helper = DatabaseHelper();
-  loadData()async{
-    try{
+  loadData() async {
+    try {
       loading = true;
       notifyListeners();
 
-   var data = await helper.getmyProducts();
+      var data = await helper.getmyProducts();
 
-   loading = false;
-  products = data.map((e) => Product.fromJson(e)).toList();
-  notifyListeners();
-    }catch(err){
+      loading = false;
+      products = data.map((e) => Product.fromJson(e)).toList();
+      notifyListeners();
+    } catch (err) {
       print(err);
-error = true; 
-notifyListeners();
+      error = true;
+      notifyListeners();
     }
   }
 }

@@ -38,7 +38,7 @@ class ProductCard extends StatelessWidget {
                     color: kSecondaryColor.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Image.asset(product.image),
+                  child: Image.network(product.image),
                 ),
               ),
               const SizedBox(height: 10),
@@ -71,7 +71,7 @@ class ProductCard extends StatelessWidget {
                             : kSecondaryColor.withOpacity(0.1),
                         shape: BoxShape.circle,
                       ),
-                      child: SvgPicture.asset(
+                      child: Image.network(
                         "assets/icons/Heart Icon_2.svg",
                         color:true
                             ? Color(0xFFFF4848)

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<ProductProvider>(
           create: (context) => ProductProvider(),
         ),
-        ChangeNotifierProvider<HomeProduct>(create: (context)=>HomeProduct())
+        // ChangeNotifierProvider<HomeProduct>(create: (context)=>HomeProduct())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
