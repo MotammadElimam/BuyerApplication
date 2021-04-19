@@ -27,7 +27,7 @@ class WishListCard extends StatelessWidget {
                 color: Color(0xFFF5F6F9),
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: Image.asset(wishlistitem.product.images[0]),
+              child: Image.network(wishlistitem.product.image),
             ),
           ),
         ),
@@ -36,7 +36,7 @@ class WishListCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              wishlistitem.product.productName,
+              wishlistitem.product.name,
               style: TextStyle(color: Colors.black, fontSize: 16),
               maxLines: 2,
             ),

@@ -1,3 +1,4 @@
+import 'package:BuyerApplication/screens/home/components/popular_product.dart';
 import 'package:BuyerApplication/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:BuyerApplication/routes.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<ProductProvider>(
           create: (context) => ProductProvider(),
         ),
+        ChangeNotifierProvider<HomeProduct>(create: (context)=>HomeProduct())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

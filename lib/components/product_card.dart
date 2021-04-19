@@ -38,12 +38,12 @@ class ProductCard extends StatelessWidget {
                     color: kSecondaryColor.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Image.asset(product.images[0]),
+                  child: Image.asset(product.image),
                 ),
               ),
               const SizedBox(height: 10),
               Text(
-                product.productName,
+                product.name,
                 style: TextStyle(color: Colors.black),
                 maxLines: 2,
               ),
@@ -66,14 +66,14 @@ class ProductCard extends StatelessWidget {
                       height: getProportionateScreenWidth(28),
                       width: getProportionateScreenWidth(28),
                       decoration: BoxDecoration(
-                        color: product.isFavourite
+                        color:true
                             ? kPrimaryColor.withOpacity(0.15)
                             : kSecondaryColor.withOpacity(0.1),
                         shape: BoxShape.circle,
                       ),
                       child: SvgPicture.asset(
                         "assets/icons/Heart Icon_2.svg",
-                        color: product.isFavourite
+                        color:true
                             ? Color(0xFFFF4848)
                             : Color(0xFFDBDEE4),
                       ),

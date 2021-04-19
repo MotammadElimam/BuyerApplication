@@ -74,7 +74,7 @@ class DatabaseHelper {
     final key = 'token';
     final value = prefs.get(key) ?? 0;
 
-    String myUrl = "$serverUrl/api/getallproducts/";
+    String myUrl = "$serverUrl/seller_api/getallSellerproducts/";
     http.Response response = await http.get(myUrl, headers: {
       'Accept': 'application/json',
       'Authorization': 'Bearer $value'
