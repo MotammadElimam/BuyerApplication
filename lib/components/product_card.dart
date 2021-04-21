@@ -1,5 +1,6 @@
 import 'package:buyer_application/constants.dart';
 import 'package:buyer_application/models/Product.dart';
+import 'package:buyer_application/screens/details/details_screen.dart';
 import 'package:buyer_application/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,9 @@ class ProductCard extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
       child: GestureDetector(
-        onTap: press,
+        onTap:  () => Navigator.pushNamed(context,DetailsScreen.routeName,
+            // arguments: ProductDetailsArguments(product: product),
+          ),
               child: SizedBox(
           width: getProportionateScreenWidth(width),
           child: Column(
@@ -68,18 +71,6 @@ class ProductCard extends StatelessWidget {
                       padding: EdgeInsets.all(getProportionateScreenWidth(8)),
                       height: getProportionateScreenWidth(28),
                       width: getProportionateScreenWidth(28),
-                      // decoration: BoxDecoration(
-                      //   color:true
-                      //       ? kPrimaryColor.withOpacity(0.15)
-                      //       : kSecondaryColor.withOpacity(0.1),
-                      //   shape: BoxShape.circle,
-                      // ),
-                      child: Image.network(
-                        "assets/icons/Heart Icon_2.svg",
-                        color:true
-                            ? Color(0xFFFF4848)
-                            : Color(0xFFDBDEE4),
-                      ),
                     ),
                   ),
                 ],

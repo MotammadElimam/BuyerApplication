@@ -38,33 +38,6 @@ class _PopularProductsState extends State<PopularProducts> {
               }),
         ),
         SizedBox(height: getProportionateScreenWidth(20)),
-        // SingleChildScrollView(
-        //   scrollDirection: Axis.horizontal,
-        //   child: Row(
-        //     children: [
-        //       ...List.generate(
-        //         demoProducts.length,
-        //         (index) {
-        //           if (demoProducts[index].isPopular)
-        //             return ProductCard(
-        //               product: demoProducts[index],
-        //               press: () => Navigator.pushNamed(
-        //                 context,
-        //                 DetailsScreen.routeName,
-        //                 arguments: ProductDetailsArguments(
-        //                     product: demoProducts[index]),
-        //               ),
-        //             );
-
-        //           return SizedBox
-        //               .shrink(); // here by default width and height is 0
-        //         },
-        //       ),
-        //       SizedBox(width: getProportionateScreenWidth(20)),
-        //     ],
-        //   ),
-        // )
-        //
         ChangeNotifierProvider<HomeProduct>(
           create: (context) => homeProduct,
           child: Consumer<HomeProduct>(
@@ -75,7 +48,7 @@ class _PopularProductsState extends State<PopularProducts> {
                   child: CircularProgressIndicator(),
                 );
               else if (data.error)
-                return Text("ERrror");
+                return Text("Error");
               else if (data.products != null)
                 return Container(
                   height: 500,
@@ -92,7 +65,6 @@ class _PopularProductsState extends State<PopularProducts> {
               else
                 return Container();
             },
-            child: Text("Hello"),
           ),
         )
       ],
@@ -104,13 +76,13 @@ class HomeProduct extends ChangeNotifier {
   bool loading = false;
   List<Product> products;
   bool error = false;
-  var helper = DatabaseHelper();
+  var producthelper = DatabaseHelper();
   loadData() async {
     try {
       loading = true;
       notifyListeners();
 
-      var data = await helper.getmyProducts();
+      var data = await producthelper.getmyProducts();
 
       loading = false;
       products = data.map((e) => Product.fromJson(e)).toList();
