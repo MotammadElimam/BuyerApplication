@@ -68,12 +68,12 @@ class ProductCard extends StatelessWidget {
                       padding: EdgeInsets.all(getProportionateScreenWidth(8)),
                       height: getProportionateScreenWidth(28),
                       width: getProportionateScreenWidth(28),
-                      decoration: BoxDecoration(
-                        color:true
-                            ? kPrimaryColor.withOpacity(0.15)
-                            : kSecondaryColor.withOpacity(0.1),
-                        shape: BoxShape.circle,
-                      ),
+                      // decoration: BoxDecoration(
+                      //   color:true
+                      //       ? kPrimaryColor.withOpacity(0.15)
+                      //       : kSecondaryColor.withOpacity(0.1),
+                      //   shape: BoxShape.circle,
+                      // ),
                       child: Image.network(
                         "assets/icons/Heart Icon_2.svg",
                         color:true
