@@ -1,10 +1,9 @@
-import 'package:BuyerApplication/components/dot_indicators.dart';
-import 'package:BuyerApplication/constants.dart';
-import 'package:BuyerApplication/screens/sign_in/sign_in_screen.dart';
-import 'package:BuyerApplication/screens/splash/components/splash_content.dart';
-import 'package:BuyerApplication/screens/splash/splash_scrreen.dart';
+import 'package:buyer_application/components/dot_indicators.dart';
+import 'package:buyer_application/constants.dart';
+import 'package:buyer_application/screens/sign_in/sign_in_screen.dart';
+import 'package:buyer_application/screens/splash/components/splash_content.dart';
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/components/buttons/primary_button.dart';
+import 'package:buyer_application/components/buttons/primary_button.dart';
 
 
 class Body extends StatefulWidget {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/components/custom_surfix_icon.dart';
-import 'package:BuyerApplication/components/default_button.dart';
-import 'package:BuyerApplication/components/form_error.dart';
-import 'package:BuyerApplication/components/no_account_text.dart';
-import 'package:BuyerApplication/size_config.dart';
-import 'package:BuyerApplication/constants.dart';
+import 'package:buyer_application/components/custom_surfix_icon.dart';
+import 'package:buyer_application/components/default_button.dart';
+import 'package:buyer_application/components/form_error.dart';
+import 'package:buyer_application/components/no_account_text.dart';
+import 'package:buyer_application/size_config.dart';
+import 'package:buyer_application/constants.dart';
 
 class Body extends StatelessWidget {
   @override

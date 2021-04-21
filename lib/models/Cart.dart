@@ -1,4 +1,4 @@
-import 'package:BuyerApplication/models/cart_item.dart';
+import 'package:buyer_application/models/cart_item.dart';
 
 class Cart {
  double totalPrice = 0.0;

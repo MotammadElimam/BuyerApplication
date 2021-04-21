@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/components/no_account_text.dart';
-import 'package:BuyerApplication/components/social_card.dart';
-import 'package:BuyerApplication/size_config.dart';
-import 'package:BuyerApplication/screens/sign_in/components/sign_form.dart';
+import 'package:buyer_application/components/no_account_text.dart';
+import 'package:buyer_application/components/social_card.dart';
+import 'package:buyer_application/size_config.dart';
+import 'package:buyer_application/screens/sign_in/components/sign_form.dart';
 
 
 class Body extends StatelessWidget {

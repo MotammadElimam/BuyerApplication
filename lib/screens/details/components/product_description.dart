@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:BuyerApplication/models/Product.dart';
+import 'package:buyer_application/models/Product.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -35,6 +35,7 @@ class ProductDescription extends StatelessWidget {
             width: getProportionateScreenWidth(64),
             decoration: BoxDecoration(
               color:
+                  // ignore: todo
                   true ? Color(0xFFFFE6E6) : Color(0xFFF5F6F9), //TODO
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20),

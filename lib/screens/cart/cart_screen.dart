@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/screens/cart/components/body.dart';
-import 'package:BuyerApplication/screens/cart/components/check_out_card.dart';
+import 'package:buyer_application/screens/cart/components/body.dart';
+import 'package:buyer_application/screens/cart/components/check_out_card.dart';
 
 
 class CartScreen extends StatelessWidget {

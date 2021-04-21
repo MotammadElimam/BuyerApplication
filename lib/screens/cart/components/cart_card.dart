@@ -1,9 +1,10 @@
-import 'package:BuyerApplication/models/cart_item.dart';
+import 'package:buyer_application/models/cart_item.dart';
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/constants.dart';
-import 'package:BuyerApplication/size_config.dart';
+import 'package:buyer_application/constants.dart';
+import 'package:buyer_application/size_config.dart';
 
 
+// ignore: must_be_immutable
 class CartCard extends StatelessWidget {
   CartCard({
     Key key,

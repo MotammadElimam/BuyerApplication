@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/components/big_card_image.dart';
-import 'package:BuyerApplication/components/dot_indicators.dart';
-import 'package:BuyerApplication/size_config.dart';
+import 'package:buyer_application/components/big_card_image.dart';
+import 'package:buyer_application/components/dot_indicators.dart';
+import 'package:buyer_application/size_config.dart';
 
 class BigCardImageSlide extends StatefulWidget {
   const BigCardImageSlide({

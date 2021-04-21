@@ -1,9 +1,7 @@
-import 'package:BuyerApplication/screens/home/components/popular_product.dart';
-import 'package:BuyerApplication/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/routes.dart';
-import 'package:BuyerApplication/theme.dart';
-import 'package:BuyerApplication/screens/splash/splash_scrreen.dart';
+import 'package:buyer_application/routes.dart';
+import 'package:buyer_application/theme.dart';
+import 'package:buyer_application/screens/splash/splash_scrreen.dart';
 import 'package:provider/provider.dart';
 import 'controllers/ProductProvider.dart';
 

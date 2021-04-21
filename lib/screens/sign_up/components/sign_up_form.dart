@@ -1,11 +1,11 @@
-import 'package:BuyerApplication/components/buttons/primary_button.dart';
-import 'package:BuyerApplication/constants.dart';
-import 'package:BuyerApplication/controllers/UserProvider.dart';
-import 'package:BuyerApplication/size_config.dart';
+import 'package:buyer_application/components/buttons/primary_button.dart';
+import 'package:buyer_application/constants.dart';
+import 'package:buyer_application/controllers/UserProvider.dart';
+import 'package:buyer_application/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/components/custom_surfix_icon.dart';
-import 'package:BuyerApplication/components/form_error.dart';
-import 'package:BuyerApplication/screens/complete_profile/complete_profile_screen.dart';
+import 'package:buyer_application/components/custom_surfix_icon.dart';
+import 'package:buyer_application/components/form_error.dart';
+import 'package:buyer_application/screens/complete_profile/complete_profile_screen.dart';
 import 'package:provider/provider.dart';
 
 

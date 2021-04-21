@@ -13,6 +13,7 @@ class ProfilePic extends StatelessWidget {
       width: 115,
       child: Stack(
         fit: StackFit.expand,
+        // ignore: deprecated_member_use
         overflow: Overflow.visible,
         children: [
           CircleAvatar(
@@ -24,6 +25,7 @@ class ProfilePic extends StatelessWidget {
             child: SizedBox(
               height: 46,
               width: 46,
+              // ignore: deprecated_member_use
               child: FlatButton(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50),

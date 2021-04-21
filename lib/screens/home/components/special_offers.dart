@@ -1,5 +1,5 @@
-import 'package:BuyerApplication/screens/home/components/section_title.dart';
-import 'package:BuyerApplication/size_config.dart';
+import 'package:buyer_application/screens/home/components/section_title.dart';
+import 'package:buyer_application/size_config.dart';
 import 'package:flutter/material.dart';
 
 class SpecialOffers extends StatelessWidget {

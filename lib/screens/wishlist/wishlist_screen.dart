@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/screens/wishlist/components/body.dart';
+import 'package:buyer_application/screens/wishlist/components/body.dart';
 
 
 

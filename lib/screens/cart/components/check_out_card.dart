@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:BuyerApplication/components/buttons/primary_button.dart';
+import 'package:buyer_application/components/buttons/primary_button.dart';
 import 'package:provider/provider.dart';
-import 'package:BuyerApplication/controllers/ProductProvider.dart';
-import 'package:BuyerApplication/constants.dart';
-import 'package:BuyerApplication/size_config.dart';
-import 'package:supercharged/supercharged.dart';
+import 'package:buyer_application/controllers/ProductProvider.dart';
+import 'package:buyer_application/constants.dart';
+import 'package:buyer_application/size_config.dart';
+
 
 
 class CheckoutCard extends StatelessWidget {

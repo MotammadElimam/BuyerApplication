@@ -1,11 +1,11 @@
-import 'package:BuyerApplication/components/big_card_image_slide.dart';
-import 'package:BuyerApplication/demoData.dart';
-import 'package:BuyerApplication/screens/home/components/popular_product.dart';
+import 'package:buyer_application/components/big_card_image_slide.dart';
+import 'package:buyer_application/demoData.dart';
+import 'package:buyer_application/screens/home/components/popular_product.dart';
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/screens/home/components/home_header.dart';
-import 'package:BuyerApplication/size_config.dart';
-import 'package:BuyerApplication/screens/home/components/categories.dart';
-import 'package:BuyerApplication/screens/home/components/special_offers.dart';
+import 'package:buyer_application/screens/home/components/home_header.dart';
+import 'package:buyer_application/size_config.dart';
+import 'package:buyer_application/screens/home/components/categories.dart';
+import 'package:buyer_application/screens/home/components/special_offers.dart';
 
 
 class Body extends StatelessWidget {

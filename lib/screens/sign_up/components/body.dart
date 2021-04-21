@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/components/social_card.dart';
-import 'package:BuyerApplication/constants.dart';
-import 'package:BuyerApplication/size_config.dart';
+import 'package:buyer_application/components/social_card.dart';
+import 'package:buyer_application/constants.dart';
+import 'package:buyer_application/size_config.dart';
 
 import 'sign_up_form.dart';
 

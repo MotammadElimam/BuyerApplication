@@ -1,4 +1,4 @@
-import 'package:BuyerApplication/size_config.dart';
+import 'package:buyer_application/size_config.dart';
 import 'package:flutter/material.dart';
 
 
@@ -20,6 +20,7 @@ class RoundedButton extends StatelessWidget {
     return SizedBox(
       height: getProportionateScreenWidth(54),
       width: getProportionateScreenWidth(54),
+      // ignore: deprecated_member_use
       child: FlatButton(
         padding: EdgeInsets.zero,
         color: Color(0xFFF8F8F8),

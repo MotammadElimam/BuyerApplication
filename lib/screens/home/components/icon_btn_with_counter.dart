@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:BuyerApplication/constants.dart';
-import 'package:BuyerApplication/size_config.dart';
+import 'package:buyer_application/constants.dart';
+import 'package:buyer_application/size_config.dart';
 
 
 class IconBtnWithCounter extends StatelessWidget {
@@ -22,8 +22,7 @@ class IconBtnWithCounter extends StatelessWidget {
       borderRadius: BorderRadius.circular(100),
       onTap: press,
       child: Stack(
-        overflow: Overflow.visible,
-        children: [
+        clipBehavior: Clip.none, children: [
           Container(
             padding: EdgeInsets.all(getProportionateScreenWidth(12)),
             height: getProportionateScreenWidth(46),

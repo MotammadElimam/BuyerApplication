@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/size_config.dart';
+import 'package:buyer_application/size_config.dart';
 
 import '../../constants.dart';
 
@@ -25,6 +25,7 @@ class PrimaryButton extends StatelessWidget {
               onPressed: press,
               child: buildText(context),
             )
+          // ignore: deprecated_member_use
           : FlatButton(
               padding: verticalPadding,
               color: kActiveColor,

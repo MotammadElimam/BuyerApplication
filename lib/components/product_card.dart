@@ -1,12 +1,13 @@
-import 'package:BuyerApplication/constants.dart';
-import 'package:BuyerApplication/models/Product.dart';
-import 'package:BuyerApplication/size_config.dart';
+import 'package:buyer_application/constants.dart';
+import 'package:buyer_application/models/Product.dart';
+import 'package:buyer_application/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 
 
 
 class ProductCard extends StatelessWidget {
+   final String serverUrl = "http://192.168.43.92:8000/storage/product/";
   const ProductCard({
     Key key,
     this.width = 140,
@@ -38,7 +39,9 @@ class ProductCard extends StatelessWidget {
                     color: kSecondaryColor.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Image.network(product.image),
+                  child: Image.network(serverUrl+product.image,
+                fit: BoxFit.cover,
+                ),
                 ),
               ),
               const SizedBox(height: 10),

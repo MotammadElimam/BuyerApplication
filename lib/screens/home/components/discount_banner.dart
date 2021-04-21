@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:BuyerApplication/size_config.dart';
+import 'package:buyer_application/size_config.dart';
 
 
 class DiscountBanner extends StatelessWidget {
