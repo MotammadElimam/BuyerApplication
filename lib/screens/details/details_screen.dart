@@ -32,10 +32,10 @@ class ProductDetailsArguments extends ChangeNotifier{
       loading = true;
       notifyListeners();
 
-      var data = await deatilshelper.getmyProducts();
+     // var data = await deatilshelper.getmyProducts();
 
       loading = false;
-      products = data.map((e) => Product.fromJson(e)).toList();
+    //  products = data.map((e) => Product.fromJson(e)).toList();
       notifyListeners();
     } catch (err) {
       print(err);

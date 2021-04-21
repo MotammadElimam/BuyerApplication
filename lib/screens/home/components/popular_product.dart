@@ -82,7 +82,7 @@ class HomeProduct extends ChangeNotifier {
       loading = true;
       notifyListeners();
 
-      var data = await producthelper.getmyProducts();
+      var data = await producthelper.getAllProducts();
 
       loading = false;
       products = data.map((e) => Product.fromJson(e)).toList();

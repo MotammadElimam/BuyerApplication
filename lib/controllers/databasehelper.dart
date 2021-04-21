@@ -69,7 +69,7 @@ class DatabaseHelper {
     }
   }
 
-  Future<List<dynamic>> getmyProducts() async {
+  Future<List<dynamic>> getSellerProducts() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'token';
     final value = prefs.get(key) ?? 0;
@@ -82,6 +82,19 @@ class DatabaseHelper {
     print(response.body);
     return jsonDecode(response.body);
   }
+
+
+   Future<List<dynamic>> getAllProducts() async {
+     
+    String myUrl = "$serverUrl/seller_api/showAllProducts/";
+    http.Response response = await http.get(myUrl, headers: {
+      'Accept': 'application/json',
+    });
+    print(response.body);
+    return jsonDecode(response.body);
+  }
+
+
 
 //   void deleteData(int id) async {
 //     final prefs = await SharedPreferences.getInstance();
