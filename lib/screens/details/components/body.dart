@@ -1,6 +1,8 @@
+import 'package:buyer_application/database/sqllite.dart';
 import 'package:buyer_application/components/rounded_button.dart';
 import 'package:buyer_application/constants.dart';
 import 'package:buyer_application/models/wishlist_item.dart';
+import 'package:buyer_application/screens/cart/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/models/cart_item.dart';
 import 'package:buyer_application/components/buttons/primary_button.dart';
@@ -11,11 +13,13 @@ import 'package:buyer_application/size_config.dart';
 import 'package:buyer_application/screens/details/components/product_description.dart';
 import 'package:buyer_application/screens/details/components/top_rounded_container.dart';
 import 'package:buyer_application/screens/details/components/product_images.dart';
+import 'package:sqflite/sqflite.dart';
 
 class Body extends StatefulWidget {
   final Product product;
+ 
 
-  const Body({Key key, @required this.product}) : super(key: key);
+  const Body({Key key, @required this.product, }) : super(key: key);
 
   @override
   _BodyState createState() => _BodyState();
@@ -28,27 +32,54 @@ class _BodyState extends State<Body> {
   @override
   void initState() {
     super.initState();
-    _cartItem = CartItem.fromData(product: widget.product, quantity: 1);
+    _cartItem = CartItem.fromData(product: widget.product, quantity: numOfItems);
     _wishlistitem = Wishlistitem.fromData(product: widget.product);
   }
 
-  void _addTocart() {
-    CartItem added;
-    try {
-      added = Provider.of<ProductProvider>(context, listen: false)
-          .cart
-          .cartItems
-          .firstWhere((element) => element.product.id == widget.product.id);
-    } catch (e) {
-      print(e);
-    }
-    if (added == null) {
-      Provider.of<ProductProvider>(context, listen: false).addToCart(_cartItem);
-    } else {
-      Provider.of<ProductProvider>(context, listen: false)
-          .removeFromCart(_cartItem);
-    }
+
+  void _addTocart () async{
+   CartDatabase product = new CartDatabase();
+   
+   var dbhelper = new DatabaseHelperSqlLite();
+
+
+    product.uid = widget.product.id.toString();
+    product.name = widget.product.name;
+    product.price = widget.product.price.toString();
+    product.des = widget.product.desc;
+    product.rate = widget.product.rate.toString();
+    product.quantity = numOfItems.toString();
+
+     await dbhelper.insertProduct(product).then((value) => (){
+         Navigator.pushNamed(context, CartScreen.routeName);
+         return null;
+    });
+
+    
+
+   //dbhelper.insertProduct();
+
   }
+
+
+
+  // void _addTocart() {
+  //   CartItem added;
+  //   try {
+  //     added = Provider.of<ProductProvider>(context, listen: false)
+  //         .cart
+  //         .cartItems
+  //         .firstWhere((element) => element.product.id == widget.product.id);
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  //   if (added == null) {
+  //     Provider.of<ProductProvider>(context, listen: false).addToCart(_cartItem);
+  //   } else {
+  //     Provider.of<ProductProvider>(context, listen: false)
+  //         .removeFromCart(_cartItem);
+  //   }
+  // }
 
   void _addToWishlist() {
     Wishlistitem addedtowishlist;

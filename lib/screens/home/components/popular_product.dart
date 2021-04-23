@@ -1,5 +1,6 @@
 import 'package:buyer_application/components/product_card.dart';
 import 'package:buyer_application/controllers/databasehelper.dart';
+import 'package:buyer_application/screens/details/details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/models/Product.dart';
 import 'package:buyer_application/size_config.dart';
@@ -55,7 +56,9 @@ class _PopularProductsState extends State<PopularProducts> {
                   child: ListView.builder(
                     itemBuilder: (context, index) {
                       return ProductCard(
-                          product: data.products[index], press: () {});
+                          product: data.products[index], press: () {
+                           
+                          });
                     },
                     itemCount: data.products.length,
                     scrollDirection: Axis.horizontal,

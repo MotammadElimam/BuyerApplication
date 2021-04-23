@@ -1,4 +1,6 @@
 import 'package:buyer_application/screens/balance_page/balancePage.dart';
+import 'package:buyer_application/screens/checkout/checkout_screen.dart';
+import 'package:buyer_application/screens/complete_order/complete_order_screen.dart';
 import 'package:buyer_application/screens/profile/profile_screen.dart';
 import 'package:buyer_application/screens/profile/setting.dart';
 import 'package:buyer_application/screens/splash/splash_scrreen.dart';
@@ -30,4 +32,7 @@ final Map<String, WidgetBuilder> routes = {
   ProfileScreen.routeName:(context) => ProfileScreen(),
   BalancePage.routeName:(context) => BalancePage(),
   SettingsPage.routeName:(context)=>SettingsPage(),
+  CheckoutScreen.routeName:(context)=>CheckoutScreen(),
+  CompleteOrderScreen.routeName:(context)=>CompleteOrderScreen(),
+
 };

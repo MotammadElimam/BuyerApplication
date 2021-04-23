@@ -1,3 +1,4 @@
+import 'package:buyer_application/screens/checkout/checkout_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:buyer_application/components/buttons/primary_button.dart';
@@ -9,7 +10,6 @@ import 'package:buyer_application/size_config.dart';
 
 
 class CheckoutCard extends StatelessWidget {
-  static String routeName = "/checkout";
   const CheckoutCard({
     Key key,
   }) : super(key: key);
@@ -84,7 +84,9 @@ class CheckoutCard extends StatelessWidget {
                   width: getProportionateScreenWidth(190),
                   child: PrimaryButton(
                     text: "Check Out",
-                    press: () {},
+                    press: () {
+                      Navigator.pushNamed(context, CheckoutScreen.routeName);
+                    },
                   ),
                 ),
               ],

@@ -1,10 +1,15 @@
+import 'package:buyer_application/components/buttons/primary_button.dart';
 import 'package:buyer_application/constants.dart';
+import 'package:buyer_application/controllers/ProductProvider.dart';
+import 'package:buyer_application/screens/complete_order/complete_order_screen.dart';
 import 'package:buyer_application/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<ProductProvider>(context);
     return SafeArea(
       child: SizedBox(
         width: double.infinity,
@@ -15,12 +20,19 @@ class Body extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 50),
-                buildPriceRow(text: "Subtotal", price: 28.0),
+                buildPriceRow(text: "Total Without Vat", price: provider.price),
                 VerticalSpacing(of: 10),
                 buildPriceRow(text: "Delivery", price: 0),
                 VerticalSpacing(of: 10),
-                buildTotal(price: 20),
+                buildTotal(price:  provider.price),
                 VerticalSpacing(of: 40),
+                SizedBox(height: 400,),
+                PrimaryButton(
+              text: "Complete order",
+              press: () {
+                Navigator.popAndPushNamed(context, CompleteOrderScreen.routeName);
+              },
+            ),
               ],
             ),
           ),

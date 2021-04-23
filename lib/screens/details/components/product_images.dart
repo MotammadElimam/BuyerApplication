@@ -5,18 +5,20 @@ import '../../../constants.dart';
 import '../../../size_config.dart';
 
 class ProductImages extends StatefulWidget {
+   
   const ProductImages({
     Key key,
     @required this.product,
   }) : super(key: key);
 
-  final Product product;
-
+  
+ final Product product;
   @override
   _ProductImagesState createState() => _ProductImagesState();
 }
 
 class _ProductImagesState extends State<ProductImages> {
+  final String serverUrl = "http://192.168.43.92:8000/storage/product/"; 
   int selectedImage = 0;
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,9 @@ class _ProductImagesState extends State<ProductImages> {
             aspectRatio: 1,
             child: Hero(
               tag: widget.product.id.toString(),
-              child: Image.network(widget.product.image),
+              child: Image.network(widget.product.image,
+                fit: BoxFit.cover,
+                ),
             ),
           ),
         ),

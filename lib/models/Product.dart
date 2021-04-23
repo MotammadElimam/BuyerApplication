@@ -26,6 +26,7 @@ class Product {
     String desc;
     String image;
     int sellerId;
+    int rate;
     DateTime createdAt;
     DateTime updatedAt;
 

@@ -23,26 +23,5 @@ class DetailsScreen extends StatelessWidget {
 class ProductDetailsArguments extends ChangeNotifier{
   final Product product;
 
-   bool loading = false;
-  List<Product> products;
-  bool error = false;
-  var deatilshelper = DatabaseHelper();
-  loadData() async {
-    try {
-      loading = true;
-      notifyListeners();
-
-     // var data = await deatilshelper.getmyProducts();
-
-      loading = false;
-    //  products = data.map((e) => Product.fromJson(e)).toList();
-      notifyListeners();
-    } catch (err) {
-      print(err);
-      error = true;
-      notifyListeners();
-    }
-  }
-
   ProductDetailsArguments({@required this.product});
 }
