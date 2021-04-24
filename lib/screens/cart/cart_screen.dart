@@ -1,16 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:buyer_application/screens/cart/components/body.dart';
 import 'package:buyer_application/screens/cart/components/check_out_card.dart';
+import 'package:buyer_application/database/sqllite.dart';
 
-
-class CartScreen extends StatelessWidget {
+class CartScreen extends StatefulWidget {
   static String routeName = "/cart";
+
+  @override
+  _CartScreenState createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
+
+  List <CartDatabase> products;
+
+  @override
+  void initState() {
+    super.initState();
+    // ignore: deprecated_member_use
+    products = new List<CartDatabase>();
+    readCart();
+  }
+   
+  readCart () async {
+    DatabaseHelperSqlLite cartdata = new DatabaseHelperSqlLite();
+          products =  await cartdata.getAllCartProduct().whenComplete(() {
+
+            setState(() {
+                          
+                        });
+          });
+          //print("products : " + products.length.toString());
+     
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Body(),
-      bottomNavigationBar: CheckoutCard(),
+      body: Body(products:products),
+      bottomNavigationBar: CheckoutCard(products:products),
     );
   }
 

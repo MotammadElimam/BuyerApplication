@@ -2,16 +2,18 @@ import 'package:buyer_application/models/cart_item.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/constants.dart';
 import 'package:buyer_application/size_config.dart';
+import 'package:buyer_application/database/sqllite.dart';
 
 
 // ignore: must_be_immutable
 class CartCard extends StatelessWidget {
+  final String serverUrl = "http://192.168.43.92:8000/storage/product/";
   CartCard({
     Key key,
-    this.cartitem,
+    this.cartDatabase,
   }) : super(key: key);
 
-   CartItem cartitem;
+   CartDatabase cartDatabase;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class CartCard extends StatelessWidget {
                 color: Color(0xFFF5F6F9),
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: Image.asset(cartitem.product.image),
+             child: Image.network(serverUrl+cartDatabase.image),
             ),
           ),
         ),
@@ -36,19 +38,19 @@ class CartCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              cartitem.product.name,
+              cartDatabase.name,
               style: TextStyle(color: Colors.black, fontSize: 16),
               maxLines: 2,
             ),
             SizedBox(height: 10),
             Text.rich(
               TextSpan(
-                text: "\$${cartitem.product.price}",
+                text: "\$${cartDatabase.price}",
                 style: TextStyle(
                     fontWeight: FontWeight.w600, color: kPrimaryColor),
                 children: [
                   TextSpan(
-                      text: " x${cartitem.quantity}",
+                      text: " x${cartDatabase.quantity}",
                       style: Theme.of(context).textTheme.bodyText1),
                 ],
               ),

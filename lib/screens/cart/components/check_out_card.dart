@@ -1,3 +1,5 @@
+import 'package:buyer_application/database/sqllite.dart';
+import 'package:buyer_application/screens/cart/components/body.dart';
 import 'package:buyer_application/screens/checkout/checkout_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -10,13 +12,24 @@ import 'package:buyer_application/size_config.dart';
 
 
 class CheckoutCard extends StatelessWidget {
-  const CheckoutCard({
-    Key key,
-  }) : super(key: key);
+  List <CartDatabase> products;
+ CheckoutCard({Key key, this.products})
+      : super(key: key);
+
+  double getTotalPrice() {
+    double totalPrice = 0 ;
+     for(int i = 0 ; i<products.length ; i++){
+        double subtotal =  double.parse(products[i].price)*int.parse(products[i].quantity);
+
+        totalPrice = totalPrice+subtotal;
+        
+    }
+    return totalPrice;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ProductProvider>(builder: (context, cartbody, child) {
+    //return Consumer<ProductProvider>(builder: (context, cartbody, child) {
     return Container(
       padding: EdgeInsets.symmetric(
         vertical: getProportionateScreenWidth(15),
@@ -73,7 +86,7 @@ class CheckoutCard extends StatelessWidget {
                     text: "Total:\n",
                     children: [
                       TextSpan(
-                         text: "${cartbody.price}",
+                         text: "${getTotalPrice()}",
 
                         style: TextStyle(fontSize: 16, color: Colors.black),
                       ),
@@ -95,6 +108,5 @@ class CheckoutCard extends StatelessWidget {
         ),
       ),
     );
-    });
   }
 }

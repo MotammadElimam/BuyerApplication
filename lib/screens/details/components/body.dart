@@ -49,15 +49,14 @@ class _BodyState extends State<Body> {
     product.des = widget.product.desc;
     product.rate = widget.product.rate.toString();
     product.quantity = numOfItems.toString();
+    product.image = widget.product.image;
 
-     await dbhelper.insertProduct(product).then((value) => (){
-         Navigator.pushNamed(context, CartScreen.routeName);
-         return null;
-    });
+     await dbhelper.insertProduct(product).whenComplete(() => Navigator.pushNamed(context, CartScreen.routeName));
+    
 
     
 
-   //dbhelper.insertProduct();
+   
 
   }
 
