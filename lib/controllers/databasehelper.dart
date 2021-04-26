@@ -2,6 +2,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:io';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'Package:buyer_application/models/Order.dart';
 
 class DatabaseHelper {
   final String serverUrl = "http://192.168.43.92:8000";
@@ -72,23 +73,30 @@ class DatabaseHelper {
 
 
    ConfirmOrder(String address,String payment_type) async {
-    // Map order = {
-    //   "adress": "$address",
-    //   "payment_type": "$payment_type",
-    // };
-    // print(order);
     String myUrl = "$serverUrl/api/addOrder";
+    String order = orderToJson( Order(address: 'Khartoum',paymentType: 'cash' , orderProducts: [
+        OrderProduct(productId: '7', quantity: '1'),
+        OrderProduct(productId: '8', quantity: '2'),
+        OrderProduct(productId: '9', quantity: '3'),
+    ]));
     final response = await http.post(myUrl,
-        headers: {'Accept': 'application/json'}, body: {
-    "address":"khartoum",
-    "payment_type":"Discount from Wallet",
-    "order_products":[
-        {"product_id":"7","quantity":"4"},    
-        {"product_id":"8","quantity":"5"},
-        {"product_id":"9","quantity":"6"} 
-    ]
-});
+        headers: {'Accept': 'application/json'}, 
+       body: order 
+// {
+//     "address":"khartoum",
+//     "payment_type":"Discount from Wallet",
+//     "order_products":[
+//         {"product_id":"7","quantity":"4"},    
+//         {"product_id":"8","quantity":"5"},
+//         {"product_id":"9","quantity":"6"} 
+//     ]
+// }
+);
+    
+    final myorder = orderFromJson(response.body);
+    
     status = response.body.contains('error');
+
 
     var data = json.decode(response.body);
     print(response.statusCode);
