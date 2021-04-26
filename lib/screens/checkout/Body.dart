@@ -7,9 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class Body extends StatelessWidget {
+   double total;
+    Body({Key key, this.total}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<ProductProvider>(context);
     return SafeArea(
       child: SizedBox(
         width: double.infinity,
@@ -20,11 +21,11 @@ class Body extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 50),
-                buildPriceRow(text: "Total Without Vat", price: provider.price),
+                buildPriceRow(text: "Total Without Vat", price: total),
                 VerticalSpacing(of: 10),
                 buildPriceRow(text: "Delivery", price: 0),
                 VerticalSpacing(of: 10),
-                buildTotal(price:  provider.price),
+                buildTotal(price:  (total*0.4)+total),
                 VerticalSpacing(of: 40),
                 SizedBox(height: 400,),
                 PrimaryButton(

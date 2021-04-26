@@ -9,20 +9,17 @@ import 'package:buyer_application/controllers/ProductProvider.dart';
 import 'package:buyer_application/constants.dart';
 import 'package:buyer_application/size_config.dart';
 
-
-
 class CheckoutCard extends StatelessWidget {
-  List <CartDatabase> products;
- CheckoutCard({Key key, this.products})
-      : super(key: key);
+  List<CartDatabase> products;
+  CheckoutCard({Key key, this.products}) : super(key: key);
 
   double getTotalPrice() {
-    double totalPrice = 0 ;
-     for(int i = 0 ; i<products.length ; i++){
-        double subtotal =  double.parse(products[i].price)*int.parse(products[i].quantity);
+    double totalPrice = 0;
+    for (int i = 0; i < products.length; i++) {
+      double subtotal =
+          double.parse(products[i].price) * int.parse(products[i].quantity);
 
-        totalPrice = totalPrice+subtotal;
-        
+      totalPrice = totalPrice + subtotal;
     }
     return totalPrice;
   }
@@ -86,8 +83,7 @@ class CheckoutCard extends StatelessWidget {
                     text: "Total:\n",
                     children: [
                       TextSpan(
-                         text: "${getTotalPrice()}",
-
+                        text: "${getTotalPrice()}",
                         style: TextStyle(fontSize: 16, color: Colors.black),
                       ),
                     ],
@@ -98,7 +94,10 @@ class CheckoutCard extends StatelessWidget {
                   child: PrimaryButton(
                     text: "Check Out",
                     press: () {
-                      Navigator.pushNamed(context, CheckoutScreen.routeName);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CheckoutScreen(total:getTotalPrice())),
+                      );
                     },
                   ),
                 ),

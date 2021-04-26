@@ -69,6 +69,47 @@ class DatabaseHelper {
     }
   }
 
+
+
+   ConfirmOrder(String address,String payment_type) async {
+    // Map order = {
+    //   "adress": "$address",
+    //   "payment_type": "$payment_type",
+    // };
+    // print(order);
+    String myUrl = "$serverUrl/api/addOrder";
+    final response = await http.post(myUrl,
+        headers: {'Accept': 'application/json'}, body: {
+    "address":"khartoum",
+    "payment_type":"Discount from Wallet",
+    "order_products":[
+        {"product_id":"7","quantity":"4"},    
+        {"product_id":"8","quantity":"5"},
+        {"product_id":"9","quantity":"6"} 
+    ]
+});
+    status = response.body.contains('error');
+
+    var data = json.decode(response.body);
+    print(response.statusCode);
+    print(response.body);
+
+    if (status) {
+      print('data : ${data["error"]}');
+     }
+     else {
+       print('order done');
+      //  _save(data["token"]);
+    }
+  }
+
+
+
+
+
+
+
+
   Future<List<dynamic>> getSellerProducts() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'token';

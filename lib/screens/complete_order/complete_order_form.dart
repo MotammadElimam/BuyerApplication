@@ -7,10 +7,12 @@ import 'package:buyer_application/components/custom_surfix_icon.dart';
 import 'package:buyer_application/components/form_error.dart';
 import 'package:buyer_application/constants.dart';
 import 'package:buyer_application/size_config.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
 class CompleteOrderForm extends StatefulWidget {
  // final Payment paymentselected;
+ 
 
   const CompleteOrderForm({Key key}) : super(key: key);
 
@@ -20,12 +22,13 @@ class CompleteOrderForm extends StatefulWidget {
 
 class _CompleteOrderFormState extends State<CompleteOrderForm> {
   DatabaseHelper databaseHelper = new DatabaseHelper();
+ TextEditingController address = new TextEditingController();
   String msgStatus = '';
   final _formKey = GlobalKey<FormState>();
   final List<String> errors = [];
   final Color inActiveIconColor = Color(0xFFB6B6B6);
   bool selected = true;
-  String address;
+  // String address;
 
   void addError({String error}) {
     if (!errors.contains(error))
@@ -73,18 +76,15 @@ class _CompleteOrderFormState extends State<CompleteOrderForm> {
           buildAddressFormField(),
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(40)),
-          // Listtile(
-          //   paymentMethod.asMap().entries.map(
-          //           (MapEntry map) => _buildIcon(map.key),
-          //         )
-          //         .toList(),
-          // ),
-          SizedBox(height: 280),
-          PrimaryButton(
-              text: "Confirm Order",
-              press: () {
-                // _onpress();
-              })
+          Text('Choose your Payment Method'),
+          Listtile(),
+          SizedBox(height: 200),
+          
+          // PrimaryButton(
+          //     text: "Confirm Order",
+          //     press: () {
+          //       // _onpress();
+          //     })
         ],
       ),
     );
@@ -95,6 +95,7 @@ class _CompleteOrderFormState extends State<CompleteOrderForm> {
       onSaved: (newValue) =>
           Provider.of<ProductProvider>(context, listen: false).address =
               newValue,
+         controller: address,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kAddressNullError);
@@ -123,55 +124,39 @@ class _CompleteOrderFormState extends State<CompleteOrderForm> {
   }
 
   List<String> paymentMethod = ['Cash', 'Discount from wallet'];
-  // List<IconButton> _icons = [
-  //   IconButton(
-  //       icon: SvgPicture.asset(
-  //         "assets/icons/money.svg",
-  //       ),
-  //       onPressed: () {}),
-  //        IconButton(
-  //               icon: SvgPicture.asset(
-  //                 "assets/icons/wallet.svg",
-  //               ),
-  //               onPressed: () {}
-  //             ),
-  // ];
+  List<IconButton> _icons = [
+    IconButton(
+        icon: SvgPicture.asset(
+          "assets/icons/Mail.svg",
+        ),
+        onPressed: () {}),
+         IconButton(
+                icon: SvgPicture.asset(
+                  "assets/icons/wallet.svg",
+                ),
+                onPressed: () {}
+              ),
+  ];
 
   // ignore: non_constant_identifier_names
-  Widget Listtile(int index) {
-    return Container(
+  Widget Listtile() {
+    return ListView.builder(
+  padding: const EdgeInsets.all(8),
+  shrinkWrap: true,
+  itemCount: paymentMethod.length,
+  itemBuilder: (BuildContext context, int index) {
+    return  Container(
       child: Column(
         children: [
           ListTile(
             title: Text(paymentMethod[index]),
-            //leading: IconButton(icon: _icons[index],)
+           leading: _icons[index],
+           onTap: () async{databaseHelper.ConfirmOrder(address.text.toString(), paymentMethod[index]);} ,
           )
         ],
       ),
     );
   }
-
-
-  // ignore: unused_element
-  void _showDialog() {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: new Text('Failed'),
-            content: new Text('Check your email or password'),
-            actions: <Widget>[
-              // ignore: deprecated_member_use
-              new RaisedButton(
-                child: new Text(
-                  'Close',
-                ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        });
+);
   }
 }
