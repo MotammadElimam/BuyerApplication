@@ -77,7 +77,7 @@ initState(){
 
 
 
-   DatabaseHelper databaseHelper = new DatabaseHelper();
+  DatabaseHelper databaseHelper = new DatabaseHelper();
   String msgStatus = '';
   final _formKey = GlobalKey<FormState>();
   String email;
@@ -109,7 +109,8 @@ initState(){
       child: Column(
         children: [
           buildEmailFormField(),
-          SizedBox(height: getProportionateScreenHeight(30)),
+          SizedBox(height:getProportionateScreenHeight(30)
+          ),
           buildPasswordFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
           Row(

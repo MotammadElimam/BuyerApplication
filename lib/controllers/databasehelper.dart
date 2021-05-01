@@ -74,13 +74,20 @@ class DatabaseHelper {
 
    ConfirmOrder(String address,String payment_type) async {
     String myUrl = "$serverUrl/api/addOrder";
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'token';
+    final value = prefs.get(key) ?? 0;
     String order = orderToJson( Order(address: 'Khartoum',paymentType: 'cash' , orderProducts: [
         OrderProduct(productId: '7', quantity: '1'),
         OrderProduct(productId: '8', quantity: '2'),
         OrderProduct(productId: '9', quantity: '3'),
     ]));
     final response = await http.post(myUrl,
-        headers: {'Accept': 'application/json'}, 
+        headers: {'Accept': 'application/json',
+        'Authorization': 'Bearer $value'
+        
+        }, 
+        
        body: order 
 // {
 //     "address":"khartoum",
@@ -92,15 +99,15 @@ class DatabaseHelper {
 //     ]
 // }
 );
-    
+    print(response.body);
     final myorder = orderFromJson(response.body);
-    
+     
     status = response.body.contains('error');
 
 
     var data = json.decode(response.body);
     print(response.statusCode);
-    print(response.body);
+   
 
     if (status) {
       print('data : ${data["error"]}');

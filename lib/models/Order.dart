@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
+
 Order orderFromJson(String str) => Order.fromJson(json.decode(str));
 
 String orderToJson(Order data) => json.encode(data.toJson());
@@ -19,11 +21,20 @@ class Order {
     String paymentType;
     List<OrderProduct> orderProducts;
 
-    factory Order.fromJson(Map<String, dynamic> json) => Order(
-        address: json["address"],
+    // factory Order.fromJson(Map<String, dynamic> json) => Order(
+    //     address: json["address"],
+    //     paymentType: json["payment_type"],
+    //     orderProducts: List<OrderProduct>.from(json["order_products"].map((x) => OrderProduct.fromJson(x))),  
+    // );
+
+    factory Order.fromJson(Map<String, dynamic> json){
+        print(json);
+        return Order(
+          address: json["address"],
         paymentType: json["payment_type"],
-        orderProducts: List<OrderProduct>.from(json["order_products"].map((x) => OrderProduct.fromJson(x))),
-    );
+        orderProducts: List<OrderProduct>.from(json["order_products"].map((x) => OrderProduct.fromJson(x))),  
+        );
+        }
 
     Map<String, dynamic> toJson() => {
         "address": address,
