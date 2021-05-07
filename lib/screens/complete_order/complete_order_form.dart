@@ -44,29 +44,23 @@ class _CompleteOrderFormState extends State<CompleteOrderForm> {
       });
   }
 
-  _onpress(){
-    setState(() {
-              if (_formKey.currentState.validate()) {
-               databaseHelper.registerData(
-                 Provider.of<ProductProvider>(context, listen: false).email,
-                 Provider.of<ProductProvider>(context, listen: false).password,
-                 Provider.of<ProductProvider>(context, listen: false).confirmPassword,
-                 Provider.of<ProductProvider>(context, listen: false).firstName,
-                 Provider.of<ProductProvider>(context, listen: false).lastName,
-                 Provider.of<ProductProvider>(context, listen: false).phoneNumber,
-                 Provider.of<ProductProvider>(context, listen: false).address,
-                 );
-        //          .whenComplete((){
-        //         if(databaseHelper.status){
-        //         _showDialog();
-        //         msgStatus = 'Check email or password';
-        //         }else{
-        //         Navigator.pushNamed(context, HomeScreen.routeName);
-        //            }
-        // });
-      }
-       });
-  }
+  // _onpress(){
+  //   setState(() {
+  //             if (_formKey.currentState.validate()) {
+  //              databaseHelper.ConfirmOrder(
+  //                Provider.of<ProductProvider>(context, listen: false).address,
+  //                );
+  //       //          .whenComplete((){
+  //       //         if(databaseHelper.status){
+  //       //         _showDialog();
+  //       //         msgStatus = 'Check email or password';
+  //       //         }else{
+  //       //         Navigator.pushNamed(context, HomeScreen.routeName);
+  //       //            }
+  //       // });
+  //     }
+  //      });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -152,9 +146,7 @@ class _CompleteOrderFormState extends State<CompleteOrderForm> {
           ListTile(
             title: Text(paymentMethod[index]),
            leading: _icons[index],
-           onTap: _onpress(),
-           
-           // () async{databaseHelper.ConfirmOrder(address.text.toString(), paymentMethod[index]);} ,
+           onTap:  () async{databaseHelper.ConfirmOrder(address.text.toString());} ,
           )
         ],
       ),

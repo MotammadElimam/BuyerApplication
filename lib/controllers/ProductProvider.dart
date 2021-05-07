@@ -21,6 +21,8 @@ class ProductProvider extends ChangeNotifier {
   String phoneNumber;
   String address;
 
+  List<String> paymentMethod;
+
   addToCart(CartItem cartItem) {
     try {
       cart.cartItems.add(cartItem);

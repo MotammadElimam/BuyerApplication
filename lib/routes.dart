@@ -1,4 +1,4 @@
-import 'package:buyer_application/screens/balance_page/balancePage.dart';
+import 'package:buyer_application/screens/wallet/balancePage.dart';
 import 'package:buyer_application/screens/checkout/checkout_screen.dart';
 import 'package:buyer_application/screens/complete_order/complete_order_screen.dart';
 import 'package:buyer_application/screens/profile/profile_screen.dart';

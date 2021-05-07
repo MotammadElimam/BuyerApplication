@@ -43,14 +43,9 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   _onpress(){
     setState(() {             
               if (_formKey.currentState.validate()) {
-               databaseHelper.registerData(
-                 Provider.of<UserProvider>(context, listen: false).email,
-                 Provider.of<UserProvider>(context, listen: false).password,
-                 Provider.of<UserProvider>(context, listen: false).confirmPassword,
-                 Provider.of<UserProvider>(context, listen: false).firstName,
-                 Provider.of<UserProvider>(context, listen: false).lastName,
-                 Provider.of<UserProvider>(context, listen: false).phoneNumber,
+               databaseHelper.ConfirmOrder(
                  Provider.of<UserProvider>(context, listen: false).adress,
+                 
                  ).whenComplete((){
                 if(databaseHelper.status){
                 _showDialog();

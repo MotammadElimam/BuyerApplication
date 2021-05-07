@@ -72,12 +72,16 @@ class DatabaseHelper {
 
 
 
-   ConfirmOrder(String address,String payment_type) async {
+   ConfirmOrder(String address) async {
+    
     String myUrl = "$serverUrl/api/addOrder";
     final prefs = await SharedPreferences.getInstance();
     final key = 'token';
     final value = prefs.get(key) ?? 0;
-    String order = orderToJson( Order(address: 'Khartoum',paymentType: 'cash' , orderProducts: [
+    String order = orderToJson( Order(
+      address: 'K',
+      paymentType: 'Cash' , 
+      orderProducts: [
         OrderProduct(productId: '7', quantity: '1'),
         OrderProduct(productId: '8', quantity: '2'),
         OrderProduct(productId: '9', quantity: '3'),

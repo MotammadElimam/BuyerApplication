@@ -36,14 +36,6 @@ class _ProductImagesState extends State<ProductImages> {
             ),
           ),
         ),
-        // SizedBox(height: getProportionateScreenWidth(20)),
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   children: [
-        //     ...List.generate(widget.product.images.length,
-        //         (index) => buildSmallProductPreview(index)),
-        //   ],
-        // )
       ],
     );
   }
