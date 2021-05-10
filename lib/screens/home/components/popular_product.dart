@@ -1,8 +1,6 @@
 import 'package:buyer_application/components/product_card.dart';
-import 'package:buyer_application/controllers/databasehelper.dart';
-import 'package:buyer_application/screens/details/details_screen.dart';
+import 'package:buyer_application/controllers/HomeProductProvider.dart';
 import 'package:flutter/material.dart';
-import 'package:buyer_application/models/Product.dart';
 import 'package:buyer_application/size_config.dart';
 import 'package:buyer_application/screens/home/components/section_title.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +11,7 @@ class PopularProducts extends StatefulWidget {
 }
 
 class _PopularProductsState extends State<PopularProducts> {
-  HomeProduct homeProduct = HomeProduct();
+  HomeProductProvider homeProduct = HomeProductProvider();
   @override
   void initState() {
     super.initState();
@@ -39,9 +37,9 @@ class _PopularProductsState extends State<PopularProducts> {
               }),
         ),
         SizedBox(height: getProportionateScreenWidth(20)),
-        ChangeNotifierProvider<HomeProduct>(
+        ChangeNotifierProvider<HomeProductProvider>(
           create: (context) => homeProduct,
-          child: Consumer<HomeProduct>(
+          child: Consumer<HomeProductProvider>(
             builder: (context, data, child) {
               print("Data : ${data.products}");
               if (data.loading)
@@ -75,25 +73,3 @@ class _PopularProductsState extends State<PopularProducts> {
   }
 }
 
-class HomeProduct extends ChangeNotifier {
-  bool loading = false;
-  List<Product> products;
-  bool error = false;
-  var producthelper = DatabaseHelper();
-  loadData() async {
-    try {
-      loading = true;
-      notifyListeners();
-
-      var data = await producthelper.getAllProducts();
-
-      loading = false;
-      products = data.map((e) => Product.fromJson(e)).toList();
-      notifyListeners();
-    } catch (err) {
-      print(err);
-      error = true;
-      notifyListeners();
-    }
-  }
-}

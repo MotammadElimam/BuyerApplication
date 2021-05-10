@@ -1,14 +1,12 @@
 import 'package:buyer_application/database/sqllite.dart';
-import 'package:buyer_application/screens/cart/components/body.dart';
 import 'package:buyer_application/screens/checkout/checkout_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:buyer_application/components/buttons/primary_button.dart';
-import 'package:provider/provider.dart';
-import 'package:buyer_application/controllers/ProductProvider.dart';
 import 'package:buyer_application/constants.dart';
 import 'package:buyer_application/size_config.dart';
 
+// ignore: must_be_immutable
 class CheckoutCard extends StatelessWidget {
   List<CartDatabase> products;
   CheckoutCard({Key key, this.products}) : super(key: key);

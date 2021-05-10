@@ -13,13 +13,13 @@ import 'package:buyer_application/size_config.dart';
 import 'package:buyer_application/screens/details/components/product_description.dart';
 import 'package:buyer_application/screens/details/components/top_rounded_container.dart';
 import 'package:buyer_application/screens/details/components/product_images.dart';
-import 'package:sqflite/sqflite.dart';
+
 
 class Body extends StatefulWidget {
   final Product product;
  
 
-  const Body({Key key, @required this.product, }) : super(key: key);
+  const Body({Key key, @required this.product}) : super(key: key);
 
   @override
   _BodyState createState() => _BodyState();
@@ -52,11 +52,6 @@ class _BodyState extends State<Body> {
     product.image = widget.product.image;
 
      await dbhelper.insertProduct(product).whenComplete(() => Navigator.pushNamed(context, CartScreen.routeName));
-    
-
-    
-
-   
 
   }
 

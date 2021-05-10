@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:buyer_application/controllers/ProductProvider.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:buyer_application/size_config.dart';
 import 'package:buyer_application/screens/cart/components/cart_card.dart';
-import 'package:provider/provider.dart';
 import 'package:buyer_application/database/sqllite.dart';
 
 
+// ignore: must_be_immutable
 class Body extends StatefulWidget {
   List <CartDatabase> products;
   Body({Key key, this.products})

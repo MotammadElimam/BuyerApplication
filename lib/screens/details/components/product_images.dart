@@ -1,3 +1,4 @@
+import 'package:buyer_application/database/sqllite.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/models/Product.dart';
 
@@ -6,7 +7,7 @@ import '../../../size_config.dart';
 
 class ProductImages extends StatefulWidget {
    
-  const ProductImages({
+   ProductImages({
     Key key,
     @required this.product,
   }) : super(key: key);
@@ -18,7 +19,9 @@ class ProductImages extends StatefulWidget {
 }
 
 class _ProductImagesState extends State<ProductImages> {
-  final String serverUrl = "http://192.168.43.92:8000/storage/product/"; 
+  final String serverUrl = "http://192.168.43.92:8000/storage/product/";
+  CartDatabase products;
+  Product product; 
   int selectedImage = 0;
   @override
   Widget build(BuildContext context) {
@@ -59,7 +62,7 @@ class _ProductImagesState extends State<ProductImages> {
           border: Border.all(
               color: kPrimaryColor.withOpacity(selectedImage == index ? 1 : 0)),
         ),
-        child: Image.network(widget.product.image),
+        child: Image.network(serverUrl+product.image),
       ),
     );
   }
