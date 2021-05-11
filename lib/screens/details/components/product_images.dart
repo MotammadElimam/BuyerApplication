@@ -1,9 +1,9 @@
-import 'package:buyer_application/database/sqllite.dart';
+import 'package:buyer_application/constants.dart';
+import 'package:buyer_application/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/models/Product.dart';
 
-import '../../../constants.dart';
-import '../../../size_config.dart';
+
 
 class ProductImages extends StatefulWidget {
    
@@ -20,7 +20,6 @@ class ProductImages extends StatefulWidget {
 
 class _ProductImagesState extends State<ProductImages> {
   final String serverUrl = "http://192.168.43.92:8000/storage/product/";
-  CartDatabase products;
   Product product; 
   int selectedImage = 0;
   @override

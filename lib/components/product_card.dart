@@ -4,11 +4,8 @@ import 'package:buyer_application/screens/details/details_screen.dart';
 import 'package:buyer_application/size_config.dart';
 import 'package:flutter/material.dart';
 
-
-
-
 class ProductCard extends StatelessWidget {
-   final String serverUrl = "http://192.168.43.92:8000/storage/product/";
+  final String serverUrl = "http://192.168.43.92:8000/storage/product/";
   const ProductCard({
     Key key,
     this.width = 140,
@@ -26,10 +23,12 @@ class ProductCard extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
       child: GestureDetector(
-        onTap:  () => Navigator.pushNamed(context,DetailsScreen.routeName,
-             arguments: ProductDetailsArguments(product: product),
-          ),
-              child: SizedBox(
+        onTap: () => Navigator.pushNamed(
+          context,
+          DetailsScreen.routeName,
+          arguments: ProductDetailsArguments(product: product),
+        ),
+        child: SizedBox(
           width: getProportionateScreenWidth(width),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,9 +41,10 @@ class ProductCard extends StatelessWidget {
                     color: kSecondaryColor.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Image.network(serverUrl+product.image,
-                fit: BoxFit.cover,
-                ),
+                  child: Image.network(
+                    serverUrl + product.image,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               const SizedBox(height: 10),

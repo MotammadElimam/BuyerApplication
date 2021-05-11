@@ -78,14 +78,39 @@ class DatabaseHelper {
     final prefs = await SharedPreferences.getInstance();
     final key = 'token';
     final value = prefs.get(key) ?? 0;
-    String order = orderToJson( Order(
-      address: 'K',
-      paymentType: 'Cash' , 
-      orderProducts: [
-        OrderProduct(productId: '7', quantity: '1'),
-        OrderProduct(productId: '8', quantity: '2'),
-        OrderProduct(productId: '9', quantity: '3'),
-    ]));
+
+
+    // String orderStr = orderToJson( Order(
+    //   address: 'K',
+    //   paymentType: 'Cash' , 
+    //   orderProducts: '[{"product_id":"4","quantity":"4"},{"product_id":"7","quantity":"6"},{"product_id":"8","quantity":"6"}]'
+
+      
+    //   //[
+     
+        
+    //     // OrderProduct(productId: '7', quantity: '1'),
+    //     // OrderProduct(productId: '8', quantity: '2'),
+    //     // OrderProduct(productId: '9', quantity: '3'),
+    //   //]
+    // ));
+
+
+  Map order = {
+      "address": 'Hi',
+      "payment_type": 'Cash' , 
+      "order_products": '[{"product_id":"9","quantity":"4"},{"product_id":"7","quantity":"6"},{"product_id":"8","quantity":"6"}]'
+  
+  };     
+
+  // Map order=  {
+  //  "address": 'K',
+  //     "paymentType": 'Cash' , 
+  //      "orderProducts": ""
+  // };
+
+    print("Order on request:");
+    print(order);
     final response = await http.post(myUrl,
         headers: {'Accept': 'application/json',
         'Authorization': 'Bearer $value'
@@ -93,18 +118,12 @@ class DatabaseHelper {
         }, 
         
        body: order 
-// {
-//     "address":"khartoum",
-//     "payment_type":"Discount from Wallet",
-//     "order_products":[
-//         {"product_id":"7","quantity":"4"},    
-//         {"product_id":"8","quantity":"5"},
-//         {"product_id":"9","quantity":"6"} 
-//     ]
-// }
-);
+      );
+
+    print("response");
+    print(response);
     print(response.body);
-    final myorder = orderFromJson(response.body);
+    //final myorder = orderFromJson(response.body);
      
     status = response.body.contains('error');
 

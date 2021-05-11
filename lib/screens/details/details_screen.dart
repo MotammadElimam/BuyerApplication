@@ -11,11 +11,11 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //final ProductDetailsArguments agrs = ModalRoute.of(context).settings.arguments;
+    final ProductDetailsArguments agrs = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       backgroundColor: Color(0xFFF5F6F9),
       // appBar: CustomAppBar(rating: agrs.product.rating),
-      body: Body(product: product),
+      body: Body(product: agrs.product),
     );
   }
 }
