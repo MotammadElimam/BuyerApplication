@@ -9,6 +9,6 @@ class UserProvider extends ChangeNotifier{
   String firstName;
   String lastName;
   String phoneNumber;
-  String adress;
+  String address;
 
 }

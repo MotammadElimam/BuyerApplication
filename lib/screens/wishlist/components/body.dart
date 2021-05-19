@@ -27,7 +27,7 @@ class _BodyState extends State<Body> {
               key: Key(wishlistbody.wishlist.wishlistitems[index].product.id.toString()),
               direction: DismissDirection.endToStart,
               onDismissed: (direction) {
-                  wishlistbody.removeFromWishlist(wishlistbody.wishlist.wishlistitems[index]);
+                 // wishlistbody.removeFromWishlist(wishlistbody.wishlist.wishlistitems[index]);
               },
               background: Container(
                 padding: EdgeInsets.symmetric(horizontal: 20),

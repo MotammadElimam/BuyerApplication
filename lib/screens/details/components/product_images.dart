@@ -19,7 +19,7 @@ class ProductImages extends StatefulWidget {
 }
 
 class _ProductImagesState extends State<ProductImages> {
-  final String serverUrl = "http://192.168.43.92:8000/storage/product/";
+  final String serverUrl = "https://motamed.eanqod.website/storage/product/";
   Product product; 
   int selectedImage = 0;
   @override

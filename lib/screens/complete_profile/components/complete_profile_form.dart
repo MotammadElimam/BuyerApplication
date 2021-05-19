@@ -1,5 +1,5 @@
 import 'package:buyer_application/components/buttons/primary_button.dart';
-import 'package:buyer_application/controllers/UserProvider.dart';
+import 'package:buyer_application/controllers/ProductProvider.dart';
 import 'package:buyer_application/controllers/databasehelper.dart';
 import 'package:buyer_application/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +21,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   String msgStatus = '';
   final _formKey = GlobalKey<FormState>();
   final List<String> errors = [];
+  //TextEditingController _firstName = new TextEditingController();
   String firstName;
   String lastName;
   String phoneNumber;
@@ -43,9 +44,14 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   _onpress(){
     setState(() {             
               if (_formKey.currentState.validate()) {
-               databaseHelper.ConfirmOrder(
-                 Provider.of<UserProvider>(context, listen: false).adress,
-                 
+               databaseHelper.registerData(
+                 Provider.of<ProductProvider>(context, listen: false).email,
+                 Provider.of<ProductProvider>(context, listen: false).password,
+                 Provider.of<ProductProvider>(context, listen: false).confirmPassword,
+                 Provider.of<ProductProvider>(context, listen: false).firstName,
+                 Provider.of<ProductProvider>(context, listen: false).lastName,
+                 Provider.of<ProductProvider>(context, listen: false).phoneNumber,
+                 Provider.of<ProductProvider>(context, listen: false).address,
                  ).whenComplete((){
                 if(databaseHelper.status){
                 _showDialog();
@@ -70,7 +76,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           SizedBox(height: getProportionateScreenHeight(30)),
           buildPhoneNumberFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
-          // buildAddressFormField(),
+          buildAddressFormField(),
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(40)),
           PrimaryButton(
@@ -85,11 +91,11 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   TextFormField buildAddressFormField() {
     return TextFormField(
-      onSaved: (newValue) => Provider.of<UserProvider>(context, listen: false).adress=newValue,
+      onSaved: (newValue) => Provider.of<ProductProvider>(context, listen: false).address=newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kAddressNullError);
-          Provider.of<UserProvider>(context, listen: false).adress=value;
+          Provider.of<ProductProvider>(context, listen: false).address=value;
         }
         return null;
       },
@@ -116,11 +122,11 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   TextFormField buildPhoneNumberFormField() {
     return TextFormField(
       keyboardType: TextInputType.phone,
-      onSaved: (newValue) =>Provider.of<UserProvider>(context, listen: false).phoneNumber=newValue,
+      onSaved: (newValue) =>Provider.of<ProductProvider>(context, listen: false).phoneNumber=newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPhoneNumberNullError);
-          Provider.of<UserProvider>(context, listen: false).phoneNumber=value;
+          Provider.of<ProductProvider>(context, listen: false).phoneNumber=value;
         }
         return null;
       },
@@ -144,11 +150,11 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   TextFormField buildLastNameFormField() {
     return TextFormField(
-      onSaved: (newValue) => Provider.of<UserProvider>(context, listen: false).lastName=newValue,
+      onSaved: (newValue) => Provider.of<ProductProvider>(context, listen: false).lastName=newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kNamelNullError);
-           Provider.of<UserProvider>(context, listen: false).lastName=value;
+           Provider.of<ProductProvider>(context, listen: false).lastName=value;
         }
         return null;
       },
@@ -165,11 +171,11 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   TextFormField buildFirstNameFormField() {
     return TextFormField(
-    onSaved: (newValue) => Provider.of<UserProvider>(context, listen: false).firstName=newValue,
+    onSaved: (newValue) => Provider.of<ProductProvider>(context, listen: false).firstName=newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kNamelNullError);
-           Provider.of<UserProvider>(context, listen: false).firstName=value;
+           Provider.of<ProductProvider>(context, listen: false).firstName=value;
         }
         return null;
       },

@@ -85,10 +85,10 @@ class _BodyState extends State<Body> {
     } catch (e) {
       print(e);
     }
-    if (addedtowishlist == null) {
-      Provider.of<ProductProvider>(context, listen: false)
-          .addToWishlist(_wishlistitem);
-    }
+    // if (addedtowishlist == null) {
+    //   Provider.of<ProductProvider>(context, listen: false)
+    //       .addToWishlist(_wishlistitem);
+    // }
     /*else{
     Provider.of<ProductProvider>(context, listen: false).removeFromCart(_wishlistitem);
    }*/

@@ -146,7 +146,7 @@ class _CompleteOrderFormState extends State<CompleteOrderForm> {
           ListTile(
             title: Text(paymentMethod[index]),
            leading: _icons[index],
-           onTap:  () async{databaseHelper.ConfirmOrder(address.text.toString());} ,
+           onTap:  () async{databaseHelper.ConfirmOrder(address.text.toString(),address.text.toString(),address.text.toString(),1);} ,
           )
         ],
       ),

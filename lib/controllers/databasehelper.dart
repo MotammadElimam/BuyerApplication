@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'Package:buyer_application/models/Order.dart';
 
 class DatabaseHelper {
-  final String serverUrl = "http://192.168.43.92:8000";
+  final String serverUrl = "https://motamed.eanqod.website";
   var status;
   var token;
 
@@ -39,7 +39,6 @@ class DatabaseHelper {
       String firstName,
       String lastName,
       String phoneNumber,
-      //bool is_seller,
 
       String adress) async {
     Map information = {
@@ -48,7 +47,7 @@ class DatabaseHelper {
       "confirm_password": "$confirmPassword",
       "first_name": "$firstName",
       "last_name": "$lastName",
-      "phonenumber": "$phoneNumber",
+      "phone_number": "$phoneNumber",
       "adress": "$adress",
       "is_seller": "seller",
     };
@@ -72,7 +71,7 @@ class DatabaseHelper {
 
 
 
-   ConfirmOrder(String address) async {
+   ConfirmOrder(String address ,String payment_type , String product_id, int quantity ) async {
     
     String myUrl = "$serverUrl/api/addOrder";
     final prefs = await SharedPreferences.getInstance();
@@ -80,34 +79,13 @@ class DatabaseHelper {
     final value = prefs.get(key) ?? 0;
 
 
-    // String orderStr = orderToJson( Order(
-    //   address: 'K',
-    //   paymentType: 'Cash' , 
-    //   orderProducts: '[{"product_id":"4","quantity":"4"},{"product_id":"7","quantity":"6"},{"product_id":"8","quantity":"6"}]'
-
-      
-    //   //[
-     
-        
-    //     // OrderProduct(productId: '7', quantity: '1'),
-    //     // OrderProduct(productId: '8', quantity: '2'),
-    //     // OrderProduct(productId: '9', quantity: '3'),
-    //   //]
-    // ));
-
-
   Map order = {
-      "address": 'Hi',
-      "payment_type": 'Cash' , 
-      "order_products": '[{"product_id":"9","quantity":"4"},{"product_id":"7","quantity":"6"},{"product_id":"8","quantity":"6"}]'
+      "address": '$address',
+      "payment_type": '$payment_type' , 
+      "order_products": '[{"product_id":"$product_id","quantity":"$quantity"},{"product_id":"$product_id","quantity":"$quantity"},{"product_id":"$product_id","quantity":"$quantity"}]'
   
   };     
 
-  // Map order=  {
-  //  "address": 'K',
-  //     "paymentType": 'Cash' , 
-  //      "orderProducts": ""
-  // };
 
     print("Order on request:");
     print(order);
