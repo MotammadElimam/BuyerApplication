@@ -64,14 +64,14 @@ final TextStyle kSubHeadTextStyle = TextStyle(
 // Form Error
 final RegExp emailValidatorRegExp =
 RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
-const String kEmailNullError = "Please Enter your email";
-const String kInvalidEmailError = "Please Enter Valid Email";
-const String kPassNullError = "Please Enter your password";
-const String kShortPassError = "Password is too short";
-const String kMatchPassError = "Passwords don't match";
+const String kEmailNullError = "ادخل البريد الالكتروني";
+const String kInvalidEmailError = "ادخل صيغة البريد الالكتروني بشكل صحيح ";
+const String kPassNullError = "ادخل الرقم السري";
+const String kShortPassError = "الرقم السري اقصر من المطلوب";
+const String kMatchPassError = "الرقم السري لايتطابق مع تأكيد الرقم السري";
 const String kNamelNullError = "Please Enter your name";
-const String kPhoneNumberNullError = "Please Enter your phone number";
-const String kAddressNullError = "Please Enter your address";
+const String kPhoneNumberNullError = "ادخل رقم الجوال";
+const String kAddressNullError = "ادخل العنوان";
 
 final otpInputDecoration = InputDecoration(
   contentPadding:

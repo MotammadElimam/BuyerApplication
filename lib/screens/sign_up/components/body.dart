@@ -20,7 +20,7 @@ class Body extends StatelessWidget {
                 SizedBox(height: SizeConfig.screenHeight * 0.04), // 4%
                 Text("Register Account", style: headingStyle),
                 Text(
-                  "Complete your details or continue \nwith social media",
+                  "اكمل تفاصيل التسجيل الخاصة بك أو \nأكمل التسجيل مع حسابات التواصل الاجتماعي",
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
@@ -45,7 +45,9 @@ class Body extends StatelessWidget {
                 ),
                 SizedBox(height: getProportionateScreenHeight(20)),
                 Text(
-                  'By continuing your confirm that you agree \nwith our Term and Condition',
+                  
+                  
+                  'بإكمالك التسجيل انت تؤكد على الموافقة  \n على الشروط والأحكام الخاصة بنا',
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.caption,
                 )

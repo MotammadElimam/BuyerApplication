@@ -31,7 +31,7 @@ class _PopularProductsState extends State<PopularProducts> {
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: SectionTitle(
-              title: "Popular Products",
+              title: "وصل حديثا",
               press: () {
                 homeProduct.loadData();
               }),

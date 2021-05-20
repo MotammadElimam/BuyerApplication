@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:buyer_application/size_config.dart';
 import 'package:buyer_application/screens/cart/components/cart_card.dart';
-import 'package:buyer_application/database/sqllite.dart';
+import 'package:buyer_application/Local_database/sqllite.dart';
 
 
 // ignore: must_be_immutable

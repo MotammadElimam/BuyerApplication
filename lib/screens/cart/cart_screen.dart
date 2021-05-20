@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:buyer_application/screens/cart/components/body.dart';
 import 'package:buyer_application/screens/cart/components/check_out_card.dart';
-import 'package:buyer_application/database/sqllite.dart';
+import 'package:buyer_application/Local_database/sqllite.dart';
 
 class CartScreen extends StatefulWidget {
-  static String routeName = "/cart";
+  static String routeName = "/سلة التسوق";
 
   @override
   _CartScreenState createState() => _CartScreenState();

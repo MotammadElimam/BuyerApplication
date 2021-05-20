@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:buyer_application/constants.dart';
 import 'package:buyer_application/size_config.dart';
-import 'package:buyer_application/database/sqllite.dart';
+import 'package:buyer_application/Local_database/sqllite.dart';
 
 
 // ignore: must_be_immutable

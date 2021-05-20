@@ -1,11 +1,9 @@
 import 'package:buyer_application/components/coustom_bottom_nav_bar.dart';
-import 'package:buyer_application/database/sqllite.dart';
+import 'package:buyer_application/Local_database/sqllite.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/screens/wishlist/components/body.dart';
 
 import '../../enums.dart';
-
-
 
 class WishListScreen extends StatefulWidget {
   static String routeName = "/wishlist";
@@ -15,7 +13,7 @@ class WishListScreen extends StatefulWidget {
 }
 
 class _WishListScreenState extends State<WishListScreen> {
-  List <CartDatabase> products;
+  List<CartDatabase> products;
 
   @override
   void initState() {
@@ -24,19 +22,15 @@ class _WishListScreenState extends State<WishListScreen> {
     products = new List<CartDatabase>();
     readCart();
   }
-   
-  readCart () async {
+
+  readCart() async {
     DatabaseHelperSqlLite cartdata = new DatabaseHelperSqlLite();
-          products =  await cartdata.getAllCartProduct().whenComplete(() {
-
-            setState(() {
-                          
-                        });
-          });
-          //print("products : " + products.length.toString());
-     
-
+    products = await cartdata.getAllCartProduct().whenComplete(() {
+      setState(() {});
+    });
+    //print("products : " + products.length.toString());
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

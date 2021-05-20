@@ -16,7 +16,7 @@ class Body extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: SizeConfig.screenHeight * 0.04), // 4%
-                Text("Complete Order", style: headingStyle),
+                Text("تأكيد الطلب", style: headingStyle),
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
                   CompleteOrderForm(),
                 SizedBox(height: SizeConfig.screenHeight * 0.08),

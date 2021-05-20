@@ -1,4 +1,4 @@
-import 'package:buyer_application/database/sqllite.dart';
+import 'package:buyer_application/Local_database/sqllite.dart';
 import 'package:buyer_application/screens/checkout/checkout_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -63,7 +63,7 @@ class CheckoutCard extends StatelessWidget {
                   child: SvgPicture.asset("assets/icons/receipt.svg"),
                 ),
                 Spacer(),
-                Text("Add voucher code"),
+                Text("إضافة كود الخصم"),
                 const SizedBox(width: 10),
                 Icon(
                   Icons.arrow_forward_ios,
@@ -78,7 +78,7 @@ class CheckoutCard extends StatelessWidget {
               children: [
                 Text.rich(
                   TextSpan(
-                    text: "Total:\n",
+                    text: "المجموع:\n",
                     children: [
                       TextSpan(
                         text: "${getTotalPrice()}",
@@ -90,7 +90,7 @@ class CheckoutCard extends StatelessWidget {
                 SizedBox(
                   width: getProportionateScreenWidth(190),
                   child: PrimaryButton(
-                    text: "Check Out",
+                    text: "إكمال الطلب",
                     press: () {
                       Navigator.push(
                         context,

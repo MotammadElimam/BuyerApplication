@@ -1,4 +1,4 @@
-import 'package:buyer_application/database/sqllite.dart';
+import 'package:buyer_application/Local_database/sqllite.dart';
 import 'package:buyer_application/components/rounded_button.dart';
 import 'package:buyer_application/constants.dart';
 import 'package:buyer_application/models/wishlist_item.dart';
@@ -177,8 +177,8 @@ class _BodyState extends State<Body> {
                                 PrimaryButton(
                                   text: providerbody.cart.cartItems
                                           .contains(_cartItem)
-                                      ? "Added To Cart"
-                                      : "Add To Cart",
+                                      ? "اضيف إلى سلة التسوق"
+                                      : "إضافة الى سلة التسوق",
                                   press: () {
                                     _addTocart();
                                   },
@@ -187,8 +187,8 @@ class _BodyState extends State<Body> {
                                 PrimaryButton(
                                   text: providerbody.wishlist.wishlistitems
                                           .contains(_wishlistitem)
-                                      ? "Added To Wishlist"
-                                      : "Add To wishlist",
+                                      ? "أضيف الى قائمة الأمنيات"
+                                      : "إضافة الى قائمة الأمنيات",
                                   press: () {
                                   _addwishlist();
                                   },

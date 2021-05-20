@@ -1,4 +1,4 @@
-import 'package:buyer_application/database/sqllite.dart';
+import 'package:buyer_application/Local_database/sqllite.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/controllers/ProductProvider.dart';
 import 'package:flutter_svg/svg.dart';

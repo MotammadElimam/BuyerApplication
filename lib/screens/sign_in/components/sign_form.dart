@@ -124,13 +124,13 @@ initState(){
                   });
                 },
               ),
-              Text("Remember me"),
+              Text("تذكرني"),
               Spacer(),
               GestureDetector(
                 onTap: () => Navigator.pushNamed(
                     context, ForgotPasswordScreen.routeName),
                 child: Text(
-                  "Forgot Password",
+                  "نسيت الرقم السري؟",
                   style: TextStyle(decoration: TextDecoration.underline),
                 ),
               )
@@ -139,7 +139,7 @@ initState(){
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(20)),
                     PrimaryButton(
-            text: "Sign In",
+            text: "تسجيل الدخول",
             press: () {
               if (_formKey.currentState.validate()) {
                 // If all data are correct then save data to out variables
@@ -193,8 +193,8 @@ initState(){
         return null;
       },
       decoration: InputDecoration(
-        labelText: "Password",
-        hintText: "Enter your password",
+        labelText: "الرقم السري",
+        hintText: "ادخل الرقم السري الخاص بك",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -227,8 +227,8 @@ initState(){
         return null;
       },
       decoration: InputDecoration(
-        labelText: "Email",
-        hintText: "Enter your email",
+        labelText: "البريد الالكتروني",
+        hintText: "ادخل البريد الالكتروني الخاص بك",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,

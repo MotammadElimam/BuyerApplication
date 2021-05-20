@@ -1,4 +1,4 @@
-import 'package:buyer_application/models/Order.dart';
+import 'package:buyer_application/models/AddOrder.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -32,14 +32,7 @@ class DatabaseHelper {
     }
   }
 
-  registerData(
-      String email,
-      String password,
-      String confirmPassword,
-      String firstName,
-      String lastName,
-      String phoneNumber,
-      String adress) async {
+  registerData(String email,String password,String confirmPassword,String firstName,String lastName,String phoneNumber,String adress) async {
     Map information = {
       "email": "$email",
       "password": "$password",
@@ -69,7 +62,7 @@ class DatabaseHelper {
   }
 
   // ignore: non_constant_identifier_names
-  Future ConfirmOrder(AddOrderRequest model) async {
+  Future ConfirmOrder(AddOrder model) async {
     String myUrl = "$serverUrl/api/addOrder";
     final prefs = await SharedPreferences.getInstance();
     final key = 'token';

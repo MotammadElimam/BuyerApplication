@@ -16,10 +16,10 @@ class Body extends StatelessWidget {
             children: [
               SizedBox(height: SizeConfig.screenHeight * 0.05),
               Text(
-                "OTP Verification",
+                "تأكيد الحساب",
                 style: headingStyle,
               ),
-              Text("We sent your code to Your Email"),
+              Text("سوف نرسل رمز التأكيد على الايميل الخاص بك"),
               buildTimer(),
               OtpForm(),
               SizedBox(height: SizeConfig.screenHeight * 0.1),
@@ -28,7 +28,7 @@ class Body extends StatelessWidget {
                   // OTP code resend
                 },
                 child: Text(
-                  "Resend OTP Code",
+                  "إعادة ارسال رمز التأكيد",
                   style: TextStyle(decoration: TextDecoration.underline),
                 ),
               )
@@ -43,7 +43,7 @@ class Body extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("This code will expired in "),
+        Text("هذا الكود سوف تنتهي صلاحيته عند :"),
         TweenAnimationBuilder(
           tween: Tween(begin: 30.0, end: 0.0),
           duration: Duration(seconds: 30),

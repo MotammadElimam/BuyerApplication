@@ -29,7 +29,7 @@ class Body extends StatelessWidget {
                 VerticalSpacing(of: 40),
                 SizedBox(height: 400,),
                 PrimaryButton(
-              text: "Complete order",
+              text: "إكمال الطلب",
               press: () {
                 Navigator.popAndPushNamed(context, CompleteOrderScreen.routeName);
               },
@@ -48,12 +48,12 @@ class Body extends StatelessWidget {
       children: [
         Text.rich(
           TextSpan(
-            text: "Total ",
+            text: "المجموع",
             style: kBodyTextStyle.copyWith(
                 color: kMainColor, fontWeight: FontWeight.w500),
             children: [
               TextSpan(
-                text: "(incl. VAT)",
+                text: "(مع الضريبة)",
                 style: TextStyle(fontWeight: FontWeight.normal),
               ),
             ],

@@ -8,7 +8,7 @@ class CompleteOrderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Complete Order"),
+        title: Text("تأكيد الطلب"),
       ),
       body: Body(),
     );

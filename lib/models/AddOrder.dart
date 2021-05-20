@@ -1,11 +1,11 @@
-class AddOrderRequest {
+class AddOrder{
   String address;
   String paymentType;
   List<OrderProducts> orderProducts;
 
-  AddOrderRequest({this.address, this.paymentType, this.orderProducts});
+  AddOrder({this.address, this.paymentType, this.orderProducts});
 
-  AddOrderRequest.fromJson(Map<String, dynamic> json) {
+  AddOrder.fromJson(Map<String, dynamic> json) {
     address = json['address'];
     paymentType = json['payment_type'];
     if (json['order_products'] != null) {

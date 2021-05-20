@@ -1,10 +1,8 @@
 import 'package:buyer_application/components/buttons/primary_button.dart';
 import 'package:buyer_application/controllers/ProductProvider.dart';
 import 'package:buyer_application/controllers/databasehelper.dart';
-import 'package:buyer_application/database/sqllite.dart';
-import 'package:buyer_application/models/Order.dart';
-import 'package:buyer_application/models/Product.dart';
-import 'package:buyer_application/theme.dart';
+import 'package:buyer_application/Local_database/sqllite.dart';
+import 'package:buyer_application/models/AddOrder.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/components/custom_surfix_icon.dart';
 import 'package:buyer_application/components/form_error.dart';
@@ -65,11 +63,11 @@ class _CompleteOrderFormState extends State<CompleteOrderForm> {
           buildAddressFormField(),
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(40)),
-          Text('Choose your Payment Method'),
+          Text("اختار الطريقة المناسبة للدفع"),
           Listtile(),
           SizedBox(height: 200),
           PrimaryButton(
-            text: "Confirm Order",
+            text: "تأكيد الطلب",
             press: addOrder,
           )
         ],
@@ -98,8 +96,8 @@ class _CompleteOrderFormState extends State<CompleteOrderForm> {
         return null;
       },
       decoration: InputDecoration(
-        labelText: "Address",
-        hintText: "Enter your address",
+        labelText: "العنوان",
+        hintText: "ادخل العنوان الخاص بك",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -109,7 +107,7 @@ class _CompleteOrderFormState extends State<CompleteOrderForm> {
     );
   }
 
-  List<String> paymentMethod = ['Cash', 'Discount from wallet'];
+  List<String> paymentMethod = ['نقدا', 'خصم من المحفظة'];
   List<IconButton> _icons = [
     IconButton(
         icon: SvgPicture.asset(
@@ -127,7 +125,7 @@ class _CompleteOrderFormState extends State<CompleteOrderForm> {
 
   addOrder() async {
     databaseHelper.ConfirmOrder(
-      new AddOrderRequest(
+      new AddOrder(
         address: Provider.of<ProductProvider>(context, listen: false).address,
         paymentType: paymentType,
         orderProducts: products
