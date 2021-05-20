@@ -15,10 +15,8 @@ import 'package:buyer_application/screens/details/components/product_description
 import 'package:buyer_application/screens/details/components/top_rounded_container.dart';
 import 'package:buyer_application/screens/details/components/product_images.dart';
 
-
 class Body extends StatefulWidget {
   final Product product;
- 
 
   const Body({Key key, @required this.product}) : super(key: key);
 
@@ -33,16 +31,38 @@ class _BodyState extends State<Body> {
   @override
   void initState() {
     super.initState();
-    _cartItem = CartItem.fromData(product: widget.product, quantity: numOfItems);
+    _cartItem =
+        CartItem.fromData(product: widget.product, quantity: numOfItems);
     _wishlistitem = Wishlistitem.fromData(product: widget.product);
   }
 
+  void _addTocart() async {
+    CartDatabase product = new CartDatabase();
 
-  void _addTocart () async{
-   CartDatabase product = new CartDatabase();
-   
-   var dbhelper = new DatabaseHelperSqlLite();
+    var dbhelper = new DatabaseHelperSqlLite();
+    DatabaseHelperSqlLite cartdata = new DatabaseHelperSqlLite();
+    var oldProducts = await cartdata.getAllCartProduct();
+    if (oldProducts
+        .any((oldProduct) => oldProduct.uid == widget.product.id.toString())) {
+      cartdata.deleteProduct(widget.product.id);
+      numOfItems++;
+    }
+    product.uid = widget.product.id.toString();
+    product.name = widget.product.name;
+    product.price = widget.product.price.toString();
+    product.des = widget.product.desc;
+    product.quantity = numOfItems.toString();
+    product.image = widget.product.image;
 
+    await dbhelper
+        .insertProduct(product)
+        .whenComplete(() => Navigator.pushNamed(context, CartScreen.routeName));
+  }
+
+  void _addwishlist() async {
+    CartDatabase product = new CartDatabase();
+
+    var dbhelper = new DatabaseHelperSqlLite();
 
     product.uid = widget.product.id.toString();
     product.name = widget.product.name;
@@ -52,30 +72,9 @@ class _BodyState extends State<Body> {
     product.quantity = numOfItems.toString();
     product.image = widget.product.image;
 
-     await dbhelper.insertProduct(product).whenComplete(() => Navigator.pushNamed(context, CartScreen.routeName));
-
+    await dbhelper.insertProduct(product).whenComplete(
+        () => Navigator.pushNamed(context, WishListScreen.routeName));
   }
-
-
-  void _addwishlist () async{
-   CartDatabase product = new CartDatabase();
-   
-   var dbhelper = new DatabaseHelperSqlLite();
-
-
-    product.uid = widget.product.id.toString();
-    product.name = widget.product.name;
-    product.price = widget.product.price.toString();
-    product.des = widget.product.desc;
-    //product.rate = widget.product.rate.toString();
-    product.quantity = numOfItems.toString();
-    product.image = widget.product.image;
-
-     await dbhelper.insertProduct(product).whenComplete(() => Navigator.pushNamed(context, WishListScreen.routeName));
-
-  }
-
-
 
   // void _addTocart() {
   //   CartItem added;
@@ -190,7 +189,7 @@ class _BodyState extends State<Body> {
                                       ? "Added To Wishlist"
                                       : "Add To wishlist",
                                   press: () {
-                                  _addwishlist();
+                                    _addwishlist();
                                   },
                                 ),
                               ])),
