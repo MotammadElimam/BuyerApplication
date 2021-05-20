@@ -1,7 +1,10 @@
+import 'package:buyer_application/components/buttons/primary_button.dart';
 import 'package:buyer_application/controllers/ProductProvider.dart';
 import 'package:buyer_application/controllers/databasehelper.dart';
 import 'package:buyer_application/database/sqllite.dart';
+import 'package:buyer_application/models/Order.dart';
 import 'package:buyer_application/models/Product.dart';
+import 'package:buyer_application/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/components/custom_surfix_icon.dart';
 import 'package:buyer_application/components/form_error.dart';
@@ -11,8 +14,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
 class CompleteOrderForm extends StatefulWidget {
- // final Payment paymentselected;
- 
+  // final Payment paymentselected;
 
   const CompleteOrderForm({Key key}) : super(key: key);
 
@@ -22,12 +24,23 @@ class CompleteOrderForm extends StatefulWidget {
 
 class _CompleteOrderFormState extends State<CompleteOrderForm> {
   DatabaseHelper databaseHelper = new DatabaseHelper();
-  CartDatabase product = CartDatabase();
+  List<CartDatabase> products = [];
   String msgStatus = '';
   final _formKey = GlobalKey<FormState>();
   final List<String> errors = [];
   final Color inActiveIconColor = Color(0xFFB6B6B6);
   bool selected = true;
+
+  @override
+  void initState() {
+    super.initState();
+    readCart();
+  }
+
+  readCart() async {
+    DatabaseHelperSqlLite cartdata = new DatabaseHelperSqlLite();
+    products = await cartdata.getAllCartProduct();
+  }
 
   void addError({String error}) {
     if (!errors.contains(error))
@@ -43,24 +56,6 @@ class _CompleteOrderFormState extends State<CompleteOrderForm> {
       });
   }
 
-  // _onpress(){
-  //   setState(() {
-  //             if (_formKey.currentState.validate()) {
-  //              databaseHelper.ConfirmOrder(
-  //                Provider.of<ProductProvider>(context, listen: false).address,
-  //                );
-  //       //          .whenComplete((){
-  //       //         if(databaseHelper.status){
-  //       //         _showDialog();
-  //       //         msgStatus = 'Check email or password';
-  //       //         }else{
-  //       //         Navigator.pushNamed(context, HomeScreen.routeName);
-  //       //            }
-  //       // });
-  //     }
-  //      });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -73,12 +68,10 @@ class _CompleteOrderFormState extends State<CompleteOrderForm> {
           Text('Choose your Payment Method'),
           Listtile(),
           SizedBox(height: 200),
-          
-          // PrimaryButton(
-          //     text: "Confirm Order",
-          //     press: () {
-          //       // _onpress();
-          //     })
+          PrimaryButton(
+            text: "Confirm Order",
+            press: addOrder,
+          )
         ],
       ),
     );
@@ -87,7 +80,8 @@ class _CompleteOrderFormState extends State<CompleteOrderForm> {
   TextFormField buildAddressFormField() {
     return TextFormField(
       onSaved: (newValue) =>
-          Provider.of<ProductProvider>(context, listen: false).address = newValue,
+          Provider.of<ProductProvider>(context, listen: false).address =
+              newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kAddressNullError);
@@ -122,34 +116,55 @@ class _CompleteOrderFormState extends State<CompleteOrderForm> {
           "assets/icons/money.svg",
         ),
         onPressed: () {}),
-         IconButton(
-                icon: SvgPicture.asset(
-                  "assets/icons/wallet.svg",
-                ),
-                onPressed: () {}
-              ),
+    IconButton(
+        icon: SvgPicture.asset(
+          "assets/icons/wallet.svg",
+        ),
+        onPressed: () {}),
   ];
 
-  // ignore: non_constant_identifier_names
-  Widget Listtile() {
-    return ListView.builder(
-  padding: const EdgeInsets.all(8),
-  shrinkWrap: true,
-  itemCount: paymentMethod.length,
-  itemBuilder: (BuildContext context, int index) {
-    return  Container(
-      child: Column(
-        children: [
-          ListTile(
-            title: Text(paymentMethod[index]),
-           leading: _icons[index],
-           onTap:  () async{
-            } ,
-          )
-        ],
+  String paymentType = "";
+
+  addOrder() async {
+    databaseHelper.ConfirmOrder(
+      new AddOrderRequest(
+        address: Provider.of<ProductProvider>(context, listen: false).address,
+        paymentType: paymentType,
+        orderProducts: products
+            .map(
+              (e) => OrderProducts(
+                  productId: e.uid.toString(), quantity: e.quantity),
+            )
+            .toList(),
       ),
     );
   }
-);
+
+  // ignore: non_constant_identifier_names
+  Widget Listtile() {
+    return Container(
+      height: 120,
+      child: ListView.builder(
+          padding: const EdgeInsets.all(8),
+          shrinkWrap: true,
+          itemCount: paymentMethod.length,
+          itemBuilder: (BuildContext context, int index) {
+            return ListTile(
+              title: Text(
+                paymentMethod[index],
+                style: TextStyle(
+                  color: paymentMethod[index] == paymentType
+                      ? Theme.of(context).primaryColor
+                      : Colors.black,
+                ),
+              ),
+              leading: _icons[index],
+              onTap: () {
+                paymentType = paymentMethod[index];
+                setState(() {});
+              },
+            );
+          }),
+    );
   }
 }

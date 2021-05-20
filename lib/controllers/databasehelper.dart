@@ -3,13 +3,12 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 class DatabaseHelper {
   final String serverUrl = "https://motamed.eanqod.website";
   var status;
   var token;
 
- loginData(String email, String password) async {
+  loginData(String email, String password) async {
     String logininformation = "email=" + "$email" + "&password=" + "$password";
 
     print(logininformation);
@@ -33,7 +32,6 @@ class DatabaseHelper {
     }
   }
 
-
   registerData(
       String email,
       String password,
@@ -41,7 +39,6 @@ class DatabaseHelper {
       String firstName,
       String lastName,
       String phoneNumber,
-
       String adress) async {
     Map information = {
       "email": "$email",
@@ -71,32 +68,25 @@ class DatabaseHelper {
     }
   }
 
-
-
-
-   // ignore: non_constant_identifier_names
-   Future ConfirmOrder(AddOrderRequest model) async {
-    
+  // ignore: non_constant_identifier_names
+  Future ConfirmOrder(AddOrderRequest model) async {
     String myUrl = "$serverUrl/api/addOrder";
     final prefs = await SharedPreferences.getInstance();
     final key = 'token';
     final value = prefs.get(key) ?? 0;
 
-    final response = await http.post(myUrl,
-        headers: {'Accept': 'application/json',
-        'Authorization': 'Bearer $value' 
-        }, 
-       body: jsonEncode(model.toJson()),
-      );
-      print(response.statusCode);
+    print(jsonEncode(model.toJson()));
+    final response = await http.post(
+      myUrl,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer $value',
+      },
+      body: jsonEncode(model.toJson()),
+    );
+    print(response.body);
   }
-
-
-
-
-
-
-
 
   Future<List<dynamic>> getSellerProducts() async {
     final prefs = await SharedPreferences.getInstance();
@@ -112,10 +102,8 @@ class DatabaseHelper {
     return jsonDecode(response.body);
   }
 
-
-   // ignore: non_constant_identifier_names
-   Future<List<dynamic>> ShowAllProducts() async {
-     
+  // ignore: non_constant_identifier_names
+  Future<List<dynamic>> ShowAllProducts() async {
     String myUrl = "$serverUrl/seller_api/showAllProducts/";
     http.Response response = await http.get(myUrl, headers: {
       'Accept': 'application/json',
@@ -123,8 +111,6 @@ class DatabaseHelper {
     print(response.body);
     return jsonDecode(response.body);
   }
-
-
 
   _save(String token) async {
     final prefs = await SharedPreferences.getInstance();

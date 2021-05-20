@@ -11,8 +11,7 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-
-  List <CartDatabase> products;
+  List<CartDatabase> products;
 
   @override
   void initState() {
@@ -21,27 +20,20 @@ class _CartScreenState extends State<CartScreen> {
     products = new List<CartDatabase>();
     readCart();
   }
-   
-  readCart () async {
+
+  readCart() async {
     DatabaseHelperSqlLite cartdata = new DatabaseHelperSqlLite();
-          products =  await cartdata.getAllCartProduct().whenComplete(() {
-
-            setState(() {
-                          
-                        });
-          });
-          //print("products : " + products.length.toString());
-     
-
+    products = await cartdata.getAllCartProduct().whenComplete(() {
+      setState(() {});
+    });
   }
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Body(products:products),
-      bottomNavigationBar: CheckoutCard(products:products),
+      body: Body(products: products),
+      bottomNavigationBar: CheckoutCard(products: products),
     );
   }
 
