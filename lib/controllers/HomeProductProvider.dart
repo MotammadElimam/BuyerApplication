@@ -9,12 +9,14 @@ class HomeProductProvider extends ChangeNotifier {
   List<Product> products;
   bool error = false;
   var producthelper = DatabaseHelper();
+  
+  
   loadData() async {
     try {
       loading = true;
       notifyListeners();
 
-      var data = await producthelper.getAllProducts();
+      var data = await producthelper.ShowAllProducts();
 
       loading = false;
       products = data.map((e) => Product.fromJson(e)).toList();

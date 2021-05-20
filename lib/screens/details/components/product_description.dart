@@ -36,7 +36,8 @@ class ProductDescription extends StatelessWidget {
             decoration: BoxDecoration(
               color:
                   // ignore: todo
-                  true ? Color(0xFFFFE6E6) : Color(0xFFF5F6F9), //TODO
+                  // ignore: dead_code
+                  true ? Color(0xFFFFE6E6) : Color(0xFFF5F6F9),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20),
                 bottomLeft: Radius.circular(20),
@@ -45,7 +46,9 @@ class ProductDescription extends StatelessWidget {
             child: SvgPicture.asset(
               "assets/icons/Heart Icon_2.svg",
               color:
-                  true ? Color(0xFFFF4848) : Color(0xFFDBDEE4), //TODO
+                  // ignore: todo
+                  // ignore: dead_code
+                  true ? Color(0xFFFF4848) : Color(0xFFDBDEE4), 
               height: getProportionateScreenWidth(16),
             ),
           ),

@@ -1,5 +1,8 @@
+import 'package:buyer_application/components/coustom_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../enums.dart';
 
 class BalancePage extends StatelessWidget {
   static String routeName = "/BalancePage";
@@ -9,6 +12,7 @@ class BalancePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.wallet),
       backgroundColor: const Color(0xffffffff),
       body: Stack(
         children: <Widget>[

@@ -1,3 +1,4 @@
+import 'package:buyer_application/database/sqllite.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/models/wishlist_item.dart';
 import 'package:buyer_application/constants.dart';
@@ -6,12 +7,13 @@ import 'package:buyer_application/size_config.dart';
 
 // ignore: must_be_immutable
 class WishListCard extends StatelessWidget {
+   final String serverUrl = "https://motamed.eanqod.website/storage/product/";
   WishListCard({
     Key key,
-    this.wishlistitem,
+      this.cartDatabase,
   }) : super(key: key);
 
-   Wishlistitem wishlistitem;
+   CartDatabase cartDatabase;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class WishListCard extends StatelessWidget {
                 color: Color(0xFFF5F6F9),
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: Image.network(wishlistitem.product.image),
+              child: Image.network(serverUrl+cartDatabase.image),
             ),
           ),
         ),
@@ -36,14 +38,14 @@ class WishListCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              wishlistitem.product.name,
+              cartDatabase.name,
               style: TextStyle(color: Colors.black, fontSize: 16),
               maxLines: 2,
             ),
             SizedBox(height: 10),
             Text.rich(
               TextSpan(
-                text: "\$${wishlistitem.product.price}",
+                text: "\$${cartDatabase.price}",
                 style: TextStyle(
                     fontWeight: FontWeight.w600, color: kPrimaryColor),
                 

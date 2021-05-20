@@ -1,18 +1,16 @@
 import 'package:buyer_application/models/Wishlist.dart';
-import 'package:buyer_application/models/wishlist_item.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/models/Cart.dart';
-import 'package:buyer_application/models/cart_item.dart';
-import 'package:supercharged/supercharged.dart';
+
 
 class ProductProvider extends ChangeNotifier {
-  double price = 0.0;
+  var price = 0.0;
   Cart cart = Cart();
   Wishlist wishlist = Wishlist();
 
 
 
-
+  int id;
   String email;
   String password;
   String confirmPassword;
@@ -21,7 +19,7 @@ class ProductProvider extends ChangeNotifier {
   String phoneNumber;
   String address;
 
-  List<String> paymentMethod;
+  String paymentMethod;
 
   // addToCart(CartItem cartItem) {
   //   try {

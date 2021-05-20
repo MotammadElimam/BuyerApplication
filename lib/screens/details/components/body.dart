@@ -3,6 +3,7 @@ import 'package:buyer_application/components/rounded_button.dart';
 import 'package:buyer_application/constants.dart';
 import 'package:buyer_application/models/wishlist_item.dart';
 import 'package:buyer_application/screens/cart/cart_screen.dart';
+import 'package:buyer_application/screens/wishlist/wishlist_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/models/cart_item.dart';
 import 'package:buyer_application/components/buttons/primary_button.dart';
@@ -27,7 +28,7 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   CartItem _cartItem;
-  int numOfItems = 1;
+  var numOfItems = 1;
   Wishlistitem _wishlistitem;
   @override
   void initState() {
@@ -47,11 +48,30 @@ class _BodyState extends State<Body> {
     product.name = widget.product.name;
     product.price = widget.product.price.toString();
     product.des = widget.product.desc;
-    product.rate = widget.product.rate.toString();
+    //product.rate = widget.product.rate.toString();
     product.quantity = numOfItems.toString();
     product.image = widget.product.image;
 
      await dbhelper.insertProduct(product).whenComplete(() => Navigator.pushNamed(context, CartScreen.routeName));
+
+  }
+
+
+  void _addwishlist () async{
+   CartDatabase product = new CartDatabase();
+   
+   var dbhelper = new DatabaseHelperSqlLite();
+
+
+    product.uid = widget.product.id.toString();
+    product.name = widget.product.name;
+    product.price = widget.product.price.toString();
+    product.des = widget.product.desc;
+    //product.rate = widget.product.rate.toString();
+    product.quantity = numOfItems.toString();
+    product.image = widget.product.image;
+
+     await dbhelper.insertProduct(product).whenComplete(() => Navigator.pushNamed(context, WishListScreen.routeName));
 
   }
 
@@ -75,24 +95,24 @@ class _BodyState extends State<Body> {
   //   }
   // }
 
-  void _addToWishlist() {
-    Wishlistitem addedtowishlist;
-    try {
-      addedtowishlist = Provider.of<ProductProvider>(context, listen: false)
-          .wishlist
-          .wishlistitems
-          .firstWhere((element) => element.product.id == widget.product.id);
-    } catch (e) {
-      print(e);
-    }
-    // if (addedtowishlist == null) {
-    //   Provider.of<ProductProvider>(context, listen: false)
-    //       .addToWishlist(_wishlistitem);
-    // }
-    /*else{
-    Provider.of<ProductProvider>(context, listen: false).removeFromCart(_wishlistitem);
-   }*/
-  }
+  // void _addToWishlist() {
+  //   Wishlistitem addedtowishlist;
+  //   try {
+  //     addedtowishlist = Provider.of<ProductProvider>(context, listen: false)
+  //         .wishlist
+  //         .wishlistitems
+  //         .firstWhere((element) => element.product.id == widget.product.id);
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  //   // if (addedtowishlist == null) {
+  //   //   Provider.of<ProductProvider>(context, listen: false)
+  //   //       .addToWishlist(_wishlistitem);
+  //   // }
+  //   /*else{
+  //   Provider.of<ProductProvider>(context, listen: false).removeFromCart(_wishlistitem);
+  //  }*/
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -170,7 +190,7 @@ class _BodyState extends State<Body> {
                                       ? "Added To Wishlist"
                                       : "Add To wishlist",
                                   press: () {
-                                    _addToWishlist();
+                                  _addwishlist();
                                   },
                                 ),
                               ])),

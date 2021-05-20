@@ -1,65 +1,48 @@
-// To parse this JSON data, do
-//
-//     final order = orderFromJson(jsonString);
+class AddOrderRequest {
+  String address;
+  String paymentType;
+  List<OrderProducts> orderProducts;
 
-import 'dart:convert';
+  AddOrderRequest({this.address, this.paymentType, this.orderProducts});
 
-import 'package:flutter/cupertino.dart';
+  AddOrderRequest.fromJson(Map<String, dynamic> json) {
+    address = json['address'];
+    paymentType = json['payment_type'];
+    if (json['order_products'] != null) {
+      orderProducts = new List<OrderProducts>();
+      json['order_products'].forEach((v) {
+        orderProducts.add(new OrderProducts.fromJson(v));
+      });
+    }
+  }
 
-Order orderFromJson(String str) => Order.fromJson(json.decode(str));
-
-String orderToJson(Order data) => json.encode(data.toJson());
-
-class Order {
-    Order({
-        this.address,
-        this.paymentType,
-        this.orderProducts,
-    });
-
-    String address;
-    String paymentType;
-    List<OrderProduct> orderProducts;
-
-    // factory Order.fromJson(Map<String, dynamic> json) => Order(
-    //     address: json["address"],
-    //     paymentType: json["payment_type"],
-    //     orderProducts: List<OrderProduct>.from(json["order_products"].map((x) => OrderProduct.fromJson(x))),  
-    // );
-
-    factory Order.fromJson(Map<String, dynamic> json){
-        print("fun order: json: ");
-        print(json);
-        return Order(
-          address: json["address"],
-        paymentType: json["payment_type"],
-        orderProducts: List<OrderProduct>.from(json["order_products"].map((x) => OrderProduct.fromJson(x))),  
-        );
-        }
-
-    Map<String, dynamic> toJson() => {
-        "address": address,
-        "payment_type": paymentType,
-        "order_products": List<dynamic>.from(orderProducts.map((x) => x.toJson())),
-    };
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['address'] = this.address;
+    data['payment_type'] = this.paymentType;
+    if (this.orderProducts != null) {
+      data['order_products'] =
+          this.orderProducts.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
 }
 
-class OrderProduct {
-    OrderProduct({
-        this.productId,
-        this.quantity,
-    });
+class OrderProducts {
+  String productId;
+  String quantity;
 
-    String productId;
-    String quantity;
+  OrderProducts({this.productId, this.quantity});
 
-    factory OrderProduct.fromJson(Map<String, dynamic> json) => OrderProduct(
-        productId: json["product_id"],
-        quantity: json["quantity"],
-    );
+  OrderProducts.fromJson(Map<String, dynamic> json) {
+    productId = json['product_id'];
+    quantity = json['quantity'];
+  }
 
-    Map<String, dynamic> toJson() => {
-        "product_id": productId,
-        "quantity": quantity,
-    };
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['product_id'] = this.productId;
+    data['quantity'] = this.quantity;
+    return data;
+  }
 }

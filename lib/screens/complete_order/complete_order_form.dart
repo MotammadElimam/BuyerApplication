@@ -1,7 +1,7 @@
-import 'package:buyer_application/components/buttons/primary_button.dart';
 import 'package:buyer_application/controllers/ProductProvider.dart';
 import 'package:buyer_application/controllers/databasehelper.dart';
-import 'package:buyer_application/enums.dart';
+import 'package:buyer_application/database/sqllite.dart';
+import 'package:buyer_application/models/Product.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/components/custom_surfix_icon.dart';
 import 'package:buyer_application/components/form_error.dart';
@@ -22,13 +22,12 @@ class CompleteOrderForm extends StatefulWidget {
 
 class _CompleteOrderFormState extends State<CompleteOrderForm> {
   DatabaseHelper databaseHelper = new DatabaseHelper();
- TextEditingController address = new TextEditingController();
+  CartDatabase product = CartDatabase();
   String msgStatus = '';
   final _formKey = GlobalKey<FormState>();
   final List<String> errors = [];
   final Color inActiveIconColor = Color(0xFFB6B6B6);
   bool selected = true;
-  // String address;
 
   void addError({String error}) {
     if (!errors.contains(error))
@@ -88,9 +87,7 @@ class _CompleteOrderFormState extends State<CompleteOrderForm> {
   TextFormField buildAddressFormField() {
     return TextFormField(
       onSaved: (newValue) =>
-          Provider.of<ProductProvider>(context, listen: false).address =
-              newValue,
-         controller: address,
+          Provider.of<ProductProvider>(context, listen: false).address = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kAddressNullError);
@@ -146,7 +143,8 @@ class _CompleteOrderFormState extends State<CompleteOrderForm> {
           ListTile(
             title: Text(paymentMethod[index]),
            leading: _icons[index],
-           onTap:  () async{databaseHelper.ConfirmOrder(address.text.toString(),address.text.toString(),address.text.toString(),1);} ,
+           onTap:  () async{
+            } ,
           )
         ],
       ),

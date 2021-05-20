@@ -1,3 +1,4 @@
+import 'package:buyer_application/database/sqllite.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/controllers/ProductProvider.dart';
 import 'package:flutter_svg/svg.dart';
@@ -7,6 +8,7 @@ import 'package:provider/provider.dart';
 
 
 class Body extends StatefulWidget {
+  List <CartDatabase> products;
   @override
   _BodyState createState() => _BodyState();
 }
@@ -42,7 +44,7 @@ class _BodyState extends State<Body> {
                   ],
                 ),
               ),
-              child: WishListCard(wishlistitem: wishlistbody.wishlist.wishlistitems[index]),
+              child: WishListCard(cartDatabase: widget.products[index]),
             ),
           ),
         ),

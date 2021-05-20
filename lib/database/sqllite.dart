@@ -10,8 +10,6 @@ final String columnProductName = "product_name";
 final String columnProductPrice = "product_price";
 final String columnQuantity = "product_quantity";
 final String coulumnProductImage = "Product_image";
-//final String columnShalihFrom = "shalih_from";
-//final String columnShalihTo = "shalih_to";
 final String columnProductRate = "product_rate";
 //final String columnShalihFlagDate = "flagDate";
 final String columnProductDes = "product_des";
@@ -27,8 +25,6 @@ class CartDatabase {
       columnProductPrice: price,
       columnQuantity : quantity,
       coulumnProductImage : image, 
-      //columnShalihFrom: from,
-      //columnShalihTo: to,
       columnProductRate: rate,
       //columnShalihFlagDate: flagDate,
       columnProductDes: des,
@@ -46,8 +42,6 @@ class CartDatabase {
     uid = map[columnProductID];
     name = map[columnProductName];
     price = map[columnProductPrice];
-    // from = map[columnShalihFrom];
-    // to = map[columnShalihTo];
     rate = map[columnProductRate];
     quantity = map[columnQuantity];
     image = map[coulumnProductImage]; 
@@ -116,10 +110,8 @@ class DatabaseHelperSqlLite {
       columnProductPrice,
       columnQuantity,
       coulumnProductImage,
-      // columnProductFrom,
       columnProductRate,
      // columnProductFlagDate,
-      //columnProductTo,
       columnProductDes
     ]);
 //    var result = await dbClient.rawQuery('SELECT * FROM $tableNote');
@@ -147,12 +139,10 @@ class DatabaseHelperSqlLite {
           columnProductName,
           columnProductPrice,
           coulumnProductImage,
-         // columnProductFrom,
           //columnProductFlagDate,
           columnProductRate,
           columnQuantity,
           columnProductDes,
-         // columnProductTo
         ],
         where: '$columnId = ?',
         whereArgs: [id]);

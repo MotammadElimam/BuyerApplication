@@ -1,11 +1,11 @@
 import 'package:buyer_application/components/buttons/primary_button.dart';
 import 'package:buyer_application/constants.dart';
-import 'package:buyer_application/controllers/ProductProvider.dart';
 import 'package:buyer_application/screens/complete_order/complete_order_screen.dart';
 import 'package:buyer_application/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
+
+// ignore: must_be_immutable
 class Body extends StatelessWidget {
    double total;
     Body({Key key, this.total}) : super(key: key);

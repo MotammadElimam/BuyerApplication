@@ -22,11 +22,11 @@ class Product {
 
     int id;
     String name;
-    int price;
+    var price;
     String desc;
     String image;
-    int sellerId;
-    int rate;
+    var sellerId;
+    var rate;
     DateTime createdAt;
     DateTime updatedAt;
 

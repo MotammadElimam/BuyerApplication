@@ -1,4 +1,3 @@
-import 'package:buyer_application/models/cart_item.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/constants.dart';
 import 'package:buyer_application/size_config.dart';
@@ -7,7 +6,7 @@ import 'package:buyer_application/database/sqllite.dart';
 
 // ignore: must_be_immutable
 class CartCard extends StatelessWidget {
-  final String serverUrl = "http://192.168.43.92:8000/storage/product/";
+  final String serverUrl = "https://motamed.eanqod.website/storage/product/";
   CartCard({
     Key key,
     this.cartDatabase,

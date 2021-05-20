@@ -1,6 +1,7 @@
 import 'package:buyer_application/screens/checkout/Body.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CheckoutScreen extends StatelessWidget {
    static String routeName = "/Checkout";
     double total;

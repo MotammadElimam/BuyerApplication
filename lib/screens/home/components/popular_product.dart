@@ -54,9 +54,7 @@ class _PopularProductsState extends State<PopularProducts> {
                   child: ListView.builder(
                     itemBuilder: (context, index) {
                       return ProductCard(
-                          product: data.products[index], press: () {
-                           
-                          });
+                          product: data.products[index], press: () {});
                     },
                     itemCount: data.products.length,
                     scrollDirection: Axis.horizontal,
@@ -72,4 +70,3 @@ class _PopularProductsState extends State<PopularProducts> {
     );
   }
 }
-
