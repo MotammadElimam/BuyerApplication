@@ -85,6 +85,15 @@ flutter:
           weight: 600
         - asset: assets/fonts/SF Pro Text/SFProText-Medium.ttf
           weight: 500
+    - family: Tajawal
+      fonts:
+        - asset: assets\fonts\Tajawal\Tajawal-Black.ttf
+        - asset: assets\fonts\Tajawal\Tajawal-Bold.ttf
+        - asset: assets\fonts\Tajawal\Tajawal-ExtraBold.ttf
+        - asset: assets\fonts\Tajawal\Tajawal-ExtraLight.ttf
+        - asset: assets\fonts\Tajawal\Tajawal-Light.ttf
+        - asset: assets\fonts\Tajawal\Tajawal-Medium.ttf
+        - asset: assets\fonts\Tajawal\Tajawal-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

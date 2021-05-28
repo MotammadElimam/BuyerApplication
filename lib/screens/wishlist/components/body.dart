@@ -7,6 +7,7 @@ import 'package:buyer_application/screens/wishlist/components/wishlist_card.dart
 import 'package:provider/provider.dart';
 
 
+// ignore: must_be_immutable
 class Body extends StatefulWidget {
   List <CartDatabase> products;
   @override

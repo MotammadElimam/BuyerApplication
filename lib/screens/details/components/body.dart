@@ -44,7 +44,7 @@ class _BodyState extends State<Body> {
     var oldProducts = await cartdata.getAllCartProduct();
     if (oldProducts
         .any((oldProduct) => oldProduct.uid == widget.product.id.toString())) {
-      cartdata.deleteProduct(widget.product.id);
+      dbhelper.deleteProduct(widget.product.id);
       numOfItems++;
     }
     product.uid = widget.product.id.toString();
@@ -76,42 +76,6 @@ class _BodyState extends State<Body> {
         () => Navigator.pushNamed(context, WishListScreen.routeName));
   }
 
-  // void _addTocart() {
-  //   CartItem added;
-  //   try {
-  //     added = Provider.of<ProductProvider>(context, listen: false)
-  //         .cart
-  //         .cartItems
-  //         .firstWhere((element) => element.product.id == widget.product.id);
-  //   } catch (e) {
-  //     print(e);
-  //   }
-  //   if (added == null) {
-  //     Provider.of<ProductProvider>(context, listen: false).addToCart(_cartItem);
-  //   } else {
-  //     Provider.of<ProductProvider>(context, listen: false)
-  //         .removeFromCart(_cartItem);
-  //   }
-  // }
-
-  // void _addToWishlist() {
-  //   Wishlistitem addedtowishlist;
-  //   try {
-  //     addedtowishlist = Provider.of<ProductProvider>(context, listen: false)
-  //         .wishlist
-  //         .wishlistitems
-  //         .firstWhere((element) => element.product.id == widget.product.id);
-  //   } catch (e) {
-  //     print(e);
-  //   }
-  //   // if (addedtowishlist == null) {
-  //   //   Provider.of<ProductProvider>(context, listen: false)
-  //   //       .addToWishlist(_wishlistitem);
-  //   // }
-  //   /*else{
-  //   Provider.of<ProductProvider>(context, listen: false).removeFromCart(_wishlistitem);
-  //  }*/
-  // }
 
   @override
   Widget build(BuildContext context) {
