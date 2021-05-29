@@ -85,15 +85,16 @@ class _BodyState extends State<Body> {
                             RatingBar.builder(
                               initialRating: _initialRating,
                               minRating: 1,
+                              maxRating: 5,
                               direction:
                                   _isVertical ? Axis.vertical : Axis.horizontal,
                               allowHalfRating: true,
-                              unratedColor: Colors.amber.withAlpha(50),
+                              unratedColor: Colors.blue.withAlpha(50),
                               itemCount: 5,
                               itemSize: 30.0,
                               itemBuilder: (context, _) => Icon(
                                 _selectedIcon ?? Icons.star,
-                                color: Colors.amber,
+                                color: Colors.blue,
                               ),
                               onRatingUpdate: (rating) {
                                 setState(() {

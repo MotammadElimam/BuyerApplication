@@ -27,8 +27,8 @@ class BuyerOrdersScreen extends StatelessWidget {
       title: Column(
         children: [
           Text(
-            "Your Orders",
-            style: TextStyle(color: Colors.black),
+            "طلباتك",
+            style: TextStyle(color: Colors.black,fontFamily: 'Tajawal',),
           ),
         ],
       ),

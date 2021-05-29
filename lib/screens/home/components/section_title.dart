@@ -20,18 +20,16 @@ class SectionTitle extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
-            fontSize: getProportionateScreenWidth(18),
+           
             fontFamily: 'Tajawal',
-            color: Colors.black,
+            color: Color(0xFFBBBBBB),
           ),
         ),
-        GestureDetector(
-          onTap: press,
-          child: Text(
-            "المزيد",
-            style: TextStyle(color: Color(0xFFBBBBBB)),
+           Text(
+            "وصل حديثا",
+            style: TextStyle(color:Colors.black , fontSize: getProportionateScreenWidth(18),),
           ),
-        ),
+        
       ],
     );
   }

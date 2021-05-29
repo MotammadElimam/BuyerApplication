@@ -26,9 +26,9 @@ class BalancePage extends StatelessWidget {
           Transform.translate(
             offset: Offset(101.0, 373.0),
             child: Text(
-              '0.0 SDG',
+              '0.0 جنيه',
               style: TextStyle(
-                fontFamily: 'Segoe UI',
+                fontFamily: 'Tajawal',
                 fontSize: 50,
                 color: const Color(0xff707070),
               ),
@@ -38,9 +38,9 @@ class BalancePage extends StatelessWidget {
           Transform.translate(
             offset: Offset(103.0, 265.0),
             child: Text(
-              'Balance',
+              'رصيدك',
               style: TextStyle(
-                fontFamily: 'Segoe UI',
+                fontFamily: 'Tajawal',
                 fontSize: 50,
                 color: const Color(0xff707070),
               ),

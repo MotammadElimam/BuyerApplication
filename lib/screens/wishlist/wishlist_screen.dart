@@ -45,8 +45,8 @@ class _WishListScreenState extends State<WishListScreen> {
       title: Column(
         children: [
           Text(
-            "Your Wishlist",
-            style: TextStyle(color: Colors.black),
+            "قائمة الأمنيات",
+            style: TextStyle(color: Colors.black,fontFamily: 'Tajawal',),
           ),
         ],
       ),

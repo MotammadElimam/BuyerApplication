@@ -10,37 +10,37 @@ class SpecialOffers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        Padding(
-          padding:
-              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: SectionTitle(
-            title: "صمم خصيصا لك",
-            press: () {},
-          ),
-        ),
-        SizedBox(height: getProportionateScreenWidth(20)),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              SpecialOfferCard(
-                image: "assets/images/Image Banner 3.png",
-                category: "crafts",
-                numOfBrands: 18,
-                press: () {},
-              ),
-              SpecialOfferCard(
-                image: "assets/images/Image Banner 3.png",
-                category: "Fashion",
-                numOfBrands: 24,
-                press: () {},
-              ),
-              SizedBox(width: getProportionateScreenWidth(20)),
-            ],
-          ),
-        ),
-      ],
+      // children: [
+      //   Padding(
+      //     padding:
+      //         EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+      //     child: SectionTitle(
+      //       title: "صمم خصيصا لك",
+      //       press: () {},
+      //     ),
+      //   ),
+      //   SizedBox(height: getProportionateScreenWidth(20)),
+      //   // SingleChildScrollView(
+      //   //   scrollDirection: Axis.horizontal,
+      //   //   child: Row(
+      //   //     children: [
+      //   //       SpecialOfferCard(
+      //   //         image: "assets/images/Image Banner 3.png",
+      //   //         category: "crafts",
+      //   //         numOfBrands: 18,
+      //   //         press: () {},
+      //   //       ),
+      //   //       SpecialOfferCard(
+      //   //         image: "assets/images/Image Banner 3.png",
+      //   //         category: "Fashion",
+      //   //         numOfBrands: 24,
+      //   //         press: () {},
+      //   //       ),
+      //   //       SizedBox(width: getProportionateScreenWidth(20)),
+      //   //     ],
+      //   //   ),
+      //   // ),
+      // ],
     );
   }
 }
