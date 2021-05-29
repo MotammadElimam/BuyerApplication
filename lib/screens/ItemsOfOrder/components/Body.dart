@@ -1,3 +1,4 @@
+import 'package:buyer_application/components/buttons/primary_button.dart';
 import 'package:buyer_application/constants.dart';
 import 'package:buyer_application/size_config.dart';
 import 'package:flutter/material.dart';
@@ -102,7 +103,10 @@ class _BodyState extends State<Body> {
                                 });
                               },
                               updateOnDrag: true,
-                            )
+                            ),
+                            PrimaryButton(text: "rate", press: (){
+                              databaseHelper.rate(snapshot.data[index].id,_rating);
+                            })
                           ],
                         ),
                       )

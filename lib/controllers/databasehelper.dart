@@ -166,6 +166,33 @@ class DatabaseHelper {
     return itemsOfOrders;
   }
 
+  rate(String id , double rate) async{
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'token';
+    final value = prefs.get(key) ?? 0;
+     
+       
+
+   Map rating = {
+    "rate":rate.toString()
+    };
+
+
+     String myUrl = "$serverUrl/api/rating/$id";
+     
+
+      http.Response response = await http.post(myUrl, headers: {
+      'Accept': 'application/json',
+      'Authorization': 'Bearer $value'
+    },
+    body: rating
+    
+    );
+    
+
+    print(response.body);
+  }
+
   _save(String token) async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'token';
