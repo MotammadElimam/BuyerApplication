@@ -1,4 +1,6 @@
 import 'package:buyer_application/models/AddOrder.dart';
+import 'package:buyer_application/models/BuyerOrders/BuyerOrders.dart';
+import 'package:buyer_application/models/ItemsOfOrders/ItemsOfOrders.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -32,7 +34,14 @@ class DatabaseHelper {
     }
   }
 
-  registerData(String email,String password,String confirmPassword,String firstName,String lastName,String phoneNumber,String adress) async {
+  registerData(
+      String email,
+      String password,
+      String confirmPassword,
+      String firstName,
+      String lastName,
+      String phoneNumber,
+      String adress) async {
     Map information = {
       "email": "$email",
       "password": "$password",
@@ -62,7 +71,7 @@ class DatabaseHelper {
   }
 
   // ignore: non_constant_identifier_names
-  Future ConfirmOrder(AddOrder model) async {
+  Future confirmOrder(AddOrder model) async {
     String myUrl = "$serverUrl/api/addOrder";
     final prefs = await SharedPreferences.getInstance();
     final key = 'token';
@@ -103,6 +112,58 @@ class DatabaseHelper {
     });
     print(response.body);
     return jsonDecode(response.body);
+  }
+
+  Future<List<Order>> showBuyerOrders() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'token';
+    final value = prefs.get(key) ?? 0;
+    print("motammad");
+    String myUrl = "$serverUrl/api/ShowBuyerOrders";
+    http.Response response = await http.get(myUrl, headers: {
+      'Accept': 'application/json',
+      'Authorization': 'Bearer $value'
+    });
+    print("motammad2");
+    print("motammad3"+response.body);
+    List<Order> buyerOrders = [];
+
+    var jsonData = json.decode(response.body);
+    for (var u in jsonData['data']) {
+      Order buyerOrder = Order.fromJson(u);
+
+      buyerOrders.add(buyerOrder);
+    }
+
+    print(response.body);
+    return buyerOrders;
+  }
+
+
+
+  Future<List<ItemsOfOrders>> showItemsOfOrders(String id) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'token';
+    final value = prefs.get(key) ?? 0;
+    print("motammad");
+    String myUrl = "$serverUrl/api/ShowBuyeritemsOfOrder/?id=$id";
+    http.Response response = await http.get(myUrl, headers: {
+      'Accept': 'application/json',
+      'Authorization': 'Bearer $value'
+    });
+    print("motammad2");
+    print("motammad3"+response.body);
+    List<ItemsOfOrders> itemsOfOrders = [];
+
+    var jsonData = json.decode(response.body);
+    for (var u in jsonData['data']) {
+      ItemsOfOrders itemsOfOrder = ItemsOfOrders.fromJson(u);
+
+      itemsOfOrders.add(itemsOfOrder);
+    }
+
+    print(response.body);
+    return itemsOfOrders;
   }
 
   _save(String token) async {

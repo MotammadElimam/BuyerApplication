@@ -124,7 +124,7 @@ class _CompleteOrderFormState extends State<CompleteOrderForm> {
   String paymentType = "";
 
   addOrder() async {
-    databaseHelper.ConfirmOrder(
+    databaseHelper.confirmOrder(
       new AddOrder(
         address: Provider.of<ProductProvider>(context, listen: false).address,
         paymentType: paymentType,
