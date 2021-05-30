@@ -9,9 +9,9 @@ class Categories extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> categories = [
       {"icon": "assets/images/gift.svg", "text": "هدايا"},
-      {"icon": "assets/images/Accessories.svg", "text": "الموضة"},
+      {"icon": "assets/images/Accessories.svg", "text": "موضة"},
       {"icon": "assets/images/bags.svg", "text": "حقائب"},
-      {"icon": "assets/images/food.svg", "text": "الأكل"},
+      {"icon": "assets/images/food.svg", "text": "أكل بيت"},
     ];
     return Padding(
       padding: EdgeInsets.all(getProportionateScreenWidth(20)),

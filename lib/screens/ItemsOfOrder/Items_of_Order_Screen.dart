@@ -8,7 +8,7 @@ import 'package:buyer_application/enums.dart';
 
 // ignore: must_be_immutable
 class ItemsofOrderScreen extends StatelessWidget {
-  static String routeName = "/طلبات العملاء";
+  static String routeName = "/itemsoforder";
   String orderNumber;
  // SellerProductsItem sellerProductsItem = SellerProductsItem();
 
@@ -28,8 +28,8 @@ class ItemsofOrderScreen extends StatelessWidget {
       title: Column(
         children: [
           Text(
-            "Items of Order",
-            style: TextStyle(color: Colors.black),
+            "تفاصيل الطلب",
+            style: TextStyle(color: Colors.black,fontFamily: 'Tajawal'),
           ),
         ],
       ),
