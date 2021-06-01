@@ -21,9 +21,9 @@ class Body extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 50),
-                buildPriceRow(text: "Total Without Vat", price: total),
+                buildPriceRow(text: "المجموع بدون الضريبة", price: total),
                 VerticalSpacing(of: 10),
-                buildPriceRow(text: "Delivery", price: 0),
+               // buildPriceRow(text: "Delivery", price: 0),
                 VerticalSpacing(of: 10),
                 buildTotal(price:  (total*0.4)+total),
                 VerticalSpacing(of: 40),

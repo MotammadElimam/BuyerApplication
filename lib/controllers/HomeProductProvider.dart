@@ -16,7 +16,7 @@ class HomeProductProvider extends ChangeNotifier {
       loading = true;
       notifyListeners();
 
-      var data = await producthelper.ShowAllProducts();
+      var data = await producthelper.showAllProducts();
 
       loading = false;
       products = data.map((e) => Product.fromJson(e)).toList();

@@ -4,9 +4,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../enums.dart';
 
-class BalancePage extends StatelessWidget {
+class WalleteScreen extends StatelessWidget {
   static String routeName = "/BalancePage";
-  BalancePage({
+  WalleteScreen({
     Key key,
   }) : super(key: key);
   @override

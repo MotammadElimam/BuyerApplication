@@ -23,7 +23,7 @@ class Body extends StatelessWidget {
           ProfilePic(),
           SizedBox(height: 20),
           ProfileMenu(
-            text: "معلومات الحساب",
+            text: "بيانات الحساب",
             icon: "assets/icons/User Icon.svg",
             press: () => {},
           ),
@@ -40,7 +40,7 @@ class Body extends StatelessWidget {
             },
           ),
           ProfileMenu(
-            text: "مركز المساعدة",
+            text: "اتصل بنا",
             icon: "assets/icons/Question mark.svg",
             press: () {},
           ),

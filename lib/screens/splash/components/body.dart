@@ -62,7 +62,7 @@ class _BodyState extends State<Body> {
                   Navigator.pushNamed(context, SignInScreen.routeName);
                 }
               },
-              text: "Get Started",
+              text: "ابدأ الان",
             ),
           ),
           Spacer(),
@@ -76,20 +76,19 @@ class _BodyState extends State<Body> {
 List<Map<String, dynamic>> demoData = [
   {
     "illustration": "assets/Illustrations/Illustrations_1.svg",
-    "title": "All your favorites",
-    "text":
-        "Order from the best local restaurants \nwith easy, on-demand delivery.",
+    "title": "كل ماتتمناه في تطبيق واحد",
+    "text": "اطلب من افضل البائعين المحليين في المدينة" 
   },
   {
     "illustration": "assets/Illustrations/Illustrations_2.svg",
-    "title": "Free delivery offers",
+    "title": "عروض توصيل مجانية",
     "text":
-        "Free delivery for new customers via Apple Pay\nand others payment methods.",
+        "توصيل مجاني للعملاء الجدد من خلال الدفع عن طريق سايبر باي\nوطرق الدفع الأخرى",
   },
   {
     "illustration": "assets/Illustrations/Illustrations_3.svg",
-    "title": "Choose your food",
+    "title": "اطلب منتجاتك المفضلة",
     "text":
-        "Easily find your type of food craving and\nyou’ll get delivery in wide range.",
+        "اطلب بسهولة منتجاتك المفضلة\nوسيتم التوصيل لك ف اقرب وقت",
   },
 ];

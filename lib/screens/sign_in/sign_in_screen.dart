@@ -6,9 +6,9 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("تسجيل الدخول"),
-      ),
+      // appBar: AppBar(
+      //   title: Text("تسجيل الدخول",style: TextStyle(fontFamily: 'Tajawal'),),
+      // ),
       body: Body(),
     );
   }

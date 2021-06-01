@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:buyer_application/constants.dart';
 import 'package:buyer_application/size_config.dart';
@@ -19,7 +21,10 @@ class Body extends StatelessWidget {
                 "تأكيد الحساب",
                 style: headingStyle,
               ),
-              Text("سوف نرسل رمز التأكيد على الايميل الخاص بك"),
+              Text(
+                "سوف نرسل رمز التأكيد على الايميل الخاص بك",
+                style: TextStyle(fontFamily: 'Tajawal'),
+              ),
               buildTimer(),
               OtpForm(),
               SizedBox(height: SizeConfig.screenHeight * 0.1),
@@ -29,7 +34,9 @@ class Body extends StatelessWidget {
                 },
                 child: Text(
                   "إعادة ارسال رمز التأكيد",
-                  style: TextStyle(decoration: TextDecoration.underline),
+                  style: TextStyle(
+                      decoration: TextDecoration.underline,
+                      fontFamily: 'Tajawal'),
                 ),
               )
             ],

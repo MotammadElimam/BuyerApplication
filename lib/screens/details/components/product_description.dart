@@ -75,6 +75,7 @@ class ProductDescription extends StatelessWidget {
                 Text(
                   "المزيد",
                   style: TextStyle(
+                      fontFamily: 'Tajawal',
                       fontWeight: FontWeight.w600, color: kPrimaryColor),
                 ),
                 SizedBox(width: 5),

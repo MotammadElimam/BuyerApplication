@@ -1,6 +1,6 @@
 import 'package:buyer_application/screens/BuyerOrders/BuyerOrders_Screen.dart';
 import 'package:buyer_application/screens/ItemsOfOrder/Items_of_Order_Screen.dart';
-import 'package:buyer_application/screens/wallet/balancePage.dart';
+import 'package:buyer_application/screens/wallet/WalletScreen.dart';
 import 'package:buyer_application/screens/checkout/checkout_screen.dart';
 import 'package:buyer_application/screens/complete_order/complete_order_screen.dart';
 import 'package:buyer_application/screens/profile/profile_screen.dart';
@@ -32,10 +32,10 @@ final Map<String, WidgetBuilder> routes = {
   CartScreen.routeName: (context) => CartScreen(),
   WishListScreen.routeName: (context) => WishListScreen(),
   ProfileScreen.routeName:(context) => ProfileScreen(),
-  BalancePage.routeName:(context) => BalancePage(),
+  WalleteScreen.routeName:(context) => WalleteScreen(),
   SettingsPage.routeName:(context)=>SettingsPage(),
   CheckoutScreen.routeName:(context)=>CheckoutScreen(),
   CompleteOrderScreen.routeName:(context)=>CompleteOrderScreen(),
-  ItemsofOrderScreen.routeName:(context)=>ItemsofOrderScreen(),
+  ItemsofOrderScreen.routeName:(context)=>ItemsofOrderScreen(orderNumber: '',),
   BuyerOrdersScreen.routeName:(context)=>BuyerOrdersScreen(),
 };

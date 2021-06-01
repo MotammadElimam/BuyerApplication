@@ -10,7 +10,7 @@ class CheckoutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("إكمال الطلب"),
+        title: Text("إكمال الطلب",style: TextStyle(fontFamily: 'Tajawal'),),
       ),
       body: Body(total:total),
     );

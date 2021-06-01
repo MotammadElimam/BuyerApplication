@@ -55,7 +55,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
                  ).whenComplete((){
                 if(databaseHelper.status){
                 _showDialog();
-                msgStatus = 'Check email or password';
+                msgStatus = 'الرجاء التحقق من البريد الالكتروني او الرقم السري';
                 }else{
                 Navigator.pushNamed(context, HomeScreen.routeName);
                    }
@@ -80,7 +80,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(40)),
           PrimaryButton(
-            text: "continue",
+            text: "تأكيد التسجيل",
                   press: () {
               _onpress();
             }
@@ -108,8 +108,8 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         return null;
       },
       decoration: InputDecoration(
-        labelText: "Address",
-        hintText: "Enter your address",
+        labelText: "العنوان",
+        hintText: "ادخل العنوان",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -138,8 +138,8 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         return null;
       },
       decoration: InputDecoration(
-        labelText: "Phone Number",
-        hintText: "Enter your phone number",
+        labelText: "رقم الهاتف",
+        hintText: "ادخل رقم الهاتف",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -159,8 +159,8 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         return null;
       },
       decoration: InputDecoration(
-        labelText: "Last Name",
-        hintText: "Enter your last name",
+        labelText: "اسم العائلة",
+        hintText: "ادخل رقم العائلة",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -187,8 +187,8 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         return null;
       },
       decoration: InputDecoration(
-        labelText: "First Name",
-        hintText: "Enter your first name",
+        labelText: "الاسم الأول",
+        hintText: "ادخل الاسم الأول",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -203,8 +203,8 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         context:context ,
         builder:(BuildContext context){
           return AlertDialog(
-            title: new Text('Failed'),
-            content:  new Text('Check your email or password'),
+            title: new Text('فشل'),
+            content:  new Text('الرجاء التحقق من البريد الالكتروني أو كلمة السر'),
             actions: <Widget>[
               // ignore: deprecated_member_use
               new RaisedButton(

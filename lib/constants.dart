@@ -15,15 +15,18 @@ const kPrimaryGradientColor = LinearGradient(
 );
 const kSecondaryColor = Color(0xFF979797);
 const kTextColor = Color(0xFF757575);
+
 final TextStyle kButtonTextStyle = TextStyle(
   color: Colors.white,
   fontSize: getProportionateScreenWidth(14),
   fontWeight: FontWeight.bold,
 );
+
 final TextStyle kHeadlineTextStyle = TextStyle(
   fontSize: getProportionateScreenWidth(30),
   fontWeight: FontWeight.bold,
 );
+
 final TextStyle kBodyTextStyle = TextStyle(
   fontSize: getProportionateScreenWidth(16),
   color: kBodyTextColor,

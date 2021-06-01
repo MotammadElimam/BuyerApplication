@@ -104,7 +104,7 @@ class _BodyState extends State<Body> {
                               },
                               updateOnDrag: true,
                             ),
-                            PrimaryButton(text: "rate", press: (){
+                            PrimaryButton(text: "قيم المنتج", press: (){
                               databaseHelper.rate(snapshot.data[index].id,_rating);
                             })
                           ],

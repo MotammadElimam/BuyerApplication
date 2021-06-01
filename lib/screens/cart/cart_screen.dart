@@ -42,8 +42,8 @@ class _CartScreenState extends State<CartScreen> {
       title: Column(
         children: [
           Text(
-            "Your Cart",
-            style: TextStyle(color: Colors.black),
+            "سلة التسوق",
+            style: TextStyle(color: Colors.black,fontFamily: 'Tajawal'),
           ),
           /*Text(
             "${demoCarts.length} items",

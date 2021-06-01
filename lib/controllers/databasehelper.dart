@@ -105,7 +105,7 @@ class DatabaseHelper {
   }
 
   // ignore: non_constant_identifier_names
-  Future<List<dynamic>> ShowAllProducts() async {
+  Future<List<dynamic>> showAllProducts() async {
     String myUrl = "$serverUrl/seller_api/showAllProducts/";
     http.Response response = await http.get(myUrl, headers: {
       'Accept': 'application/json',

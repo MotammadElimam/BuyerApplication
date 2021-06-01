@@ -63,7 +63,7 @@ class _CompleteOrderFormState extends State<CompleteOrderForm> {
           buildAddressFormField(),
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(40)),
-          Text("اختار الطريقة المناسبة للدفع"),
+          Text("اختار الطريقة المناسبة للدفع",style: TextStyle(fontFamily: 'Tajawal'),),
           Listtile(),
           SizedBox(height: 200),
           PrimaryButton(

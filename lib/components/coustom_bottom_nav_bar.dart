@@ -1,5 +1,5 @@
 import 'package:buyer_application/screens/BuyerOrders/BuyerOrders_Screen.dart';
-import 'package:buyer_application/screens/wallet/BalancePage.dart';
+import 'package:buyer_application/screens/wallet/WalletScreen.dart';
 import 'package:buyer_application/screens/wishlist/wishlist_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -86,7 +86,7 @@ class CustomBottomNavBar extends StatelessWidget {
                       : inActiveIconColor,
                   ),
                 onPressed: () {
-                  Navigator.pushNamed(context, BalancePage.routeName);
+                  Navigator.pushNamed(context, WalleteScreen.routeName);
                 },
               ),
               IconButton(
