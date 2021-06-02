@@ -5,7 +5,7 @@ import 'package:buyer_application/screens/checkout/checkout_screen.dart';
 import 'package:buyer_application/screens/complete_order/complete_order_screen.dart';
 import 'package:buyer_application/screens/profile/profile_screen.dart';
 import 'package:buyer_application/screens/profile/setting.dart';
-import 'package:buyer_application/screens/splash/splash_scrreen.dart';
+import 'package:buyer_application/screens/splash/splash_screen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:buyer_application/screens/sign_in/sign_in_screen.dart';
 import 'package:buyer_application/screens/forgot_password/forgot_password_screen.dart';

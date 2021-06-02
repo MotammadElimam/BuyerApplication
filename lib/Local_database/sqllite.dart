@@ -9,24 +9,22 @@ final String columnProductID = "product_id";
 final String columnProductName = "product_name";
 final String columnProductPrice = "product_price";
 final String columnQuantity = "product_quantity";
-final String coulumnProductImage = "Product_image";
+final String columnProductImage = "Product_image";
 final String columnProductRate = "product_rate";
-//final String columnShalihFlagDate = "flagDate";
 final String columnProductDes = "product_des";
 
 class CartDatabase {
   int id;
-  String uid, name, price, from, to, rate, flagDate, des , quantity , image;
+  String uid, name, price, from, to, rate, flagDate, des, quantity, image;
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
       columnProductID: uid,
       columnProductName: name,
       columnProductPrice: price,
-      columnQuantity : quantity,
-      coulumnProductImage : image, 
+      columnQuantity: quantity,
+      columnProductImage: image,
       columnProductRate: rate,
-      //columnShalihFlagDate: flagDate,
       columnProductDes: des,
     };
     if (id != null) {
@@ -44,14 +42,14 @@ class CartDatabase {
     price = map[columnProductPrice];
     rate = map[columnProductRate];
     quantity = map[columnQuantity];
-    image = map[coulumnProductImage]; 
-    //flagDate = map[columnShalihFlagDate];
+    image = map[columnProductImage];
     des = map[columnProductDes];
   }
 }
 
 class DatabaseHelperSqlLite {
-  static final DatabaseHelperSqlLite _instance = new DatabaseHelperSqlLite.internal();
+  static final DatabaseHelperSqlLite _instance =
+      new DatabaseHelperSqlLite.internal();
 
   factory DatabaseHelperSqlLite() => _instance;
 
@@ -81,13 +79,13 @@ class DatabaseHelperSqlLite {
 
   void _onCreate(Database db, int newVersion) async {
     await db.execute(
-        'CREATE TABLE $tableCart($columnId INTEGER PRIMARY KEY, $columnProductID TEXT, $coulumnProductImage TEXT, $columnProductName TEXT,$columnQuantity TEXT,$columnProductRate TEXT,$columnProductDes TEXT, $columnProductPrice TEXT)');
+        'CREATE TABLE $tableCart($columnId INTEGER PRIMARY KEY, $columnProductID TEXT, $columnProductImage TEXT, $columnProductName TEXT,$columnQuantity TEXT,$columnProductRate TEXT,$columnProductDes TEXT, $columnProductPrice TEXT)');
   }
 
   void _onUpgrade(Database db, int newVersion, int old) async {
     await db.execute("DROP TABLE $tableCart IF EXIST");
     await db.execute(
-        'CREATE TABLE $tableCart($columnId INTEGER PRIMARY KEY, $columnProductID TEXT,$columnQuantity TEXT,$coulumnProductImage TEXT, $columnProductName TEXT, $columnProductRate TEXT,$columnProductDes TEXT, $columnProductPrice TEXT)');
+        'CREATE TABLE $tableCart($columnId INTEGER PRIMARY KEY, $columnProductID TEXT,$columnQuantity TEXT,$columnProductImage TEXT, $columnProductName TEXT, $columnProductRate TEXT,$columnProductDes TEXT, $columnProductPrice TEXT)');
   }
 
   Future<int> insertProduct(CartDatabase product) async {
@@ -109,9 +107,9 @@ class DatabaseHelperSqlLite {
       columnProductName,
       columnProductPrice,
       columnQuantity,
-      coulumnProductImage,
+      columnProductImage,
       columnProductRate,
-     // columnProductFlagDate,
+      // columnProductFlagDate,
       columnProductDes
     ]);
 //    var result = await dbClient.rawQuery('SELECT * FROM $tableNote');
@@ -138,7 +136,7 @@ class DatabaseHelperSqlLite {
           columnProductID,
           columnProductName,
           columnProductPrice,
-          coulumnProductImage,
+          columnProductImage,
           //columnProductFlagDate,
           columnProductRate,
           columnQuantity,
