@@ -1,7 +1,8 @@
-import 'package:buyer_application/constants.dart';
 import 'package:buyer_application/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/models/Product.dart';
+
+import '../../../constants.dart';
 
 
 
@@ -32,12 +33,19 @@ class _ProductImagesState extends State<ProductImages> {
             aspectRatio: 1,
             child: Hero(
               tag: widget.product.id.toString(),
-              child: Image.network(widget.product.image,
+              child: Image.network(serverUrl+widget.product.image,
                 fit: BoxFit.cover,
                 ),
             ),
           ),
         ),
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: [
+        //     ...List.generate(widget.product.image.length,
+        //         (index) => buildSmallProductPreview(index)),
+        //   ],
+        // )
       ],
     );
   }
@@ -61,7 +69,7 @@ class _ProductImagesState extends State<ProductImages> {
           border: Border.all(
               color: kPrimaryColor.withOpacity(selectedImage == index ? 1 : 0)),
         ),
-        child: Image.network(serverUrl+product.image),
+        child: Image.network(serverUrl+widget.product.image),
       ),
     );
   }
