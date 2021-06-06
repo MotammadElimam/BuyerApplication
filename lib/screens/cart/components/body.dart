@@ -1,3 +1,4 @@
+import 'package:buyer_application/controllers/databasehelper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:buyer_application/size_config.dart';
@@ -15,8 +16,8 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-   
-
+   CartDatabase product = new CartDatabase();
+    var dbhelper = new DatabaseHelperSqlLite();
  @override  
  
   Widget build(BuildContext context) {
@@ -32,9 +33,10 @@ class _BodyState extends State<Body> {
           child: Dismissible(
             key: Key(widget.products[index].id.toString()),
             direction: DismissDirection.endToStart,
-            // onDismissed: (direction) {
-            //     cartbody.removeFromCart(products[index]);
-            // },
+             onDismissed: (direction) {
+                 dbhelper.deleteProduct(int.parse(widget.products[index].uid));
+                 
+            },
             background: Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(

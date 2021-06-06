@@ -156,7 +156,7 @@ class DatabaseHelperSqlLite {
   Future<int> deleteProduct(int id) async {
     var dbClient = await db;
     return await dbClient
-        .delete(tableCart, where: '$columnId = ?', whereArgs: [id]);
+        .delete(tableCart, where: '$columnProductID = ?', whereArgs: [id]);
 //    return await dbClient.rawDelete('DELETE FROM $tableNote WHERE $columnId = $id');
   }
 

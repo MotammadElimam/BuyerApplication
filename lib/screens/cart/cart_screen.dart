@@ -21,6 +21,8 @@ class _CartScreenState extends State<CartScreen> {
     readCart();
   }
 
+
+
   readCart() async {
     DatabaseHelperSqlLite cartdata = new DatabaseHelperSqlLite();
     products = await cartdata.getAllCartProduct().whenComplete(() {
@@ -51,6 +53,11 @@ class _CartScreenState extends State<CartScreen> {
           ),*/
         ],
       ),
+      actions: [
+        IconButton(icon: Icon(Icons.refresh), onPressed: (){
+          readCart();
+        })
+      ],
     );
   }
 }
