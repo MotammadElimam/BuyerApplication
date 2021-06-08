@@ -95,36 +95,39 @@ initState(){
             )
           ],
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // increment button
-            RoundedButton(
-              press: () {
-                setState(() {  numOfItems++;
-                  _addTocart();
-                
-                });
-              },
-              iconData: Icons.add,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-              child: Text(numOfItems.toString().padLeft(2, "0"),
-                  style: kSubHeadTextStyle),
-            ),
-            // decrement buuton
-            RoundedButton(
-              press: () {
-                if (numOfItems > 1)
-                  setState(() {
-                    numOfItems--;
+        Expanded(
+          child: Row(
+            
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // increment button
+              RoundedButton(
+                press: () {
+                  setState(() {  numOfItems++;
                     _addTocart();
+                  
                   });
-              },
-              iconData: Icons.remove,
-            ),
-          ],
+                },
+                iconData: Icons.add,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                child: Text(numOfItems.toString().padLeft(2, "0"),
+                    style: kSubHeadTextStyle),
+              ),
+              // decrement buuton
+              RoundedButton(
+                press: () {
+                  if (numOfItems > 1)
+                    setState(() {
+                      numOfItems--;
+                      _addTocart();
+                    });
+                },
+                iconData: Icons.remove,
+              ),
+            ],
+          ),
         ),
       ],
     );

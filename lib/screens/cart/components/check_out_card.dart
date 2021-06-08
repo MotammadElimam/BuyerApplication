@@ -91,7 +91,7 @@ class _CheckoutCardState extends State<CheckoutCard> {
                     text: "المجموع:\n",
                     children: [
                       TextSpan(
-                        text: "$gettotalprice",
+                        text: "${getTotalPrice()}",
                         style: TextStyle(fontSize: 16, color: Colors.black),
                       ),
                     ],
