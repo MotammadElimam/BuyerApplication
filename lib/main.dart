@@ -1,3 +1,4 @@
+import 'package:buyer_application/controllers/CartProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/routes.dart';
 import 'package:buyer_application/theme.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<ProductProvider>(
           create: (context) => ProductProvider(),
         ),
-        // ChangeNotifierProvider<HomeProduct>(create: (context)=>HomeProduct())
+         ChangeNotifierProvider<CartProvider>(create: (context)=>CartProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

@@ -3,6 +3,7 @@ import 'package:buyer_application/controllers/ProductProvider.dart';
 import 'package:buyer_application/controllers/databasehelper.dart';
 import 'package:buyer_application/Local_database/sqllite.dart';
 import 'package:buyer_application/models/AddOrder.dart';
+import 'package:buyer_application/screens/complete_order/Confirmation_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/components/custom_surfix_icon.dart';
 import 'package:buyer_application/components/form_error.dart';
@@ -135,7 +136,8 @@ class _CompleteOrderFormState extends State<CompleteOrderForm> {
             )
             .toList(),
       ),
-    );
+    )
+    .whenComplete(() => Navigator.pushNamed(context, ConfirmationScreen.routeName));
   }
 
   // ignore: non_constant_identifier_names

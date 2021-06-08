@@ -1,3 +1,4 @@
+import 'package:buyer_application/Local_database/WishlistDatabase.dart';
 import 'package:buyer_application/Local_database/sqllite.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/constants.dart';
@@ -9,10 +10,10 @@ class WishListCard extends StatelessWidget {
    final String serverUrl = "https://motamed.eanqod.website/storage/product/";
   WishListCard({
     Key key,
-      this.cartDatabase,
+      this.wishlistDatabase,
   }) : super(key: key);
 
-   CartDatabase cartDatabase;
+   WishlistDatabase wishlistDatabase;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class WishListCard extends StatelessWidget {
                 color: Color(0xFFF5F6F9),
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: Image.network(serverUrl+cartDatabase.image),
+              child: Image.network(serverUrl+wishlistDatabase.image),
             ),
           ),
         ),
@@ -37,14 +38,14 @@ class WishListCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              cartDatabase.name,
+              wishlistDatabase.name,
               style: TextStyle(color: Colors.black, fontSize: 16),
               maxLines: 2,
             ),
             SizedBox(height: 10),
             Text.rich(
               TextSpan(
-                text: "\$${cartDatabase.price}",
+                text: "\$${wishlistDatabase.price}",
                 style: TextStyle(
                     fontWeight: FontWeight.w600, color: kPrimaryColor),
                 

@@ -1,30 +1,40 @@
 import 'package:buyer_application/Local_database/sqllite.dart';
+import 'package:buyer_application/controllers/CartProvider.dart';
 import 'package:buyer_application/screens/checkout/checkout_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:buyer_application/components/buttons/primary_button.dart';
 import 'package:buyer_application/constants.dart';
 import 'package:buyer_application/size_config.dart';
+import 'package:provider/provider.dart';
+
 
 // ignore: must_be_immutable
-class CheckoutCard extends StatelessWidget {
+class CheckoutCard extends StatefulWidget {
   List<CartDatabase> products;
   CheckoutCard({Key key, this.products}) : super(key: key);
 
+  @override
+  _CheckoutCardState createState() => _CheckoutCardState();
+}
+
+class _CheckoutCardState extends State<CheckoutCard> {
   double getTotalPrice() {
     double totalPrice = 0;
-    for (int i = 0; i < products.length; i++) {
+    for (int i = 0; i < widget.products.length; i++) {
       double subtotal =
-          double.parse(products[i].price) * int.parse(products[i].quantity);
+          double.parse(widget.products[i].price) * int.parse(widget.products[i].quantity);
 
       totalPrice = totalPrice + subtotal;
     }
     return totalPrice;
   }
 
+  
   @override
   Widget build(BuildContext context) {
     //return Consumer<ProductProvider>(builder: (context, cartbody, child) {
+     var gettotalprice = Provider.of<CartProvider>(context).getTotalPrice();
     return Container(
       padding: EdgeInsets.symmetric(
         vertical: getProportionateScreenWidth(15),
@@ -81,7 +91,7 @@ class CheckoutCard extends StatelessWidget {
                     text: "المجموع:\n",
                     children: [
                       TextSpan(
-                        text: "${getTotalPrice()}",
+                        text: "$gettotalprice",
                         style: TextStyle(fontSize: 16, color: Colors.black),
                       ),
                     ],

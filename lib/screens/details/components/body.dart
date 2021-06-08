@@ -1,3 +1,4 @@
+import 'package:buyer_application/Local_database/WishlistDatabase.dart';
 import 'package:buyer_application/Local_database/sqllite.dart';
 import 'package:buyer_application/components/rounded_button.dart';
 import 'package:buyer_application/constants.dart';
@@ -59,22 +60,31 @@ class _BodyState extends State<Body> {
         .whenComplete(() => Navigator.pushNamed(context, CartScreen.routeName));
   }
 
-  void _addwishlist() async {
-    CartDatabase product = new CartDatabase();
 
-    var dbhelper = new DatabaseHelperSqlLite();
+  void _addToWishlist() async {
+    WishlistDatabase product = new WishlistDatabase();
 
+    var dbhelper = new DatabaseSqlLite();
+    DatabaseSqlLite wishlistdata = new DatabaseSqlLite();
+    var oldProducts = await wishlistdata.getAllCartProduct();
+    if (oldProducts
+        .any((oldProduct) => oldProduct.uid == widget.product.id.toString())) {
+      dbhelper.deleteProduct(widget.product.id);
+      numOfItems++;
+    }
     product.uid = widget.product.id.toString();
     product.name = widget.product.name;
     product.price = widget.product.price.toString();
     product.des = widget.product.desc;
-    //product.rate = widget.product.rate.toString();
     product.quantity = numOfItems.toString();
     product.image = widget.product.image;
 
-    await dbhelper.insertProduct(product).whenComplete(
-        () => Navigator.pushNamed(context, WishListScreen.routeName));
+    await dbhelper
+        .insertProduct(product)
+        .whenComplete(() => Navigator.pushNamed(context, WishListScreen.routeName));
   }
+
+  
 
 
   @override
@@ -153,7 +163,7 @@ class _BodyState extends State<Body> {
                                       ? "أضيف الى قائمة الأمنيات"
                                       : "إضافة الى قائمة الأمنيات",
                                   press: () {
-                                    _addwishlist();
+                                    _addToWishlist();
                                   },
                                 ),
                               ])

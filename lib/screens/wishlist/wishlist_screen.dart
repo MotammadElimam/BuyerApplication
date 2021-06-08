@@ -1,5 +1,5 @@
+import 'package:buyer_application/Local_database/WishlistDatabase.dart';
 import 'package:buyer_application/components/coustom_bottom_nav_bar.dart';
-import 'package:buyer_application/Local_database/sqllite.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/screens/wishlist/components/body.dart';
 
@@ -13,18 +13,18 @@ class WishListScreen extends StatefulWidget {
 }
 
 class _WishListScreenState extends State<WishListScreen> {
-  List<CartDatabase> products;
+  List<WishlistDatabase> products;
 
   @override
   void initState() {
     super.initState();
     // ignore: deprecated_member_use
-    products = new List<CartDatabase>();
+    products = new List<WishlistDatabase>();
     readCart();
   }
 
   readCart() async {
-    DatabaseHelperSqlLite cartdata = new DatabaseHelperSqlLite();
+    DatabaseSqlLite cartdata = new DatabaseSqlLite();
     products = await cartdata.getAllCartProduct().whenComplete(() {
       setState(() {});
     });
@@ -35,7 +35,7 @@ class _WishListScreenState extends State<WishListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Body(),
+      body: Body(products: products),
       bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.wishlist),
     );
   }
