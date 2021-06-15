@@ -114,6 +114,15 @@ class DatabaseHelper {
     return jsonDecode(response.body);
   }
 
+  Future<List<dynamic>> topProductsRating() async {
+    String myUrl = "$serverUrl/api/TopProductsRating";
+    http.Response response = await http.get(myUrl, headers: {
+      'Accept': 'application/json',
+    });
+    print(response.body);
+    return jsonDecode(response.body);
+  }
+
   Future<List<Order>> showBuyerOrders() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'token';
@@ -166,7 +175,7 @@ class DatabaseHelper {
     return itemsOfOrders;
   }
 
-  rate(String id , double rate) async{
+  rate(String id , double rate,String orderNumber) async{
     final prefs = await SharedPreferences.getInstance();
     final key = 'token';
     final value = prefs.get(key) ?? 0;
@@ -174,7 +183,8 @@ class DatabaseHelper {
        
 
    Map rating = {
-    "rate":rate.toString()
+    "rate":rate.toString(),
+    "order_id":orderNumber
     };
 
 

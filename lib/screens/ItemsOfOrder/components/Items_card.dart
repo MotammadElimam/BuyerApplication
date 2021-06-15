@@ -1,3 +1,4 @@
+import 'package:buyer_application/models/Product.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/constants.dart';
 import 'package:buyer_application/size_config.dart';
@@ -13,7 +14,6 @@ class CartCard extends StatelessWidget {
   }) : super(key: key);
 
    CartDatabase cartDatabase;
-
   @override
   Widget build(BuildContext context) {
     return Row(

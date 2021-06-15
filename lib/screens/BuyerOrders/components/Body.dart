@@ -22,29 +22,41 @@ class _BodyState extends State<Body> {
           future: databaseHelper.showBuyerOrders(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             print("hiiiiiiiiiiii" + snapshot.data.toString());
-            if (snapshot.data == null) {
-              return Container(child: Center(child: Text("ليس هناك أي طلبات")));
+             if (snapshot.data == null) {
+              return Container(child: Center(child: CircularProgressIndicator()));
+            }else if(snapshot.data.length == 0){
+               return Container(child:  Center(child: Text("ليس هناك أي طلبات")));
             } else {
               return ListView.builder(
                 itemCount: snapshot.data.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return ListTile(
-                    title:
-                        Text("Order Number" + snapshot.data[index].orderNumber),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          new MaterialPageRoute(
-                              builder: (context) => ItemsofOrderScreen(
-                                  orderNumber:
-                                      snapshot.data[index].orderNumber)));
-                    },
+                  return Column(
+                    children: [
+                      ListTile(
+                        title:
+                            Text(snapshot.data[index].orderNumber+" رقم الطلب"),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              new MaterialPageRoute(
+                                  builder: (context) => ItemsofOrderScreen(
+                                      orderNumber:
+                                          snapshot.data[index].orderNumber)));
+                        },
+                        
+                      ),
+                    ],
                   );
                 },
+                
               );
+              
             }
+            
           },
+          
         ),
+        
       ),
     );
   }

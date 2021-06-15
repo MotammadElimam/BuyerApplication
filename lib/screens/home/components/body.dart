@@ -1,5 +1,6 @@
 import 'package:buyer_application/components/big_card_image_slide.dart';
 import 'package:buyer_application/demoData.dart';
+import 'package:buyer_application/screens/home/components/TopProductsRatings.dart';
 import 'package:buyer_application/screens/home/components/popular_product.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/screens/home/components/home_header.dart';
@@ -23,10 +24,12 @@ class Body extends StatelessWidget {
               child: BigCardImageSlide(images: demoBigImages),
             ),
             Categories(),
-            SpecialOffers(),
-            SizedBox(height: getProportionateScreenWidth(30)),
+          //  SpecialOffers(),
+            SizedBox(height: getProportionateScreenWidth(10)),
+            TopProductsRatings(),
             PopularProducts(),
-            SizedBox(height: getProportionateScreenWidth(30)),
+            //SizedBox(height: getProportionateScreenWidth(30)),
+            
           ],
         ),
       ),

@@ -18,11 +18,57 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   DatabaseHelper databaseHelper = new DatabaseHelper();
-  final String serverUrl = "https://motamed.eanqod.website";
+  final String serverUrl = "https://motamed.eanqod.website/storage/product/";
   IconData _selectedIcon;
   bool _isVertical = false;
   double _rating;
   double _initialRating = 2.0;
+
+  var status;
+
+  void _showRatingSuccessDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: new Text('نجاح'),
+            content: new Text("شكرا لتفييمك"),
+            actions: <Widget>[
+              // ignore: deprecated_member_use
+              new RaisedButton(
+                child: new Text(
+                  'اغلاق',
+                ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        });
+  }
+
+  void _showRatingfaildDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: new Text('فشل'),
+            content: new Text("عفوا لايمكنك تقييم المنتج أكثر من مرة"),
+            actions: <Widget>[
+              // ignore: deprecated_member_use
+              new RaisedButton(
+                child: new Text(
+                  'اغلاق',
+                ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +80,9 @@ class _BodyState extends State<Body> {
             print("hiiiiiiiiiiii" + snapshot.data.toString());
             if (snapshot.data == null) {
               return Container(
-                  child: Center(child: Text("ليس هناك أي منتجات")));
+                  child: Center(child: CircularProgressIndicator()));
+            } else if (snapshot.data.length == 0) {
+              return Container(child: Center(child: Text("ليس هناك أي طلبات")));
             } else {
               return ListView.builder(
                 itemCount: snapshot.data.length,
@@ -104,9 +152,20 @@ class _BodyState extends State<Body> {
                               },
                               updateOnDrag: true,
                             ),
-                            PrimaryButton(text: "قيم المنتج", press: (){
-                              databaseHelper.rate(snapshot.data[index].id,_rating);
-                            })
+                            PrimaryButton(
+                                text: "قيم المنتج",
+                                press: () {
+                                  databaseHelper
+                                      .rate(snapshot.data[index].id, _rating,
+                                          widget.orderNumber)
+                                      .whenComplete(() {
+                                    if (databaseHelper.status) {
+                                      _showRatingSuccessDialog();
+                                    } else {
+                                      _showRatingfaildDialog();
+                                    }
+                                  });
+                                })
                           ],
                         ),
                       )

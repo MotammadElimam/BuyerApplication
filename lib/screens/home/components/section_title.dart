@@ -18,7 +18,7 @@ class SectionTitle extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          title,
+          "المزيد",
           style: TextStyle(
            
             fontFamily: 'Tajawal',
@@ -26,7 +26,7 @@ class SectionTitle extends StatelessWidget {
           ),
         ),
            Text(
-            "وصل حديثا",
+            title,
             style: TextStyle(color:Colors.black , fontSize: getProportionateScreenWidth(18),),
           ),
         

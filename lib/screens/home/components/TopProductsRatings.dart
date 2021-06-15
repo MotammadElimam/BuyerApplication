@@ -1,45 +1,47 @@
 import 'package:buyer_application/components/product_card.dart';
 import 'package:buyer_application/controllers/HomeProductProvider.dart';
+import 'package:buyer_application/controllers/TopProductsRatingProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/size_config.dart';
 import 'package:buyer_application/screens/home/components/section_title.dart';
 import 'package:provider/provider.dart';
 
-class PopularProducts extends StatefulWidget {
+class TopProductsRatings extends StatefulWidget {
   @override
-  _PopularProductsState createState() => _PopularProductsState();
+  _TopProductsRatingsState createState() => _TopProductsRatingsState();
 }
 
-class _PopularProductsState extends State<PopularProducts> {
-  HomeProductProvider homeProduct = HomeProductProvider();
+class _TopProductsRatingsState extends State<TopProductsRatings> {
+  TopProductsRatingProvider topProductsRatingProvider = TopProductsRatingProvider();
   @override
   void initState() {
     super.initState();
-    homeProduct.loadData();
-    homeProduct.addListener(() {
-      print("is loading ${homeProduct.loading}");
-      print("is error ${homeProduct.error}");
-      print("is data ${homeProduct.products}");
+    topProductsRatingProvider.loadData();
+    topProductsRatingProvider.addListener(() {
+      print("is loading ${topProductsRatingProvider.loading}");
+      print("is error ${topProductsRatingProvider.error}");
+      print("is data ${topProductsRatingProvider.products}");
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: SectionTitle(
-              title: "صنع خصيصا لك",
+              title: "الأكثر تقييما",
               press: () {
-                homeProduct.loadData();
+                topProductsRatingProvider.loadData();
               }),
         ),
         SizedBox(height: getProportionateScreenWidth(20)),
-        ChangeNotifierProvider<HomeProductProvider>(
-          create: (context) => homeProduct,
-          child: Consumer<HomeProductProvider>(
+        ChangeNotifierProvider<TopProductsRatingProvider>(
+          create: (context) => topProductsRatingProvider,
+          child: Consumer<TopProductsRatingProvider>(
             builder: (context, data, child) {
               print("Data : ${data.products}");
               if (data.loading)

@@ -63,9 +63,9 @@ class CustomBottomNavBar extends StatelessWidget {
               ),
               IconButton(
                 icon: SvgPicture.asset(
-                  "assets/icons/wallet1.svg",
-                  width: 25,
-                  height: 25,
+                  "assets/icons/orders.svg",
+                  width: 30,
+                  height: 30,
                   fit: BoxFit.contain,
                   color: MenuState.orders == selectedMenu
                       ? kPrimaryColor
