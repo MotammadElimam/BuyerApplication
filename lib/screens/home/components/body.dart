@@ -23,7 +23,7 @@ class Body extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: BigCardImageSlide(images: demoBigImages),
             ),
-            Categories(),
+            //Categories(),
           //  SpecialOffers(),
             SizedBox(height: getProportionateScreenWidth(10)),
             TopProductsRatings(),

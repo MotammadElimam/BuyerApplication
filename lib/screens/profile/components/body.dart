@@ -20,25 +20,25 @@ class Body extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 20),
       child: Column(
         children: [
-          ProfilePic(),
-          SizedBox(height: 20),
-          ProfileMenu(
-            text: "بيانات الحساب",
-            icon: "assets/icons/User Icon.svg",
-            press: () => {},
-          ),
-          ProfileMenu(
-            text: "الاشعارات",
-            icon: "assets/icons/Bell.svg",
-            press: () {},
-          ),
-          ProfileMenu(
-            text: "الاعدادات",
-            icon: "assets/icons/Settings.svg",
-            press: () {
-              Navigator.pushNamed(context, SettingsPage.routeName);
-            },
-          ),
+          //ProfilePic(),
+          SizedBox(height: 200),
+          // ProfileMenu(
+          //   text: "بيانات الحساب",
+          //   icon: "assets/icons/User Icon.svg",
+          //   press: () => {},
+          // ),
+          // ProfileMenu(
+          //   text: "الاشعارات",
+          //   icon: "assets/icons/Bell.svg",
+          //   press: () {},
+          // ),
+          // ProfileMenu(
+          //   text: "الاعدادات",
+          //   icon: "assets/icons/Settings.svg",
+          //   press: () {
+          //     Navigator.pushNamed(context, SettingsPage.routeName);
+          //   },
+          // ),
           ProfileMenu(
             text: "اتصل بنا",
             icon: "assets/icons/Question mark.svg",
