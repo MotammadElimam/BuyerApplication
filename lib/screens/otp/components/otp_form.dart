@@ -1,5 +1,5 @@
+import 'package:buyer_application/components/buttons/primary_button.dart';
 import 'package:flutter/material.dart';
-import 'package:buyer_application/components/default_button.dart';
 import 'package:buyer_application/size_config.dart';
 import 'package:buyer_application/constants.dart';
 
@@ -107,7 +107,7 @@ class _OtpFormState extends State<OtpForm> {
             ],
           ),
           SizedBox(height: SizeConfig.screenHeight * 0.15),
-          DefaultButton(
+          PrimaryButton(
             text: "المتابعة",
             press: () {},
           )

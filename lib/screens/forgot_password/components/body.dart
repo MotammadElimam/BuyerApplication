@@ -1,6 +1,6 @@
+import 'package:buyer_application/components/buttons/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:buyer_application/components/custom_surfix_icon.dart';
-import 'package:buyer_application/components/default_button.dart';
 import 'package:buyer_application/components/form_error.dart';
 import 'package:buyer_application/components/no_account_text.dart';
 import 'package:buyer_application/size_config.dart';
@@ -96,7 +96,7 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
           SizedBox(height: getProportionateScreenHeight(30)),
           FormError(errors: errors),
           SizedBox(height: SizeConfig.screenHeight * 0.1),
-          DefaultButton(
+          PrimaryButton(
             text: "المتابعة",
             press: () {
               if (_formKey.currentState.validate()) {
