@@ -19,7 +19,7 @@ class TopProductsRatingProvider extends ChangeNotifier {
       var data = await producthelper.topProductsRating();
 
       loading = false;
-      products = data.map((e) => Product.fromJson(e)).toList();
+      products = data.map((e) => Product.fromMap(e)).toList();
       notifyListeners();
     } catch (err) {
       print(err);

@@ -50,7 +50,7 @@ class _PopularProductsState extends State<PopularProducts> {
                 return Text("Error");
               else if (data.products != null)
                 return Container(
-                  height: 200,
+                  height: 220,
                   child: ListView.builder(
                     itemBuilder: (context, index) {
                       return ProductCard(

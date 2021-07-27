@@ -3,6 +3,7 @@ import 'package:buyer_application/models/Product.dart';
 import 'package:buyer_application/screens/details/details_screen.dart';
 import 'package:buyer_application/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class ProductCard extends StatelessWidget {
   final String serverUrl = "https://motamed.eanqod.website/storage/product/";
@@ -74,7 +75,21 @@ class ProductCard extends StatelessWidget {
                     ),
                   ),
                 ],
-              )
+              ), 
+                 RatingBarIndicator(
+                                      rating: product.ratingsAvgRate == null
+                                          ? 0.0
+                                          : product.ratingsAvgRate,
+                                      itemBuilder: (context, index) => Icon(
+                                        Icons.star,
+                                        size: 35,
+                                        color: Colors.blue,
+                                      ),
+                                      unratedColor: Colors.blue.withOpacity(0.3),
+                                      itemCount: 5,
+                                      itemSize: 16.0,
+                                      direction: Axis.horizontal,
+                                    ),
             ],
           ),
         ),

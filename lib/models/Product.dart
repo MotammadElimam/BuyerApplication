@@ -1,12 +1,12 @@
 // To parse this JSON data, do
 //
-//     final product = productFromJson(jsonString);
+//     final product = productFromMap(jsonString);
 
 import 'dart:convert';
 
-List<Product> productFromJson(String str) => List<Product>.from(json.decode(str).map((x) => Product.fromJson(x)));
+List<Product> productFromMap(String str) => List<Product>.from(json.decode(str).map((x) => Product.fromMap(x)));
 
-String productToJson(List<Product> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String productToMap(List<Product> data) => json.encode(List<dynamic>.from(data.map((x) => x.toMap())));
 
 class Product {
     Product({
@@ -18,6 +18,7 @@ class Product {
         this.sellerId,
         this.createdAt,
         this.updatedAt,
+        this.ratingsAvgRate,
     });
 
     int id;
@@ -26,11 +27,11 @@ class Product {
     String desc;
     String image;
     var sellerId;
-    var rate;
     DateTime createdAt;
     DateTime updatedAt;
+    double ratingsAvgRate;
 
-    factory Product.fromJson(Map<String, dynamic> json) => Product(
+    factory Product.fromMap(Map<String, dynamic> json) => Product(
         id: json["id"],
         name: json["name"],
         price: json["price"],
@@ -39,9 +40,10 @@ class Product {
         sellerId: json["seller_id"],
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
+        ratingsAvgRate: json["ratings_avg_rate"]  == null ? 0.0 : double.parse(json["ratings_avg_rate"]),
     );
 
-    Map<String, dynamic> toJson() => {
+    Map<String, dynamic> toMap() => {
         "id": id,
         "name": name,
         "price": price,
@@ -50,5 +52,6 @@ class Product {
         "seller_id": sellerId,
         "created_at": createdAt.toIso8601String(),
         "updated_at": updatedAt.toIso8601String(),
+        "ratings_avg_rate": ratingsAvgRate == null ? null : ratingsAvgRate,
     };
 }

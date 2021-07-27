@@ -83,7 +83,7 @@ initState(){
             SizedBox(height: 10),
             Text.rich(
               TextSpan(
-                text: "\$${widget.cartDatabase.price}",
+                text: "${widget.cartDatabase.price}"+"  SDG",
                 style: TextStyle(
                     fontWeight: FontWeight.w600, color: kPrimaryColor),
                 children: [

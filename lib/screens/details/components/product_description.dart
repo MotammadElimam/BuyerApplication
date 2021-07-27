@@ -28,31 +28,7 @@ class ProductDescription extends StatelessWidget {
             style: Theme.of(context).textTheme.headline6,
           ),
         ),
-        Align(
-          alignment: Alignment.centerRight,
-          child: Container(
-            padding: EdgeInsets.all(getProportionateScreenWidth(15)),
-            width: getProportionateScreenWidth(64),
-            // decoration: BoxDecoration(
-            //   color:
-            //       // ignore: todo
-            //       // ignore: dead_code
-            //       true ? Color(0xFFFFE6E6) : Color(0xFFF5F6F9),
-            //   borderRadius: BorderRadius.only(
-            //     topLeft: Radius.circular(20),
-            //     bottomLeft: Radius.circular(20),
-            //   ),
-            // ),
-            // child: SvgPicture.asset(
-            //   "assets/icons/Heart Icon_2.svg",
-            //   color:
-            //       // ignore: todo
-            //       // ignore: dead_code
-            //       true ? Color(0xFFFF4848) : Color(0xFFDBDEE4), 
-            //   height: getProportionateScreenWidth(16),
-            // ),
-          ),
-        ),
+        Align(alignment: Alignment.centerRight),
         Padding(
           padding: EdgeInsets.only(
             left: getProportionateScreenWidth(20),
@@ -76,7 +52,8 @@ class ProductDescription extends StatelessWidget {
                   "المزيد",
                   style: TextStyle(
                       fontFamily: 'Tajawal',
-                      fontWeight: FontWeight.w600, color: kPrimaryColor),
+                      fontWeight: FontWeight.w600,
+                      color: kPrimaryColor),
                 ),
                 SizedBox(width: 5),
                 Icon(

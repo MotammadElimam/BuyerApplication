@@ -1,3 +1,5 @@
+import 'package:buyer_application/screens/complete_order/Confirmation_Screen.dart';
+import 'package:buyer_application/screens/contact%20us/Contact_Us.dart';
 import 'package:buyer_application/screens/profile/setting.dart';
 import 'package:buyer_application/screens/sign_in/sign_in_screen.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +44,9 @@ class Body extends StatelessWidget {
           ProfileMenu(
             text: "اتصل بنا",
             icon: "assets/icons/Question mark.svg",
-            press: () {},
+            press: () {
+              Navigator.pushNamed(context, Contact_Us.routeName);
+            },
           ),
           ProfileMenu(
             text: "تسجيل الخروج",

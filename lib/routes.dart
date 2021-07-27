@@ -1,6 +1,7 @@
 import 'package:buyer_application/screens/BuyerOrders/BuyerOrders_Screen.dart';
 import 'package:buyer_application/screens/ItemsOfOrder/Items_of_Order_Screen.dart';
 import 'package:buyer_application/screens/complete_order/Confirmation_Screen.dart';
+import 'package:buyer_application/screens/contact%20us/Contact_Us.dart';
 import 'package:buyer_application/screens/sign_in/components/sign_as_buyer_or_seller.dart';
 import 'package:buyer_application/screens/wallet/WalletScreen.dart';
 import 'package:buyer_application/screens/checkout/checkout_screen.dart';
@@ -42,4 +43,5 @@ final Map<String, WidgetBuilder> routes = {
   BuyerOrdersScreen.routeName:(context)=>BuyerOrdersScreen(),
   SignasbuyerorSellerScreen.routeName:(context)=>SignasbuyerorSellerScreen(),
   ConfirmationScreen.routeName:(context)=>ConfirmationScreen(),
+  Contact_Us.routeName:(context)=>Contact_Us(),
 };

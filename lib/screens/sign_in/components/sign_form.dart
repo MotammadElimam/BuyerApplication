@@ -22,8 +22,8 @@ class _SignFormState extends State<SignForm> {
         context:context ,
         builder:(BuildContext context){
           return AlertDialog(
-            title: new Text('Failed'),
-            content:  new Text('Check your email or password'),
+            title: new Text('فشل'),
+            content:  new Text('الرجاء التأكد من البريد الالكتروني او الرقم السري'),
             actions: <Widget>[
               // ignore: deprecated_member_use
               new RaisedButton(

@@ -45,7 +45,7 @@ class WishListCard extends StatelessWidget {
             SizedBox(height: 10),
             Text.rich(
               TextSpan(
-                text: "\$${wishlistDatabase.price}",
+                text: "${wishlistDatabase.price}"+" SDG",
                 style: TextStyle(
                     fontWeight: FontWeight.w600, color: kPrimaryColor),
                 

@@ -1,14 +1,35 @@
 import 'package:buyer_application/components/coustom_bottom_nav_bar.dart';
+import 'package:buyer_application/controllers/UserProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../enums.dart';
 
-class WalleteScreen extends StatelessWidget {
+class WalleteScreen extends StatefulWidget {
   static String routeName = "/BalancePage";
   WalleteScreen({
     Key key,
   }) : super(key: key);
+
+  @override
+  _WalleteScreenState createState() => _WalleteScreenState();
+}
+
+class _WalleteScreenState extends State<WalleteScreen> {
+
+    UserProvider userProduct = UserProvider();
+  @override
+  void initState() {
+    super.initState();
+    userProduct.loadData();
+    userProduct.addListener(() {
+      print("is loading ${userProduct.loading}");
+      print("is error ${userProduct.error}");
+      print("is data ${userProduct.user}");
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

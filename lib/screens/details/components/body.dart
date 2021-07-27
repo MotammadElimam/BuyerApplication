@@ -60,7 +60,6 @@ class _BodyState extends State<Body> {
         .whenComplete(() => Navigator.pushNamed(context, CartScreen.routeName));
   }
 
-
   void _addToWishlist() async {
     WishlistDatabase product = new WishlistDatabase();
 
@@ -79,13 +78,9 @@ class _BodyState extends State<Body> {
     product.quantity = numOfItems.toString();
     product.image = widget.product.image;
 
-    await dbhelper
-        .insertProduct(product)
-        .whenComplete(() => Navigator.pushNamed(context, WishListScreen.routeName));
+    await dbhelper.insertProduct(product).whenComplete(
+        () => Navigator.pushNamed(context, WishListScreen.routeName));
   }
-
-  
-
 
   @override
   Widget build(BuildContext context) {
@@ -166,8 +161,7 @@ class _BodyState extends State<Body> {
                                     _addToWishlist();
                                   },
                                 ),
-                              ])
-                              ),
+                              ])),
                         ),
                       ],
                     ),
