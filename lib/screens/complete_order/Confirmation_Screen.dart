@@ -10,12 +10,6 @@ class ConfirmationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(
-      //     "",
-      //     style: TextStyle(fontFamily: 'Tajawal'),
-      //   ),
-      // ),
       body: Body(),
     );
   }
